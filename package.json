@@ -1,0 +1,14 @@
+{
+  "name": "zola-app",
+  "version": "1.0.0",
+  "scripts": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "./node_modules/.bin/clean-slate-lint",
+      "pre-rewrite": "./node_modules/.bin/clean-slate-lint"
+    }
+  },
+  "devDependencies": {
+    "clean-slate-lint": "^1.0.6"
+  }
+}
