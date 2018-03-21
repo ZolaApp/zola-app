@@ -7,8 +7,9 @@
     "plugin:flowtype/recommended",
 
     "prettier",
+    "prettier/standard",
     "prettier/react",
-    "prettier/standard"
+    "prettier/flowtype"
   ],
   "plugins": ["jsx-a11y", "flowtype"]
 }
