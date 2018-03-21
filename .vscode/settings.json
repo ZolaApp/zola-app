@@ -1,0 +1,5 @@
+{
+  "eslint.options": {
+    "configFile": "./node_modules/clean-slate-lint/.eslintrc.js"
+  }
+}
