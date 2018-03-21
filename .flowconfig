@@ -1,0 +1,10 @@
+[ignore]
+.next
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 
-export default () => <div>Welcome to next.js!</div>
+export default () => <div>Hello, world!</div>
