@@ -1,7 +1,11 @@
 {
   "name": "zola-app",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "./node_modules/.bin/clean-slate-lint",
@@ -10,5 +14,10 @@
   },
   "devDependencies": {
     "clean-slate-lint": "^1.0.6"
+  },
+  "dependencies": {
+    "next": "^5.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }
