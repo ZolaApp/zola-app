@@ -10,5 +10,5 @@
     "prettier/react",
     "prettier/standard"
   ],
-  "plugins": ["jsx-a11y", "flowtype", "flowtype-errors"]
+  "plugins": ["jsx-a11y", "flowtype"]
 }
