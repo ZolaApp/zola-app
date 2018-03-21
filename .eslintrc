@@ -1,5 +1,14 @@
 {
   "parser": "babel-eslint",
-  "extends": ["plugin:flowtype/recommended"],
-  "plugins": ["flowtype", "flowtype-errors"]
+  "extends": [
+    "standard",
+    "standard-react",
+    "plugin:jsx-a11y/recommended",
+    "plugin:flowtype/recommended",
+
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "plugins": ["jsx-a11y", "flowtype", "flowtype-errors"]
 }
