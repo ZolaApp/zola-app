@@ -8,15 +8,41 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "./node_modules/.bin/clean-slate-lint && flow",
-      "pre-rewrite": "./node_modules/.bin/clean-slate-lint && flow"
+      "pre-commit": "lint-staged",
+      "pre-rewrite": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "flow check",
+      "prettier --write",
+      "git add",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "clean-slate-lint": "^1.0.6",
-    "flow-bin": "^0.68.0"
+    "eslint": "^4.19.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.68.0",
+    "husky": "^0.15.0-rc.9",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1"
   },
   "dependencies": {
     "next": "^5.0.0",
