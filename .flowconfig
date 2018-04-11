@@ -9,5 +9,4 @@
 
 [options]
 include_warnings=true
-module.name_mapper='^@components\(.*\)$' -> '<PROJECT_ROOT>/components/\1'
-module.name_mapper='^@pages\(.*\)$' -> '<PROJECT_ROOT>/pages/\1'
+module.name_mapper='^@\(.*\)\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1/\2'
