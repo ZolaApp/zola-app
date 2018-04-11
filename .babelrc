@@ -11,6 +11,7 @@
         }
       }
     ],
-    "transform-flow-strip-types"
+    "transform-flow-strip-types",
+    "transform-strict-mode"
   ]
 }

@@ -9,4 +9,5 @@
 
 [options]
 include_warnings=true
+module.use_strict=true
 module.name_mapper='^@\(.*\)\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1/\2'
