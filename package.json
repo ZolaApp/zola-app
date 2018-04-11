@@ -2,9 +2,9 @@
   "name": "zola-app",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next src",
+    "build": "next build src",
+    "start": "next start src"
   },
   "husky": {
     "hooks": {
