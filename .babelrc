@@ -1,0 +1,16 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@components": "./src/components",
+          "@pages": "./src/pages"
+        }
+      }
+    ],
+    "transform-flow-strip-types"
+  ]
+}
