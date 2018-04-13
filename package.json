@@ -41,7 +41,7 @@
     "eslint-plugin-standard": "3.0.1",
     "flow-bin": "0.69.0",
     "husky": "0.15.0-rc.9",
-    "lint-staged": "7.0.0",
+    "lint-staged": "7.0.4",
     "prettier": "1.11.1"
   },
   "dependencies": {
