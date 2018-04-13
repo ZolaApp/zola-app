@@ -33,19 +33,19 @@
     "eslint-config-standard": "11.0.0",
     "eslint-config-standard-react": "6.0.0",
     "eslint-plugin-flowtype": "2.46.1",
-    "eslint-plugin-import": "2.9.0",
+    "eslint-plugin-import": "2.11.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-node": "6.0.1",
     "eslint-plugin-promise": "3.7.0",
     "eslint-plugin-react": "7.7.0",
     "eslint-plugin-standard": "3.0.1",
-    "flow-bin": "0.68.0",
+    "flow-bin": "0.69.0",
     "husky": "0.15.0-rc.9",
-    "lint-staged": "7.0.0",
+    "lint-staged": "7.0.4",
     "prettier": "1.12.0"
   },
   "dependencies": {
-    "next": "5.0.0",
+    "next": "5.1.0",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   }
