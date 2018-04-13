@@ -8,13 +8,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-rewrite": "lint-staged"
+      "pre-commit": "flow check && lint-staged",
+      "pre-rewrite": "flow check && lint-staged"
     }
   },
   "lint-staged": {
     "*.js": [
-      "flow check",
       "prettier --write",
       "git add",
       "eslint --fix",
