@@ -42,7 +42,7 @@
     "flow-bin": "0.70.0",
     "husky": "0.15.0-rc.13",
     "lint-staged": "7.0.4",
-    "prettier": "1.12.0"
+    "prettier": "1.12.1"
   },
   "dependencies": {
     "next": "5.1.0",
