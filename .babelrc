@@ -6,11 +6,16 @@
       {
         "root": ["./"],
         "alias": {
+          "@pages": "./src/pages",
           "@components": "./src/components",
-          "@pages": "./src/pages"
+          "@containers": "./src/containers"
         }
       }
     ],
-    "transform-flow-strip-types"
+    "transform-flow-strip-types",
+    [
+      "styled-components",
+      { "ssr": true, "displayName": true, "preprocess": false }
+    ]
   ]
 }
