@@ -1,9 +1,13 @@
 // @flow
 import React from 'react'
-import LayoutContainer from '@containers/LayoutContainer'
+import PageContainer from '@containers/PageContainer'
+import Text from '@components/Text'
+import Wrapper from '@components/Wrapper'
 
 export default () => (
-  <LayoutContainer>
-    <span>Registration page</span>
-  </LayoutContainer>
+  <PageContainer>
+    <Wrapper center width="small" mLeft="200px">
+      <Text>Registration page</Text>
+    </Wrapper>
+  </PageContainer>
 )
