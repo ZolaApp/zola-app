@@ -8,4 +8,6 @@ export default styled.span`
   color: ${({ theme, color }) =>
     color ? theme.colors[color] : theme.colors.dark};
   font-weight: normal;
+  display: inline-block;
+  margin-bottom: 5px;
 `

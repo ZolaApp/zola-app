@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  display: flex;
   margin-top: ${({ mTop }) => mTop || 0};
   margin-bottom: ${({ mBottom }) => mBottom || 0};
   margin-left: ${({ mLeft }) => mLeft || 0};

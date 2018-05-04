@@ -1,7 +1,12 @@
 export default {
   colors: {
     dark: '#191919',
-    semiDark: 'rgba(25, 25, 25, 0.5)'
+    semiDark: 'rgba(25, 25, 25, 0.5)',
+    semiGray: 'rgba(234, 234, 234, 0.4)',
+    border: 'rgba(40, 40, 40, 0.3)'
+  },
+  globals: {
+    radius: '5px'
   },
   fonts: {
     families: {
