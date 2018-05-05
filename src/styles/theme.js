@@ -1,6 +1,6 @@
 export default {
   colors: {
-    dark: '#191919',
+    dark: 'rgb(25, 25, 25)',
     semiDark: 'rgba(25, 25, 25, 0.5)',
     semiGray: 'rgba(234, 234, 234, 0.4)',
     border: 'rgba(40, 40, 40, 0.3)'

@@ -10,6 +10,7 @@ type Props = {
 
 const InputWithLabel = (props: Props) => {
   const { id, label } = props
+
   return (
     <InputWrapper>
       <StyledLabel htmlFor={id}>{label}</StyledLabel>

@@ -7,7 +7,7 @@ const RegistrationForm = () => {
   return (
     <Wrapper mTop="15px">
       <Form>
-        <InputWithLabel id="firstname" label="Firstname" />
+        <InputWithLabel id="firstName" label="First Name" />
       </Form>
     </Wrapper>
   )

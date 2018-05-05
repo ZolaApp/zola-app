@@ -10,5 +10,4 @@ export const StyledLabel = styled.label`
   margin-bottom: 5px;
   font-size: ${({ theme }) => theme.fonts.sizes.regular};
   font-family: ${({ theme }) => theme.fonts.families.sourceSans};
-}
 `
