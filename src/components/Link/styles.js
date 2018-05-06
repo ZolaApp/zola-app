@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.span`
+export const StyledLink = styled.a`
   font-family: ${({ theme, font }) =>
     font ? theme.fonts.families[font] : theme.fonts.families.sourceSans};
   font-size: ${({ theme, size }) =>

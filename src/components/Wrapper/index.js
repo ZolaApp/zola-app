@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  margin-top: ${({ mTop }) => mTop || 0};
-  margin-bottom: ${({ mBottom }) => mBottom || 0};
-  margin-left: ${({ mLeft }) => mLeft || 0};
-  margin-right: ${({ mRight }) => mRight || 0};
+  margin-top: ${({ theme, mTop }) => theme.sizes[mTop] || 0};
+  margin-bottom: ${({ theme, mBottom }) => theme.sizes[mBottom] || 0};
+  margin-left: ${({ theme, mLeft }) => theme.sizes[mLeft] || 0};
+  margin-right: ${({ theme, mRight }) => theme.sizes[mRight] || 0};
   ${({ theme, center, width }) =>
     center &&
     `

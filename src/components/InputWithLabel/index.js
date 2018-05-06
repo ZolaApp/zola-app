@@ -5,7 +5,8 @@ import { InputWrapper, StyledLabel } from './styles'
 
 type Props = {
   id: string,
-  label: string
+  label: string,
+  placeholder: string
 }
 
 const InputWithLabel = (props: Props) => {

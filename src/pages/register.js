@@ -7,7 +7,7 @@ import RegistrationForm from '@components/RegistrationForm'
 
 export default () => (
   <PageContainer>
-    <Wrapper center width="small" mTop="120px">
+    <Wrapper center width="small" mTop="enormous">
       <RegistrationHeader />
       <RegistrationForm />
     </Wrapper>

@@ -6,10 +6,10 @@ import { HeaderTexts } from './styles'
 const RegistrationHeader = () => {
   return (
     <div>
-      <Wrapper center width="small" mTop="90px">
+      <Wrapper center width="small" mTop="huge">
         LOGO
       </Wrapper>
-      <Wrapper mLeft="15px">
+      <Wrapper mLeft="regular" mTop="enormous">
         <HeaderTexts>
           <Text size="large">Register a new account</Text>
           <Text color="semiDark">Zola is made for you</Text>
