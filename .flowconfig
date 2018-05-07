@@ -4,9 +4,11 @@
 [include]
 
 [libs]
+flow-typed
 
 [lints]
 
 [options]
 include_warnings=true
 module.name_mapper='^@\(.*\)\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1/\2'
+module.name_mapper.extension='graphql' -> 'empty/object'

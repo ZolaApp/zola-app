@@ -13,6 +13,7 @@
       }
     ],
     "transform-flow-strip-types",
+    "inline-import-graphql-ast"
     [
       "styled-components",
       { "ssr": true, "displayName": true, "preprocess": false }
