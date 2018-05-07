@@ -14,7 +14,7 @@ class Layout extends React.Component<Props> {
   render() {
     const { children } = this.props
 
-    return <div className="layout">{children}</div>
+    return <div>{children}</div>
   }
 }
 
