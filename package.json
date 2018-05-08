@@ -26,9 +26,6 @@
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",
-    "babel-plugin-inline-import-graphql-ast": "2.3.6",
-    "babel-plugin-module-resolver": "3.1.1",
-    "babel-plugin-transform-flow-strip-types": "6.22.0",
     "eslint": "4.19.1",
     "eslint-config-prettier": "2.9.0",
     "eslint-config-standard": "11.0.0",
@@ -47,7 +44,11 @@
   },
   "dependencies": {
     "@zeit/next-css": "0.1.5",
+    "babel-plugin-inline-import-graphql-ast": "^2.3.7",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-styled-components": "1.5.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "graphql": "^0.13.2",
     "next": "6.0.0",
     "react": "16.3.2",
     "react-dom": "16.3.2",
