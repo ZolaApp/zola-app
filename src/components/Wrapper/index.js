@@ -14,4 +14,10 @@ export default styled.div`
       width ? theme.sizes.wrappers[width] : theme.sizes.wrappers['regular']
     };
   `};
+  ${({ contentCentered }) =>
+    contentCentered &&
+    `
+      display: flex;
+      justify-content: center;
+    `};
 `
