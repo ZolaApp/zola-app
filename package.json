@@ -46,7 +46,7 @@
     "prettier": "1.12.1"
   },
   "dependencies": {
-    "@zeit/next-css": "0.1.5",
+    "@zeit/next-css": "0.2.0",
     "babel-plugin-styled-components": "1.5.1",
     "next": "6.0.0",
     "react": "16.3.2",
