@@ -18,6 +18,10 @@ export const DoubleInputsWrapper = styled.div`
 
   > div {
     width: 50%;
+
+    &:first-child input {
+      border-right: none;
+    }
   }
 `
 
