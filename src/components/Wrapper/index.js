@@ -14,4 +14,6 @@ export default styled.div`
       width ? theme.sizes.wrappers[width] : theme.sizes.wrappers['regular']
     };
   `};
+  ${({ flex }) => flex && `display: flex;`};
+  ${({ align }) => align && `flex-direction: ${align}`};
 `

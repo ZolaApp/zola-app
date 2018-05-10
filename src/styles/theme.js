@@ -2,6 +2,8 @@ export default {
   colors: {
     light: 'rgb(255, 255, 255)',
     dark: 'rgb(25, 25, 25)',
+    brown: 'rgb(40, 40, 40)',
+    accentBrown: 'rgba(216, 216, 216, 0.05)',
     semiDark: 'rgba(25, 25, 25, 0.5)',
     semiGray: 'rgba(234, 234, 234, 0.4)',
     border: 'rgba(40, 40, 40, 0.3)'
@@ -16,6 +18,7 @@ export default {
     },
     sizes: {
       regular: '0.875em',
+      default: '1em',
       medium: '1.125em',
       large: '1.375em'
     }
@@ -25,6 +28,7 @@ export default {
     small: '0.5em',
     regular: '1em',
     large: '1.875em',
+    xlarge: '3.75em',
     huge: '5.625em',
     enormous: '7.5em',
     wrappers: {
