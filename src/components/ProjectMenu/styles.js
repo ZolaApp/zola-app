@@ -12,4 +12,8 @@ export const MenuItem = styled.div`
     border-top-right-radius: ${theme.globals.radius};
     border-bottom-right-radius: ${theme.globals.radius};
     `};
+
+  > svg {
+    margin-right: ${({ theme }) => theme.sizes.small};
+  }
 `
