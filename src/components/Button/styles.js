@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const StyledButton = styled.button`
   background: ${({ theme }) => theme.colors.dark};
   color: ${({ theme }) => theme.colors.light};
-  padding: 13px 15px;
+  padding: 0.813em 1em;
   font-family: ${({ theme }) => theme.fonts.families.sourceSans};
   font-size: ${({ theme }) => theme.fonts.sizes.medium};
   border: none;
