@@ -5,7 +5,7 @@ import ProjectSidebarUser from '@components/ProjectSidebarUser'
 import ProjectMenu from '@components/ProjectMenu'
 import { StyledSidebar } from './styles'
 
-const ProjectsSidebar = () => {
+const ProjectSidebar = () => {
   return (
     <StyledSidebar>
       <Wrapper>
@@ -17,4 +17,4 @@ const ProjectsSidebar = () => {
   )
 }
 
-export default ProjectsSidebar
+export default ProjectSidebar
