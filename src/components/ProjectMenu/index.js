@@ -8,25 +8,25 @@ const ProjectMenu = () => {
   return (
     <Wrapper mTop="xlarge">
       <MenuItem selected>
-        <Icon icon="key" width="24px" />
+        <Icon icon="key" />
         <Text size="default" color="light">
           Keys
         </Text>
       </MenuItem>
       <MenuItem>
-        <Icon icon="planet" width="24px" />
+        <Icon icon="planet" />
         <Text size="default" color="light">
           Locales
         </Text>
       </MenuItem>
       <MenuItem>
-        <Icon icon="tag" width="24px" />
+        <Icon icon="tag" />
         <Text size="default" color="light">
           Manage tags
         </Text>
       </MenuItem>
       <MenuItem>
-        <Icon icon="gear" width="24px" />
+        <Icon icon="gear" />
         <Text size="default" color="light">
           Project settings
         </Text>

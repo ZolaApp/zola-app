@@ -4,6 +4,7 @@ export const MenuItem = styled.div`
   display: flex;
   align-items: center;
   height: 2.5em;
+  margin-bottom: ${({ theme }) => theme.sizes.tiny};
   padding: 0 ${({ theme }) => theme.sizes.regular};
   ${({ selected, theme }) =>
     selected &&

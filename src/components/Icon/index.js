@@ -26,4 +26,9 @@ const Icon = ({ icon, className, width }: Props) => {
   )
 }
 
+Icon.defaultProps = {
+  width: '22px',
+  className: ''
+}
+
 export default Icon

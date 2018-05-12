@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import Wrapper from '@components/Wrapper'
-import Text from '@components/Text'
+import Icon from '@components/Icon'
 import LogoSmall from '@components/LogoSmall'
 import { StyledSidebar, StyledButton } from './styles'
 
@@ -16,12 +16,12 @@ const Sidebar = ({ small }: Props) => {
       <Wrapper mTop="xlarge">
         <Wrapper>
           <StyledButton>
-            <Text color="light">Search</Text>
+            <Icon icon="search" />
           </StyledButton>
         </Wrapper>
         <Wrapper mTop="regular">
           <StyledButton>
-            <Text color="light">Add</Text>
+            <Icon icon="plus" />
           </StyledButton>
         </Wrapper>
       </Wrapper>
