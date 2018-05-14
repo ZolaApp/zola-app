@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledLabel = styled.div`
+  display: inline-block;
   padding: 0.125em 0.25em;
   font-size: ${({ theme }) => theme.fonts.sizes.regular};
   text-transform: uppercase;

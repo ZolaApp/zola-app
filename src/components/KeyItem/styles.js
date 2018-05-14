@@ -3,14 +3,12 @@ import { StyledLabel } from '@components/LocaleLabel/styles'
 import { StyledTag } from '@components/Tag/styles'
 
 export const KeyWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 30% 20% auto;
   padding: ${({ theme }) => theme.sizes.regular};
 `
 
-export const KeyValueColumn = styled.div`
-  width: 30%;
-`
+export const KeyValueColumn = styled.div``
 
 export const KeyValue = styled.div`
   display: inline-block;
@@ -22,9 +20,8 @@ export const KeyValue = styled.div`
 `
 
 export const KeyTranslationColumn = styled.div`
-  display: flex;
-  align-items: center;
-  width: 20%;
+  display: inline-block;
+  vertical-align: middle;
 
   ${StyledLabel} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
@@ -32,14 +29,14 @@ export const KeyTranslationColumn = styled.div`
 `
 
 export const KeyTagsAndActionsColumn = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
+  display: inline-block;
+  justify-self: end;
+  align-self: center;
 `
 
 export const TagList = styled.div`
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  vertical-align: middle;
 
   ${StyledTag} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
@@ -51,12 +48,14 @@ export const TagList = styled.div`
 `
 
 export const Actions = styled.div`
-  display: flex;
+  display: inline-block;
+  vertical-align: middle;
   margin-left: ${({ theme }) => theme.sizes.regular};
   padding-left: ${({ theme }) => theme.sizes.regular};
   border-left: solid 1px ${({ theme }) => theme.colors.border};
 
   > button {
+    display: inline-block;
     margin-right: ${({ theme }) => theme.sizes.regular};
 
     &:last-child {
