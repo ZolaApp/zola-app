@@ -5,13 +5,15 @@ export default {
     rose: 'rgb(251, 67, 89)',
     brown: 'rgb(40, 40, 40)',
     accentBrown: 'rgba(216, 216, 216, 0.05)',
+    alphaDark: 'rgba(234, 234, 234, 0.2)',
     semiDark: 'rgba(25, 25, 25, 0.5)',
     semiGray: 'rgba(234, 234, 234, 0.4)',
     border: 'rgba(40, 40, 40, 0.3)',
     lightGray: 'rgba(25, 25, 25, 0.05)'
   },
   globals: {
-    radius: '5px'
+    radius: '5px',
+    transition: 'all ease 0.25s'
   },
   fonts: {
     families: {

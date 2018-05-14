@@ -2,11 +2,9 @@ import styled from 'styled-components'
 import { StyledLabel } from '@components/LocaleLabel/styles'
 import { StyledTag } from '@components/Tag/styles'
 
-export const KeyWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 30% 20% auto;
-  padding: ${({ theme }) => theme.sizes.regular};
-`
+export const KeyWrapper = styled.div``
+
+export const KeyDetails = styled.div``
 
 export const KeyValueColumn = styled.div``
 
@@ -21,7 +19,7 @@ export const KeyValue = styled.div`
 
 export const KeyTranslationColumn = styled.div`
   display: inline-block;
-  vertical-align: middle;
+  align-self: center;
 
   ${StyledLabel} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
@@ -61,5 +59,41 @@ export const Actions = styled.div`
     &:last-child {
       margin-right: 0;
     }
+  }
+`
+
+export const KeyLine = styled.div`
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 30% 20% auto;
+  padding: ${({ theme }) => theme.sizes.regular};
+  background: ${({ opened, theme }) =>
+    opened ? theme.colors.dark : theme.colors.light};
+
+  &:hover {
+    background: ${({ theme, opened }) =>
+      opened ? theme.colors.dark : theme.colors.lightGray};
+  }
+
+  ${KeyValue} {
+    ${({ opened, theme }) =>
+      opened &&
+      `
+        background: ${theme.colors.alphaDark};
+        color: ${theme.colors.light};
+      `};
+  }
+
+  ${KeyTranslationColumn} {
+    ${({ opened, theme }) =>
+      opened && `span { color: ${theme.colors.light}; }`};
+  }
+
+  ${StyledLabel} {
+    ${({ opened, theme }) => opened && `background: ${theme.colors.alphaDark}`};
+  }
+
+  ${Actions} {
+    ${({ opened, theme }) => opened && `filter: invert(100%);`};
   }
 `
