@@ -24,4 +24,10 @@ export default styled.div`
   `};
   ${({ flex }) => flex && `display: flex; width: 100%;`};
   ${({ align }) => align && `flex-direction: ${align}`};
+  ${({ contentCentered }) =>
+    contentCentered &&
+    `
+      display: flex;
+      justify-content: center;
+    `};
 `
