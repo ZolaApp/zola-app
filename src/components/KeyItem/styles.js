@@ -15,6 +15,7 @@ export const KeyValue = styled.div`
   padding: 0.25em;
   background: ${({ theme }) => theme.colors.lightGray};
   border-radius: ${({ theme }) => theme.globals.radius};
+  user-select: text;
 `
 
 export const KeyTranslationColumn = styled.div`
@@ -69,6 +70,7 @@ export const KeyLine = styled.div`
   padding: ${({ theme }) => theme.sizes.regular};
   background: ${({ opened, theme }) =>
     opened ? theme.colors.dark : theme.colors.light};
+  user-select: none;
 
   &:hover {
     background: ${({ theme, opened }) =>

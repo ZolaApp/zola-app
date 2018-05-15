@@ -4,10 +4,10 @@ import Text from '@components/Text'
 import ButtonIcon from '@components/ButtonIcon'
 import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
+import KeyDetails from '@components/KeyDetails'
 import {
   KeyWrapper,
   KeyLine,
-  KeyDetails,
   KeyValueColumn,
   KeyValue,
   KeyTranslationColumn,
@@ -54,7 +54,7 @@ export default class KeyItem extends Component<Props, State> {
             </Actions>
           </KeyTagsAndActionsColumn>
         </KeyLine>
-        {detailsOpened && <KeyDetails>details</KeyDetails>}
+        {detailsOpened && <KeyDetails />}
       </KeyWrapper>
     )
   }

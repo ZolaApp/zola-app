@@ -1,7 +1,9 @@
 export default {
   colors: {
     light: 'rgb(255, 255, 255)',
+    accentLight: 'rgb(240, 240, 240)',
     dark: 'rgb(25, 25, 25)',
+    accentDark: 'rgb(35, 35, 35)',
     rose: 'rgb(251, 67, 89)',
     brown: 'rgb(40, 40, 40)',
     accentBrown: 'rgba(216, 216, 216, 0.05)',
@@ -9,7 +11,8 @@ export default {
     semiDark: 'rgba(25, 25, 25, 0.5)',
     semiGray: 'rgba(234, 234, 234, 0.4)',
     border: 'rgba(40, 40, 40, 0.3)',
-    lightGray: 'rgba(25, 25, 25, 0.05)'
+    lightGray: 'rgba(25, 25, 25, 0.05)',
+    alphaLight: 'rgba(255, 255, 255, 0.2)'
   },
   globals: {
     radius: '5px',

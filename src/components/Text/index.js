@@ -9,4 +9,5 @@ export default styled.span`
     color ? theme.colors[color] : theme.colors.dark};
   font-weight: normal;
   display: inline-block;
+  ${({ theme, underline }) => underline && `text-decoration: underline;`};
 `
