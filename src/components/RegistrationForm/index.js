@@ -1,8 +1,8 @@
 import React from 'react'
+import Link from 'next/link'
 import Text from '@components/Text'
 import Wrapper from '@components/Wrapper'
 import Button from '@components/Button'
-import Link from '@components/Link'
 import InputWithLabel from '@components/InputWithLabel'
 import { Box, DoubleInputsWrapper, InlineWrapper } from './styles'
 
@@ -58,7 +58,7 @@ const RegistrationForm = () => {
         <Box center>
           <InlineWrapper>
             <Text>Already registered?</Text>
-            <Link href="#">Log in</Link>
+            <Link href="/login">Log in</Link>
           </InlineWrapper>
         </Box>
       </Wrapper>

@@ -12,8 +12,8 @@ const RegistrationHeader = () => {
       </Wrapper>
       <Wrapper mLeft="regular" mTop="enormous">
         <HeaderTexts>
-          <Text size="large">Register a new account</Text>
-          <Text color="semiDark">Zola is made for you</Text>
+          <Text size="large">Login in to Zola</Text>
+          <Text color="semiDark">We missed you!</Text>
         </HeaderTexts>
       </Wrapper>
     </div>
