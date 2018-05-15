@@ -6,9 +6,7 @@ import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
 import KeyDetails from '@components/KeyDetails'
 import {
-  KeyWrapper,
   KeyLine,
-  KeyValueColumn,
   KeyValue,
   KeyTranslationColumn,
   KeyTagsAndActionsColumn,
@@ -35,11 +33,9 @@ export default class KeyItem extends Component<Props, State> {
     const { detailsOpened } = this.state
 
     return (
-      <KeyWrapper>
+      <div>
         <KeyLine onClick={this.onLineClick} opened={detailsOpened}>
-          <KeyValueColumn>
-            <KeyValue>signup.login.success</KeyValue>
-          </KeyValueColumn>
+          <KeyValue>signup.login.success</KeyValue>
           <KeyTranslationColumn>
             <LocaleLabel>en</LocaleLabel>
             <Text>"What's your first name ?"</Text>
@@ -55,7 +51,7 @@ export default class KeyItem extends Component<Props, State> {
           </KeyTagsAndActionsColumn>
         </KeyLine>
         {detailsOpened && <KeyDetails />}
-      </KeyWrapper>
+      </div>
     )
   }
 }

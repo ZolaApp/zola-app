@@ -2,14 +2,9 @@ import styled from 'styled-components'
 import { StyledLabel } from '@components/LocaleLabel/styles'
 import { StyledTag } from '@components/Tag/styles'
 
-export const KeyWrapper = styled.div``
-
-export const KeyDetails = styled.div``
-
-export const KeyValueColumn = styled.div``
-
 export const KeyValue = styled.div`
   display: inline-block;
+  justify-self: start;
   font-family: ${({ theme }) => theme.fonts.families.sourceCode};
   font-size: ${({ theme }) => theme.fonts.sizes.default};
   padding: 0.25em;
