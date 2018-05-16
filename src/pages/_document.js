@@ -1,6 +1,8 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import sprite from 'svg-sprite-loader/runtime/sprite.build'
+import '../static/icons.svg?sprite'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -9,8 +11,9 @@ export default class MyDocument extends Document {
       sheet.collectStyles(<App {...props} />)
     )
     const styleTags = sheet.getStyleElement()
+    const spriteContent = sprite.stringify()
 
-    return { ...page, styleTags }
+    return { ...page, styleTags, spriteContent }
   }
 
   render() {
@@ -22,6 +25,7 @@ export default class MyDocument extends Document {
           {this.props.styleTags}
         </Head>
         <body>
+          <div dangerouslySetInnerHTML={{ __html: this.props.spriteContent }} />
           <Main />
           <NextScript />
         </body>
