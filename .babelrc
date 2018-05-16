@@ -6,9 +6,10 @@
       {
         "root": ["./"],
         "alias": {
-          "@pages": "./src/pages",
           "@components": "./src/components",
-          "@containers": "./src/containers"
+          "@containers": "./src/containers",
+          "@higherOrders": "./src/higherOrders",
+          "@pages": "./src/pages"
         }
       }
     ],
