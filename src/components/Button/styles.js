@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const StyledButton = styled.button`
   display: flex;
@@ -13,13 +13,20 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: ${({ theme }) => theme.globals.radius};
   cursor: pointer;
-
+  opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
   svg {
     margin-right: ${({ theme }) => theme.sizes.tiny};
   }
 
-  &:hover {
-    background: ${({ light, theme }) =>
-      light ? theme.colors.accentLight : theme.colors.accentDark};
-  }
+  ${({ isLoading }) =>
+    !isLoading
+      ? css`
+          &:hover {
+            background: ${({ light, theme }) =>
+              light ? theme.colors.accentLight : theme.colors.accentDark};
+          }
+        `
+      : css`
+          cursor: wait;
+        `};
 `

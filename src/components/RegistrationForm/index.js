@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import Link from 'next/link'
 import Text from '@components/Text'
@@ -6,11 +7,16 @@ import Button from '@components/Button'
 import InputWithLabel from '@components/InputWithLabel'
 import { Box, DoubleInputsWrapper, InlineWrapper } from './styles'
 
-const RegistrationForm = () => {
-  return (
-    <Wrapper mTop="regular">
-      <Box>
-        <form>
+type Props = {
+  onSubmit: Event => any,
+  isLoading: boolean
+}
+
+const RegistrationForm = (props: Props) => (
+  <Wrapper mTop="regular">
+    <Box>
+      <form onSubmit={props.onSubmit}>
+        <fieldset disabled={props.isLoading}>
           <Wrapper mTop="regular">
             <DoubleInputsWrapper>
               <InputWithLabel
@@ -57,7 +63,7 @@ const RegistrationForm = () => {
           <Wrapper mTop="regular">
             <InputWithLabel
               required
-              id="password"
+              id="passwordPlain"
               label="Password"
               type="password"
               placeholder="**********"
@@ -67,7 +73,7 @@ const RegistrationForm = () => {
           <Wrapper mTop="regular">
             <InputWithLabel
               required
-              id="confirmPassword"
+              id="passwordConfirmation"
               label="Confirm password"
               type="password"
               placeholder="**********"
@@ -75,21 +81,23 @@ const RegistrationForm = () => {
           </Wrapper>
 
           <Wrapper mTop="large" mBottom="regular">
-            <Button>Register a new account</Button>
+            <Button isLoading={props.isLoading} type="submit">
+              Register a new account
+            </Button>
           </Wrapper>
-        </form>
-      </Box>
+        </fieldset>
+      </form>
+    </Box>
 
-      <Wrapper mTop="regular">
-        <Box center>
-          <InlineWrapper>
-            <Text>Already registered?</Text>
-            <Link href="/login">Log in</Link>
-          </InlineWrapper>
-        </Box>
-      </Wrapper>
+    <Wrapper mTop="regular">
+      <Box center>
+        <InlineWrapper>
+          <Text>Already registered?</Text>
+          <Link href="/login">Log in</Link>
+        </InlineWrapper>
+      </Box>
     </Wrapper>
-  )
-}
+  </Wrapper>
+)
 
 export default RegistrationForm
