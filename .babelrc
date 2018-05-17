@@ -13,6 +13,7 @@
         }
       }
     ],
+    ["transform-define", { "filePath": "./env.config.js" }],
     [
       "styled-components",
       { "ssr": true, "displayName": true, "preprocess": false }

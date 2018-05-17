@@ -1,1 +1,4 @@
-declare var process: { browser: boolean }
+declare var process: {
+  browser: boolean,
+  env: any
+}

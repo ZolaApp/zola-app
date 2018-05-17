@@ -14,7 +14,7 @@ const create = (initialState: any) =>
     connectToDevTools: process.browser,
     ssrMode: !process.browser,
     link: new HttpLink({
-      uri: 'https://api.graph.cool/simple/v1/cixmkt2ul01q00122mksg82pn',
+      uri: process.env.API_URL,
       credentials: 'same-origin',
       fetch
     }),
