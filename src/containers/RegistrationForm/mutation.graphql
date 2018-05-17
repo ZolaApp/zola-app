@@ -4,6 +4,7 @@ mutation createUser(
   $job: String!
   $email: String!
   $passwordPlain: String!
+  $passwordConfirmation: String!
 ) {
   createUser(
     firstName: $firstName
@@ -11,6 +12,7 @@ mutation createUser(
     job: $job
     email: $email
     passwordPlain: $passwordPlain
+    passwordConfirmation: $passwordConfirmation
   ) {
     status
     errors {
