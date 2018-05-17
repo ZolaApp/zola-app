@@ -46,8 +46,8 @@
     "husky": "0.15.0-rc.13",
     "lint-staged": "7.1.0",
     "prettier": "1.12.1",
-    "spritesh": "^1.2.1",
-    "svgo": "^1.0.5"
+    "spritesh": "1.2.1",
+    "svgo": "1.0.5"
   },
   "dependencies": {
     "@zeit/next-css": "0.2.0",
