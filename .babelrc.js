@@ -5,7 +5,7 @@ dotenv.config()
 // `transform-define` babel plugin.
 const environmentVariables = Object.entries(process.env).reduce(
   (acc, [key, value]) => {
-    acc[`process.env.${key}`] = JSON.stringify(value)
+    acc[`process.env.${key}`] = value
 
     return acc
   },
