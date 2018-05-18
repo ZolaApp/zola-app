@@ -1,25 +1,24 @@
 // @flow
 import React from 'react'
 import { type ValidationError } from '@types/ValidationError'
+import { Wrapper, SingleError } from './styles'
 
 type Props = {
-  id: string,
+  name: string,
   errors: Array<ValidationError>
 }
 
 const Errors = (props: Props) => (
-  <div id={`${props.id}-errors`} role="alert">
-    {props.errors.map(error => {
-      const id = `${props.id}-error-${error.field}`
-
-      return (
-        // The wrapper should always be in the DOM for a11y, even if it’s empty.
-        <div key={id} id={id}>
-          {typeof error.message === 'string' && <span>{error.message}</span>}
-        </div>
-      )
-    })}
-  </div>
+  // The Wrapper should always be in the DOM for a11y, even if it’s empty.
+  <Wrapper
+    id={`${props.name}-errors`}
+    role="alert"
+    hasErrors={props.errors.length > 0}
+  >
+    {props.errors.map((error, index) => (
+      <SingleError key={`error-${index}`}>{error.message}</SingleError>
+    ))}
+  </Wrapper>
 )
 
 export default Errors

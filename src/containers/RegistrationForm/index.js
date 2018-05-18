@@ -16,7 +16,7 @@ const RegistrationForm = () => (
           createUser({ variables })
         }}
         isLoading={loading}
-        errors={data ? data.errors : []}
+        errors={data ? data.createUser.errors : []}
       />
     )}
   </Mutation>

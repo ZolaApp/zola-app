@@ -3,21 +3,21 @@ import React from 'react'
 import { StyledInput } from './styles'
 
 type Props = {
-  type?: string,
-  placeholder?: string,
-  id: string,
-  name?: string,
+  type: string,
+  placeholder: string,
+  name: string,
+  id?: string,
   maxLength?: number
 }
 
 const Input = (props: Props) => {
-  return <StyledInput {...props} name={props.name || props.id} />
+  return <StyledInput {...props} id={props.id || props.name} />
 }
 
 Input.defaultProps = {
   type: 'text',
-  placeholder: '',
-  name: '',
+  placeholder: undefined,
+  id: undefined,
   maxLength: 128
 }
 
