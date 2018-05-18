@@ -23,7 +23,8 @@ module.exports = {
           '@components': './src/components',
           '@containers': './src/containers',
           '@higherOrders': './src/higherOrders',
-          '@pages': './src/pages'
+          '@pages': './src/pages',
+          '@types': './src/types'
         }
       }
     ],
