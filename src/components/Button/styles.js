@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
+import { StyledIcon } from '@components/Icon/styles'
 
 export const StyledButton = styled.button`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   background: ${({ light, theme }) =>
     light ? theme.colors.light : theme.colors.dark};
@@ -14,7 +15,8 @@ export const StyledButton = styled.button`
   border-radius: ${({ theme }) => theme.globals.radius};
   cursor: pointer;
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
-  svg {
+
+  > ${StyledIcon} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
   }
 
