@@ -4,17 +4,16 @@ import Icon from '@components/Icon'
 import { Button } from './styles'
 
 type Props = {
+  isOpened: boolean,
   onClick: () => {}
 }
 
-const DropdownTrigger = ({ onClick }: Props) => {
+const DropdownTrigger = ({ onClick, isOpened }: Props) => {
   return (
-    <div>
-      <Button onClick={onClick}>
-        Tags
-        <Icon icon="arrow-down" width="16px" />
-      </Button>
-    </div>
+    <Button onClick={onClick} isOpened={isOpened}>
+      Tags
+      <Icon icon="arrow-down" width="16px" />
+    </Button>
   )
 }
 

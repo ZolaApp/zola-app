@@ -58,7 +58,7 @@ class SelectDropdown extends Component<Props, State> {
       <Dropdown onToggle={() => this.onToggle()}>
         {({ isOpened, toggle }) => (
           <Wrapper>
-            <DropdownTrigger onClick={toggle} />
+            <DropdownTrigger onClick={toggle} isOpened={isOpened} />
             {isOpened && (
               <DropdownBubble>
                 <OptionsList>

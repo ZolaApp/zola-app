@@ -9,15 +9,23 @@ export const Button = StyledButton.extend`
   border-radius: 1px;
   font-size: ${({ theme }) => theme.fonts.sizes.regular};
   padding: ${({ theme }) => theme.sizes.small};
-  border: solid 1px ${({ theme }) => theme.colors.dark};
+  border: solid 1px ${({ theme }) => theme.colors.border};
+  ${({ isOpened, theme }) => isOpened && `border-color: ${theme.colors.dark}`};
   background: transparent;
-  color: ${({ theme }) => theme.colors.dark};
+  ${({ active, theme }) => active && `background: ${theme.colors.dark}`};
+  color: ${({ theme }) => theme.colors.border};
+  ${({ isOpened, theme }) => isOpened && `color: ${theme.colors.dark}`};
+  ${({ active, theme }) => active && `color: ${theme.colors.light}`};
 
   svg {
     margin-right: 0;
+    fill: ${({ theme }) => theme.colors.border};
+    ${({ isOpened, theme }) => isOpened && `fill: ${theme.colors.dark}`};
+    ${({ active, theme }) => active && `fill: ${theme.colors.light}`};
   }
 
   &:hover {
     background: transparent;
+    ${({ active, theme }) => active && `background: ${theme.colors.dark}`};
   }
 `
