@@ -20,10 +20,11 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>My page</title>
+          <title>Zola App</title>
           <link rel="stylesheet" href="/_next/static/style.css" />
           {this.props.styleTags}
         </Head>
+
         <body>
           <div dangerouslySetInnerHTML={{ __html: this.props.spriteContent }} />
           <Main />
