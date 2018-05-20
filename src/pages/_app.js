@@ -1,6 +1,7 @@
 // @flow
-import React, { Fragment, type Node } from 'react'
+import React, { Fragment } from 'react'
 import App, { Container } from 'next/app'
+import { PageTransition } from 'next-page-transitions'
 import { ApolloProvider } from 'react-apollo'
 import { ThemeProvider } from 'styled-components'
 import { ToastContainer } from 'react-toastify'
@@ -10,44 +11,32 @@ import theme from '../styles/theme'
 import '../styles/reset.css'
 import '../styles/style.css'
 
-type Props = {
-  children?: Node
-}
-
-class Layout extends React.Component<Props> {
-  render() {
-    const { children } = this.props
-
-    return <div>{children}</div>
-  }
-}
-
 class MyApp extends App {
   render() {
-    const { Component, pageProps, apolloClient } = this.props
+    const { Component, router, pageProps, apolloClient } = this.props
 
     return (
       <Container>
-        <Layout>
-          <ApolloProvider client={apolloClient}>
-            <ThemeProvider theme={theme}>
-              <Fragment>
-                <ToastContainer
-                  position="top-left"
-                  autoClose={5000}
-                  hideProgressBar
-                  newestOnTop
-                  closeOnClick
-                  draggable
-                  pauseOnVisibilityChange
-                  pauseOnHover
-                />
+        <ApolloProvider client={apolloClient}>
+          <ThemeProvider theme={theme}>
+            <Fragment>
+              <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                draggable
+                pauseOnVisibilityChange
+                pauseOnHover
+              />
 
-                <Component {...pageProps} />
-              </Fragment>
-            </ThemeProvider>
-          </ApolloProvider>
-        </Layout>
+              <PageTransition timeout={300} classNames="page-transition">
+                <Component key={router.route} {...pageProps} />
+              </PageTransition>
+            </Fragment>
+          </ThemeProvider>
+        </ApolloProvider>
       </Container>
     )
   }

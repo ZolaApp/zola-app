@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.span`
+const Text = styled.span`
   font-family: ${({ theme, font }) =>
     font ? theme.fonts.families[font] : theme.fonts.families.sourceSans};
   font-size: ${({ theme, size }) =>
@@ -11,3 +11,5 @@ export default styled.span`
   display: inline-block;
   ${({ theme, underline }) => underline && `text-decoration: underline;`};
 `
+
+export default Text

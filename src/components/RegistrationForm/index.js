@@ -135,7 +135,9 @@ const RegistrationForm = (props: Props) => {
         <Box center>
           <InlineWrapper>
             <Text>Already registered?</Text>
-            <Link href="/login">Log in</Link>
+            <Link href="/login">
+              <a>Log in</a>
+            </Link>
           </InlineWrapper>
         </Box>
       </Wrapper>
