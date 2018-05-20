@@ -3,24 +3,24 @@ import * as React from 'react'
 
 type Props = {
   onToggle: () => any,
-  children: ({ isOpen: boolean, toggle: () => any }) => React.Node
+  children: ({ isOpened: boolean, toggle: () => any }) => React.Node
 }
 
 type State = {
-  isOpen: boolean
+  isOpened: boolean
 }
 
 class Dropdown extends React.Component<Props, State> {
-  state = { isOpen: false }
+  state = { isOpened: false }
   toggle = () =>
     this.setState(
-      ({ isOpen }) => ({ isOpen: !isOpen }),
+      ({ isOpened }) => ({ isOpened: !isOpened }),
       () => this.props.onToggle()
     )
 
   render() {
     return this.props.children({
-      isOpen: this.state.isOpen,
+      isOpened: this.state.isOpened,
       toggle: this.toggle
     })
   }
