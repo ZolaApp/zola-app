@@ -18,7 +18,7 @@ const withApolloClient = (App: any) => {
         ? await App.getInitialProps(context)
         : {}
       const apolloState = {}
-      const apollo = initApollo()
+      const apollo = initApollo(context, {})
 
       try {
         await getDataFromTree(
@@ -52,7 +52,7 @@ const withApolloClient = (App: any) => {
       super(props)
 
       this.apolloClient =
-        props.apolloClient || initApollo(props.apolloState.data)
+        props.apolloClient || initApollo(undefined, props.apolloState.data)
     }
 
     render() {

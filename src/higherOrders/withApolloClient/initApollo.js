@@ -3,35 +3,46 @@
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
 import fetch from 'isomorphic-unfetch'
 import getAccessToken from '@helpers/getAccessToken'
+import clearAccessToken from '@helpers/clearAccessToken'
+import redirectTo from '@helpers/redirectTo'
 
 let apolloClient = null
 
-const customFetch = (URI, options) => {
-  const token = getAccessToken()
+const customFetch = (context: any) => async (URI: string, options: any) => {
+  const token = getAccessToken(context)
   options.headers.Authorization = token ? `bearer ${token}` : ''
 
-  return fetch(URI, options)
+  const response = await fetch(URI, options)
+
+  // We intercept the response and log the user out if their access token is not
+  // valid.
+  if (response.status === 401) {
+    clearAccessToken(context)
+    redirectTo(context, '/login')
+  }
+
+  return response
 }
 
-const create = (initialState: any) =>
+const create = (context: any, initialState: any) =>
   new ApolloClient({
     connectToDevTools: process.browser,
     ssrMode: !process.browser,
     link: new HttpLink({
       uri: process.env.API_URL,
       credentials: 'same-origin',
-      fetch: customFetch
+      fetch: customFetch(context)
     }),
     cache: new InMemoryCache().restore(initialState || {})
   })
 
-const initApollo = (initialState: any) => {
+const initApollo = (context?: any, initialState?: any) => {
   if (!process.browser) {
-    return create(initialState)
+    return create(context, initialState)
   }
 
   if (!apolloClient) {
-    apolloClient = create(initialState)
+    apolloClient = create(context, initialState)
   }
 
   return apolloClient
