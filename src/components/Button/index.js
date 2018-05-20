@@ -1,8 +1,22 @@
-import React from 'react'
+// @flow
+import React, { type Node } from 'react'
+import Loader from '@components/Loader'
 import { StyledButton } from './styles'
 
-const Button = props => {
-  return <StyledButton {...props} />
+type Props = {
+  isLoading: boolean,
+  children: Node
+}
+
+const Button = (props: Props) => (
+  <StyledButton {...props}>
+    {props.isLoading && <Loader />}
+    {props.children}
+  </StyledButton>
+)
+
+Button.defaultProps = {
+  isLoading: false
 }
 
 export default Button

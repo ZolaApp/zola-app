@@ -20,7 +20,11 @@ const RegistrationForm = () => {
             />
           </Wrapper>
           <Wrapper mTop="regular">
-            <InputWithLabel id="password" label="Password" placeholder="****" />
+            <InputWithLabel
+              id="password"
+              label="Password"
+              placeholder="**********"
+            />
           </Wrapper>
           <Wrapper mTop="large" mBottom="regular">
             <ActionsWrapper>
@@ -32,8 +36,10 @@ const RegistrationForm = () => {
       <Wrapper mTop="regular">
         <Box center>
           <InlineWrapper>
-            <Text>First time here ?</Text>
-            <Link href="/register">Create an account</Link>
+            <Text>First time here?</Text>
+            <Link href="/register">
+              <a>Create an account</a>
+            </Link>
           </InlineWrapper>
         </Box>
       </Wrapper>
