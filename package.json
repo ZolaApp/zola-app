@@ -63,9 +63,11 @@
     "next": "6.0.3",
     "next-compose-plugins": "2.1.1",
     "next-optimized-images": "1.4.0",
+    "next-page-transitions": "1.0.0-alpha.3",
     "react": "16.3.2",
     "react-apollo": "2.1.4",
     "react-dom": "16.3.2",
+    "react-toastify": "4.0.1",
     "styled-components": "3.2.6"
   }
 }

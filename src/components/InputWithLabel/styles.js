@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -10,4 +10,10 @@ export const StyledLabel = styled.label`
   margin-bottom: 5px;
   font-size: ${({ theme }) => theme.fonts.sizes.regular};
   font-family: ${({ theme }) => theme.fonts.families.sourceSans};
+
+  ${({ isInvalid }) =>
+    isInvalid &&
+    css`
+      color: ${({ theme }) => theme.colors.rose};
+    `};
 `

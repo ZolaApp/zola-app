@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.div`
+const Wrapper = styled.div`
   ${({ theme, margin }) => margin && `margin: ${theme.sizes[margin]}`};
   ${({ theme, mTop }) => mTop && `margin-top: ${theme.sizes[mTop]}`};
   ${({ theme, mBottom }) =>
@@ -31,3 +31,5 @@ export default styled.div`
       justify-content: center;
     `};
 `
+
+export default Wrapper

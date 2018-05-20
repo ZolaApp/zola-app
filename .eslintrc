@@ -22,6 +22,7 @@
       },
       { "blankLine": "always", "prev": "multiline-block-like", "next": "*" }
     ],
-    "import/order": [2, { "newlines-between": "never" }]
+    "import/order": [2, { "newlines-between": "never" }],
+    "jsx-a11y/anchor-is-valid": 0
   }
 }
