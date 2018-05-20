@@ -37,7 +37,9 @@ const RegistrationForm = () => {
         <Box center>
           <InlineWrapper>
             <Text>First time here ?</Text>
-            <Link href="/register">Create an account</Link>
+            <Link href="/register">
+              <a>Create an account</a>
+            </Link>
           </InlineWrapper>
         </Box>
       </Wrapper>
