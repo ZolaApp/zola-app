@@ -12,7 +12,7 @@ const RegistrationHeader = () => {
       </Wrapper>
       <Wrapper mLeft="regular" mTop="enormous">
         <HeaderTexts>
-          <Text size="large">Login in to Zola</Text>
+          <Text size="large">Log in to Zola</Text>
           <Text color="semiDark">We missed you!</Text>
         </HeaderTexts>
       </Wrapper>

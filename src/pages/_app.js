@@ -1,15 +1,17 @@
 // @flow
-import * as React from 'react'
+import React, { Fragment, type Node } from 'react'
 import App, { Container } from 'next/app'
 import { ApolloProvider } from 'react-apollo'
 import { ThemeProvider } from 'styled-components'
+import { ToastContainer } from 'react-toastify'
 import withApolloClient from '@higherOrders/withApolloClient'
+import 'react-toastify/dist/ReactToastify.css'
 import theme from '../styles/theme'
 import '../styles/reset.css'
 import '../styles/style.css'
 
 type Props = {
-  children?: React.Node
+  children?: Node
 }
 
 class Layout extends React.Component<Props> {
@@ -29,7 +31,20 @@ class MyApp extends App {
         <Layout>
           <ApolloProvider client={apolloClient}>
             <ThemeProvider theme={theme}>
-              <Component {...pageProps} />
+              <Fragment>
+                <ToastContainer
+                  position="top-left"
+                  autoClose={5000}
+                  hideProgressBar
+                  newestOnTop
+                  closeOnClick
+                  draggable
+                  pauseOnVisibilityChange
+                  pauseOnHover
+                />
+
+                <Component {...pageProps} />
+              </Fragment>
             </ThemeProvider>
           </ApolloProvider>
         </Layout>

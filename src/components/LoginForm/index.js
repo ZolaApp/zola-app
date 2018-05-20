@@ -20,7 +20,11 @@ const RegistrationForm = () => {
             />
           </Wrapper>
           <Wrapper mTop="regular">
-            <InputWithLabel id="password" label="Password" placeholder="****" />
+            <InputWithLabel
+              id="password"
+              label="Password"
+              placeholder="**********"
+            />
           </Wrapper>
           <Wrapper mTop="large" mBottom="regular">
             <ActionsWrapper>
