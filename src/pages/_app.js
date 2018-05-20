@@ -1,6 +1,8 @@
 // @flow
 import React, { Fragment } from 'react'
 import App, { Container } from 'next/app'
+import Router from 'next/router'
+import NProgress from 'nprogress'
 import { PageTransition } from 'next-page-transitions'
 import { ApolloProvider } from 'react-apollo'
 import { ThemeProvider } from 'styled-components'
@@ -10,6 +12,10 @@ import 'react-toastify/dist/ReactToastify.css'
 import theme from '../styles/theme'
 import '../styles/reset.css'
 import '../styles/style.css'
+
+Router.onRouteChangeStart = () => NProgress.start()
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
 
 class MyApp extends App {
   render() {
