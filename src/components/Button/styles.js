@@ -13,6 +13,7 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: ${({ theme }) => theme.globals.radius};
   cursor: pointer;
+  outline: none;
 
   svg {
     margin-right: ${({ theme }) => theme.sizes.tiny};
@@ -22,4 +23,12 @@ export const StyledButton = styled.button`
     background: ${({ light, theme }) =>
       light ? theme.colors.accentLight : theme.colors.accentDark};
   }
+
+  ${({ transparent, theme }) =>
+    transparent &&
+    `
+    padding: 0;
+    background: transparent;
+    &:hover { background: transparent; }
+  `};
 `
