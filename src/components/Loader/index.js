@@ -10,7 +10,7 @@ const spinAnimation = keyframes`
   }
 `
 
-export default styled.div`
+const Loader = styled.div`
   display: inline-block;
   border: 2px solid ${({ theme }) => theme.colors.alphaLight};
   border-left: 2px solid ${({ theme }) => theme.colors.light};
@@ -24,3 +24,5 @@ export default styled.div`
     height: 1em;
   }
 `
+
+export default Loader
