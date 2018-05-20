@@ -2,11 +2,15 @@
 // Set up using https://github.com/zeit/next.js/blob/canary/examples/with-apollo/lib/init-apollo.js
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
 import fetch from 'isomorphic-unfetch'
+import getAccessToken from '@helpers/getAccessToken'
 
 let apolloClient = null
 
-if (!process.browser) {
-  global.fetch = fetch
+const customFetch = (URI, options) => {
+  const token = getAccessToken()
+  options.headers.Authorization = token ? `bearer ${token}` : ''
+
+  return fetch(URI, options)
 }
 
 const create = (initialState: any) =>
@@ -16,7 +20,7 @@ const create = (initialState: any) =>
     link: new HttpLink({
       uri: process.env.API_URL,
       credentials: 'same-origin',
-      fetch
+      fetch: customFetch
     }),
     cache: new InMemoryCache().restore(initialState || {})
   })
