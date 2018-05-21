@@ -29,7 +29,7 @@ class SelectDropdown extends Component<Props, State> {
 
   selectItem = (value: string) => {
     const updatedSelectedOptions = [...this.state.selectedOptions]
-    const index = updatedSelectedOptions.findIndex(opt => opt === value)
+    const index = updatedSelectedOptions.indexOf(value)
 
     if (index !== -1) {
       updatedSelectedOptions.splice(index, 1)

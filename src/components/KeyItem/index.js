@@ -25,7 +25,7 @@ export default class KeyItem extends Component<Props, State> {
     detailsOpened: false
   }
 
-  onLineClick = () => {
+  onRowClick = () => {
     this.setState(state => ({ ...state, detailsOpened: !state.detailsOpened }))
   }
 
@@ -34,7 +34,7 @@ export default class KeyItem extends Component<Props, State> {
 
     return (
       <div>
-        <KeyRow onClick={this.onLineClick} opened={detailsOpened}>
+        <KeyRow onClick={this.onRowClick} opened={detailsOpened}>
           <KeyValue>signup.login.success</KeyValue>
           <KeyTranslationColumn>
             <LocaleLabel>en</LocaleLabel>
