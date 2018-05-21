@@ -3,7 +3,6 @@
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
 import fetch from 'isomorphic-unfetch'
 import getAccessToken from '@helpers/getAccessToken'
-import clearAccessToken from '@helpers/clearAccessToken'
 import redirectTo from '@helpers/redirectTo'
 
 let apolloClient = null
@@ -20,8 +19,7 @@ const customFetch = (context: any = {}) => async (
   // We intercept the response and log the user out if their access token is not
   // valid.
   if (response.status === 401) {
-    clearAccessToken(context)
-    redirectTo(context, '/login')
+    redirectTo(context, '/logout')
   }
 
   return response
