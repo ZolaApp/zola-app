@@ -12,13 +12,13 @@ type Props = {
 
 const withApolloClient = (App: any) => {
   class ApolloClient extends React.Component<Props> {
-    static async getInitialProps(context: any) {
+    static async getInitialProps(context: any = {}) {
       const { Component, router } = context
       const appProps = App.getInitialProps
         ? await App.getInitialProps(context)
         : {}
       const apolloState = {}
-      const apollo = initApollo()
+      const apollo = initApollo(context, {})
 
       try {
         await getDataFromTree(
@@ -52,7 +52,7 @@ const withApolloClient = (App: any) => {
       super(props)
 
       this.apolloClient =
-        props.apolloClient || initApollo(props.apolloState.data)
+        props.apolloClient || initApollo(undefined, props.apolloState.data)
     }
 
     render() {
