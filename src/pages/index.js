@@ -1,5 +1,8 @@
 // @flow
 import React from 'react'
 import HelloWorld from '@components/HelloWorld'
+import withAuthentication from '@higherOrders/withAuthentication'
 
-export default () => <HelloWorld />
+const Index = () => <HelloWorld />
+
+export default withAuthentication(Index)

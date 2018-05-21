@@ -8,7 +8,10 @@ import redirectTo from '@helpers/redirectTo'
 
 let apolloClient = null
 
-const customFetch = (context: any) => async (URI: string, options: any) => {
+const customFetch = (context: any = {}) => async (
+  URI: string,
+  options: any
+) => {
   const token = getAccessToken(context)
   options.headers.Authorization = token ? `bearer ${token}` : ''
 
@@ -24,7 +27,7 @@ const customFetch = (context: any) => async (URI: string, options: any) => {
   return response
 }
 
-const create = (context: any, initialState: any) =>
+const create = (context: any = {}, initialState: any) =>
   new ApolloClient({
     connectToDevTools: process.browser,
     ssrMode: !process.browser,
