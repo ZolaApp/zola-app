@@ -1,3 +1,5 @@
+import { css } from 'styled-components'
+import { StyledIcon } from '@components/Icon/styles'
 import { StyledButton } from '@components/Button/styles'
 
 export const Button = StyledButton.extend`
@@ -9,23 +11,32 @@ export const Button = StyledButton.extend`
   border-radius: 1px;
   font-size: ${({ theme }) => theme.fonts.sizes.regular};
   padding: ${({ theme }) => theme.sizes.small};
-  border: solid 1px ${({ theme }) => theme.colors.border};
-  ${({ isOpened, theme }) => isOpened && `border-color: ${theme.colors.dark}`};
   background: transparent;
-  ${({ active, theme }) => active && `background: ${theme.colors.dark}`};
+  border: solid 1px ${({ theme }) => theme.colors.border};
   color: ${({ theme }) => theme.colors.border};
-  ${({ isOpened, theme }) => isOpened && `color: ${theme.colors.dark}`};
-  ${({ active, theme }) => active && `color: ${theme.colors.light}`};
+  fill: ${({ theme }) => theme.colors.border};
+  ${({ isOpened, theme }) =>
+    isOpened &&
+    css`
+      border-color: ${theme.colors.dark};
+      color: ${theme.colors.dark};
+      fill: ${theme.colors.dark};
+    `};
+  ${({ isActive, theme }) =>
+    isActive &&
+    css`
+      background: ${theme.colors.dark};
+      border-color: ${theme.colors.dark};
+      color: ${theme.colors.light};
+      fill: ${theme.colors.light};
+    `};
 
-  svg {
+  ${StyledIcon} {
     margin-right: 0;
-    fill: ${({ theme }) => theme.colors.border};
-    ${({ isOpened, theme }) => isOpened && `fill: ${theme.colors.dark}`};
-    ${({ active, theme }) => active && `fill: ${theme.colors.light}`};
   }
 
   &:hover {
     background: transparent;
-    ${({ active, theme }) => active && `background: ${theme.colors.dark}`};
+    ${({ isActive, theme }) => isActive && `background: ${theme.colors.dark}`};
   }
 `
