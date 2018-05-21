@@ -2,7 +2,9 @@
 import React from 'react'
 import Router from 'next/router'
 import { Mutation } from 'react-apollo'
-import serialize from 'form-serialize'
+import serializeForm from 'form-serialize'
+import { serialize as serializeCookie } from 'cookie'
+import { AUTH_COOKIE } from '@constants/cookies'
 import View from '@components/LoginForm'
 import mutation from './mutation.graphql'
 
@@ -13,12 +15,17 @@ const LoginForm = () => (
         onSubmit={async event => {
           event.preventDefault()
 
-          const variables = serialize(event.target, { hash: true })
+          const variables = serializeForm(event.target, { hash: true })
           // $FlowFixMe
           const response = await loginUser({ variables })
+          const data = response.data.loginUser
 
-          if (response.data.loginUser.status === 'SUCCESS') {
-            Router.push('/project')
+          if (data.status === 'SUCCESS') {
+            document.cookie = serializeCookie(AUTH_COOKIE, data.token, {
+              // Expire cookie after a year
+              maxAge: 60 * 60 * 24 * 365
+            })
+            Router.push('/')
           }
         }}
         isLoading={loading}

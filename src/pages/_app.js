@@ -11,7 +11,7 @@ import theme from '../styles/theme'
 import '../styles/reset.css'
 import '../styles/style.css'
 
-class MyApp extends App {
+class ZolaApp extends App {
   render() {
     const { Component, router, pageProps, apolloClient } = this.props
 
@@ -42,4 +42,4 @@ class MyApp extends App {
   }
 }
 
-export default withApolloClient(MyApp)
+export default withApolloClient(ZolaApp)
