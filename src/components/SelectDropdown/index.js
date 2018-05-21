@@ -55,7 +55,7 @@ class SelectDropdown extends Component<Props, State> {
     const { options, onApply } = this.props
 
     return (
-      <Dropdown onToggle={() => this.onToggle()}>
+      <Dropdown onToggle={this.onToggle}>
         {({ isOpened, toggle }) => (
           <Wrapper>
             <DropdownTrigger onClick={toggle} isOpened={isOpened} />
