@@ -2,9 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@pages/*": ["./src/pages/*"],
       "@components/*": ["./src/components/*"],
-      "@containers/*": ["./src/containers/*"]
+      "@constants/*": ["./src/constants/*"],
+      "@containers/*": ["./src/containers/*"],
+      "@helpers/*": ["./src/helpers"],
+      "@higherOrders/*": ["./src/higherOrders/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@types/*": ["./src/types/*"]
     }
   }
 }

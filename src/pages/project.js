@@ -5,8 +5,9 @@ import Sidebar from '@components/Sidebar'
 import ProjectSidebar from '@components/ProjectSidebar'
 import KeyList from '@components/KeyList'
 import KeysFilters from '@components/KeysFilters'
+import withAuthentication from '@higherOrders/withAuthentication'
 
-export default () => (
+const Project = () => (
   <Wrapper flex>
     <Sidebar />
     <ProjectSidebar />
@@ -16,3 +17,5 @@ export default () => (
     </Wrapper>
   </Wrapper>
 )
+
+export default withAuthentication(Project)

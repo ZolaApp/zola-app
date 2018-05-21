@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { StyledIcon } from '@components/Icon/styles'
 
 export const StyledButton = styled.button`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   background: ${({ light, theme }) =>
     light ? theme.colors.light : theme.colors.dark};
@@ -12,10 +13,11 @@ export const StyledButton = styled.button`
   font-size: ${({ theme }) => theme.fonts.sizes.medium};
   border: none;
   border-radius: ${({ theme }) => theme.globals.radius};
-  cursor: pointer;
+  cursor: ${({ isLoading }) => (isLoading ? 'wait' : 'pointer')};
   outline: none;
+  opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 
-  svg {
+  > ${StyledIcon} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
   }
 
@@ -26,9 +28,11 @@ export const StyledButton = styled.button`
 
   ${({ transparent, theme }) =>
     transparent &&
-    `
-    padding: 0;
-    background: transparent;
-    &:hover { background: transparent; }
-  `};
+    css`
+      padding: 0;
+      background: transparent;
+      &:hover {
+        background: transparent;
+      }
+    `};
 `

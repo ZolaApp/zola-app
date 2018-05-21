@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { InputWrapper } from '@components/InputWithLabel/styles'
+import Text from '@components/Text'
 
 export const Box = styled.div`
   background: ${({ theme }) => theme.colors.semiGray};
@@ -16,7 +18,7 @@ export const Box = styled.div`
 export const DoubleInputsWrapper = styled.div`
   display: flex;
 
-  > div {
+  > ${InputWrapper} {
     width: 50%;
 
     &:first-child input {
@@ -26,7 +28,7 @@ export const DoubleInputsWrapper = styled.div`
 `
 
 export const InlineWrapper = styled.div`
-  > span {
+  > ${Text} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
   }
 `

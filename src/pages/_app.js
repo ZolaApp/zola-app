@@ -1,35 +1,51 @@
 // @flow
-import * as React from 'react'
+import React, { Fragment } from 'react'
 import App, { Container } from 'next/app'
+import Router from 'next/router'
+import NProgress from 'nprogress'
+import { PageTransition } from 'next-page-transitions'
+import { ApolloProvider } from 'react-apollo'
 import { ThemeProvider } from 'styled-components'
+import { ToastContainer } from 'react-toastify'
+import withApolloClient from '@higherOrders/withApolloClient'
+import 'react-toastify/dist/ReactToastify.css'
 import theme from '../styles/theme'
 import '../styles/reset.css'
 import '../styles/style.css'
 
-type Props = {
-  children?: React.Node
-}
+Router.onRouteChangeStart = () => NProgress.start()
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
 
-class Layout extends React.Component<Props> {
+class ZolaApp extends App {
   render() {
-    const { children } = this.props
-
-    return <div>{children}</div>
-  }
-}
-
-export default class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props
+    const { Component, router, pageProps, apolloClient } = this.props
 
     return (
       <Container>
-        <Layout>
+        <ApolloProvider client={apolloClient}>
           <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
+            <Fragment>
+              <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                draggable
+                pauseOnVisibilityChange
+                pauseOnHover
+              />
+
+              <PageTransition timeout={300} classNames="page-transition">
+                <Component key={router.route} {...pageProps} />
+              </PageTransition>
+            </Fragment>
           </ThemeProvider>
-        </Layout>
+        </ApolloProvider>
       </Container>
     )
   }
 }
+
+export default withApolloClient(ZolaApp)

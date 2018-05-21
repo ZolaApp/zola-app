@@ -3,15 +3,22 @@ import React from 'react'
 import { StyledInput } from './styles'
 
 type Props = {
-  placeholder: string
+  type: string,
+  placeholder: string,
+  name: string,
+  id?: string,
+  maxLength?: number
 }
 
 const Input = (props: Props) => {
-  return <StyledInput {...props} />
+  return <StyledInput {...props} id={props.id || props.name} />
 }
 
 Input.defaultProps = {
-  placeholder: ''
+  type: 'text',
+  placeholder: undefined,
+  id: undefined,
+  maxLength: 128
 }
 
 export default Input
