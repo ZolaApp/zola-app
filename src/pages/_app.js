@@ -6,6 +6,7 @@ import { ApolloProvider } from 'react-apollo'
 import { ThemeProvider } from 'styled-components'
 import { ToastContainer } from 'react-toastify'
 import getAccessToken from '@helpers/getAccessToken'
+import clearAccessToken from '@helpers/clearAccessToken'
 import redirectTo from '@helpers/redirectTo'
 import withApolloClient from '@higherOrders/withApolloClient'
 import 'react-toastify/dist/ReactToastify.css'
@@ -20,6 +21,14 @@ class MyApp extends App {
     const accessToken = getAccessToken(context)
     const path = context.ctx.pathname
     const isUnauthenticatedPath = UNAUTHENTICATED_PATHS.includes(path)
+
+    // Logout route actually doesn’t exist but allows us to log the user out.
+    if (path === '/logout') {
+      clearAccessToken(context)
+      redirectTo(context, '/login')
+
+      return {}
+    }
 
     if (accessToken && isUnauthenticatedPath) {
       redirectTo(context, '/')
