@@ -17,7 +17,7 @@ Router.onRouteChangeStart = () => NProgress.start()
 Router.onRouteChangeComplete = () => NProgress.done()
 Router.onRouteChangeError = () => NProgress.done()
 
-class MyApp extends App {
+class ZolaApp extends App {
   render() {
     const { Component, router, pageProps, apolloClient } = this.props
 
@@ -48,4 +48,4 @@ class MyApp extends App {
   }
 }
 
-export default withApolloClient(MyApp)
+export default withApolloClient(ZolaApp)

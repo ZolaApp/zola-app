@@ -9,6 +9,7 @@ export const InlineWrapper = styled.div`
 export const ActionsWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 1em;
 
   > a {
     margin-left: ${({ theme }) => theme.sizes.regular};

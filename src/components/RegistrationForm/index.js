@@ -145,8 +145,4 @@ const RegistrationForm = (props: Props) => {
   )
 }
 
-RegistrationForm.defaultProps = {
-  errors: []
-}
-
 export default RegistrationForm

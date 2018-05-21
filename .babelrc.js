@@ -21,7 +21,9 @@ module.exports = {
         root: ['./'],
         alias: {
           '@components': './src/components',
+          '@constants': './src/constants',
           '@containers': './src/containers',
+          '@helpers': './src/helpers',
           '@higherOrders': './src/higherOrders',
           '@pages': './src/pages',
           '@types': './src/types'

@@ -3,7 +3,7 @@ import React from 'react'
 import Router from 'next/router'
 import { toast } from 'react-toastify'
 import { Mutation } from 'react-apollo'
-import serialize from 'form-serialize'
+import serializeForm from 'form-serialize'
 import View from '@components/RegistrationForm'
 import mutation from './mutation.graphql'
 
@@ -14,7 +14,7 @@ const RegistrationForm = () => (
         onSubmit={async event => {
           event.preventDefault()
 
-          const variables = serialize(event.target, { hash: true })
+          const variables = serializeForm(event.target, { hash: true })
           // $FlowFixMe
           const response = await createUser({ variables })
 
