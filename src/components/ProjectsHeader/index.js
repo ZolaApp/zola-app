@@ -5,7 +5,7 @@ import Button from '@components/Button'
 import { Texts, HeaderWrapper } from './styles'
 
 const ProjectsHeader = () => (
-  <Wrapper mBottom="large" padding="large">
+  <Wrapper padding="large">
     <HeaderWrapper>
       <Texts>
         <Text size="large">Your work</Text>

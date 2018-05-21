@@ -5,6 +5,7 @@ export default {
     dark: 'rgb(25, 25, 25)',
     accentDark: 'rgb(35, 35, 35)',
     rose: 'rgb(251, 67, 89)',
+    orange: 'rgb(255, 161, 7)',
     brown: 'rgb(40, 40, 40)',
     alphaBrown: 'rgba(40, 40, 40, 0.5)',
     accentBrown: 'rgba(216, 216, 216, 0.05)',
