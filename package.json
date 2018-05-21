@@ -2,7 +2,7 @@
   "name": "zola-app",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next src",
+    "dev": "next dev src",
     "build": "next build src",
     "start": "next start src",
     "icons": "npm run lint:svg && npx spritesh --input src/assets/images/icons --output src/static/icons.svg",
