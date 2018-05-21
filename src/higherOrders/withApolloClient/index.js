@@ -12,7 +12,7 @@ type Props = {
 
 const withApolloClient = (App: any) => {
   class ApolloClient extends React.Component<Props> {
-    static async getInitialProps(context: any) {
+    static async getInitialProps(context: any = {}) {
       const { Component, router } = context
       const appProps = App.getInitialProps
         ? await App.getInitialProps(context)
