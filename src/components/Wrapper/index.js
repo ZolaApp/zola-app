@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  width: 100%;
   ${({ theme, margin }) => margin && `margin: ${theme.sizes[margin]}`};
   ${({ theme, mTop }) => mTop && `margin-top: ${theme.sizes[mTop]}`};
   ${({ theme, mBottom }) =>
@@ -22,7 +23,7 @@ const Wrapper = styled.div`
       width ? theme.sizes.wrappers[width] : theme.sizes.wrappers['regular']
     };
   `};
-  ${({ flex }) => flex && `display: flex; width: 100%;`};
+  ${({ flex }) => flex && `display: flex;`};
   ${({ align }) => align && `flex-direction: ${align}`};
   ${({ contentCentered }) =>
     contentCentered &&

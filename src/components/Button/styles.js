@@ -11,24 +11,21 @@ export const StyledButton = styled.button`
   padding: 0.6em 1em;
   font-family: ${({ theme }) => theme.fonts.families.sourceSans};
   font-size: ${({ theme }) => theme.fonts.sizes.medium};
-  border: none;
+  border: solid 1px
+    ${({ light, theme }) => (light ? theme.colors.light : theme.colors.dark)};
   border-radius: ${({ theme }) => theme.globals.radius};
-  cursor: pointer;
+  cursor: ${({ isLoading }) => (isLoading ? 'wait' : 'pointer')};
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 
   > ${StyledIcon} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
   }
 
-  ${({ isLoading }) =>
-    !isLoading
-      ? css`
-          &:hover {
-            background: ${({ light, theme }) =>
-              light ? theme.colors.accentLight : theme.colors.accentDark};
-          }
-        `
-      : css`
-          cursor: wait;
-        `};
+  ${({ bordered, theme }) =>
+    bordered &&
+    css`
+      background: ${theme.colors.alphaDark};
+      color: ${theme.colors.alphaBrown};
+      border-color: ${theme.colors.gray};
+    `};
 `
