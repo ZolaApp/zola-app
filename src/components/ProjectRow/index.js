@@ -2,6 +2,7 @@ import React from 'react'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
 import Label from '@components/Label'
+import Tooltip from '@components/Tooltip'
 import { Row, RowWrapper, Texts, Labels } from './styles'
 
 const ProjectRow = () => {
@@ -14,7 +15,9 @@ const ProjectRow = () => {
             <Text color="semiDark">Last updated Wednesday by Eddy Warren</Text>
           </Texts>
           <Labels>
-            <Label background="rose">14</Label>
+            <Tooltip text="Missing translations">
+              <Label background="rose">12</Label>
+            </Tooltip>
             <Label background="orange">8</Label>
           </Labels>
         </RowWrapper>
