@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledLabel = styled.div`
+export const StyledLabel = styled.span`
   display: inline-block;
   font-size: ${({ theme }) => theme.fonts.sizes.regular};
   background: ${({ background, theme }) =>
