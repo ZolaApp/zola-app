@@ -2,7 +2,7 @@ import React from 'react'
 import KeyItem from '@components/KeyItem'
 import { ListWrapper } from './styles'
 
-const KeysList = () => {
+const KeyList = () => {
   return (
     <ListWrapper>
       <KeyItem />
@@ -13,4 +13,4 @@ const KeysList = () => {
   )
 }
 
-export default KeysList
+export default KeyList

@@ -13,22 +13,26 @@ export const StyledButton = styled.button`
   font-size: ${({ theme }) => theme.fonts.sizes.medium};
   border: none;
   border-radius: ${({ theme }) => theme.globals.radius};
-  cursor: pointer;
+  cursor: ${({ isLoading }) => (isLoading ? 'wait' : 'pointer')};
+  outline: none;
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 
   > ${StyledIcon} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
   }
 
-  ${({ isLoading }) =>
-    !isLoading
-      ? css`
-          &:hover {
-            background: ${({ light, theme }) =>
-              light ? theme.colors.accentLight : theme.colors.accentDark};
-          }
-        `
-      : css`
-          cursor: wait;
-        `};
+  &:hover {
+    background: ${({ light, theme }) =>
+      light ? theme.colors.accentLight : theme.colors.accentDark};
+  }
+
+  ${({ transparent, theme }) =>
+    transparent &&
+    css`
+      padding: 0;
+      background: transparent;
+      &:hover {
+        background: transparent;
+      }
+    `};
 `
