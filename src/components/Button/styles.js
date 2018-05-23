@@ -11,7 +11,8 @@ export const StyledButton = styled.button`
   padding: 0.6em 1em;
   font-family: ${({ theme }) => theme.fonts.families.sourceSans};
   font-size: ${({ theme }) => theme.fonts.sizes.medium};
-  border: none;
+  border: solid 1px
+    ${({ light, theme }) => (light ? theme.colors.light : theme.colors.dark)};
   border-radius: ${({ theme }) => theme.globals.radius};
   cursor: ${({ isLoading }) => (isLoading ? 'wait' : 'pointer')};
   outline: none;
@@ -34,5 +35,13 @@ export const StyledButton = styled.button`
       &:hover {
         background: transparent;
       }
+    `};
+
+  ${({ bordered, theme }) =>
+    bordered &&
+    css`
+      background: ${theme.colors.alphaDark};
+      color: ${theme.colors.alphaBrown};
+      border-color: ${theme.colors.gray};
     `};
 `
