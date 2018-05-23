@@ -6,7 +6,7 @@ import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
 import KeyDetails from '@components/KeyDetails'
 import {
-  KeyLine,
+  KeyRow,
   KeyValue,
   KeyTranslationColumn,
   KeyTagsAndActionsColumn,
@@ -25,7 +25,7 @@ export default class KeyItem extends Component<Props, State> {
     detailsOpened: false
   }
 
-  onLineClick = () => {
+  onRowClick = () => {
     this.setState(state => ({ ...state, detailsOpened: !state.detailsOpened }))
   }
 
@@ -34,7 +34,7 @@ export default class KeyItem extends Component<Props, State> {
 
     return (
       <div>
-        <KeyLine onClick={this.onLineClick} opened={detailsOpened}>
+        <KeyRow onClick={this.onRowClick} opened={detailsOpened}>
           <KeyValue>signup.login.success</KeyValue>
           <KeyTranslationColumn>
             <LocaleLabel>en</LocaleLabel>
@@ -49,7 +49,7 @@ export default class KeyItem extends Component<Props, State> {
               <ButtonIcon icon="delete" onClick={() => {}} />
             </Actions>
           </KeyTagsAndActionsColumn>
-        </KeyLine>
+        </KeyRow>
         {detailsOpened && <KeyDetails />}
       </div>
     )

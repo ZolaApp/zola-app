@@ -15,11 +15,27 @@ export const StyledButton = styled.button`
     ${({ light, theme }) => (light ? theme.colors.light : theme.colors.dark)};
   border-radius: ${({ theme }) => theme.globals.radius};
   cursor: ${({ isLoading }) => (isLoading ? 'wait' : 'pointer')};
+  outline: none;
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 
   > ${StyledIcon} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
   }
+
+  &:hover {
+    background: ${({ light, theme }) =>
+      light ? theme.colors.accentLight : theme.colors.accentDark};
+  }
+
+  ${({ transparent, theme }) =>
+    transparent &&
+    css`
+      padding: 0;
+      background: transparent;
+      &:hover {
+        background: transparent;
+      }
+    `};
 
   ${({ bordered, theme }) =>
     bordered &&

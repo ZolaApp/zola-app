@@ -58,7 +58,7 @@ export const Actions = styled.div`
   }
 `
 
-export const KeyLine = styled.div`
+export const KeyRow = styled.div`
   cursor: pointer;
   display: grid;
   grid-template-columns: 30% 20% auto;
