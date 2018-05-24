@@ -5,13 +5,20 @@ import redirectTo from '@helpers/redirectTo'
 
 type Props = {}
 
-const withAuthentication = (Component: any) => {
+const withAuthentication = (
+  Component: any,
+  performAdditionalChecks?: (context: any) => any
+) => {
   class NoAuthentication extends React.Component<Props> {
     static async getInitialProps(context: any = {}) {
       const accessToken = getAccessToken(context)
 
       if (!accessToken) {
         redirectTo(context, '/login')
+      }
+
+      if (typeof performAdditionalChecks === 'function') {
+        performAdditionalChecks(context)
       }
 
       return {}
