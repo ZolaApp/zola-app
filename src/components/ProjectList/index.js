@@ -1,12 +1,13 @@
 import React from 'react'
+import Wrapper from '@components/Wrapper'
 import ProjectRow from '@components/ProjectRow'
 
 const ProjectList = () => {
   return (
-    <div>
+    <Wrapper padding="regular">
       <ProjectRow />
       <ProjectRow />
-    </div>
+    </Wrapper>
   )
 }
 
