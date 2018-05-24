@@ -1,2 +1,2 @@
 #!/bin/bash
-next build src/
+npx next build ./src/

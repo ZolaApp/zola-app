@@ -25,7 +25,7 @@ const LoginForm = () => (
               // Expire cookie after a year
               maxAge: 60 * 60 * 24 * 365
             })
-            Router.push('/projects')
+            Router.push('/')
           }
         }}
         isLoading={loading}

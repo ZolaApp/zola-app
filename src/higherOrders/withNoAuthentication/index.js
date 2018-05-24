@@ -11,7 +11,7 @@ const withNoAuthentication = (Component: any) => {
       const accessToken = getAccessToken(context)
 
       if (accessToken) {
-        redirectTo(context, '/projects')
+        redirectTo(context, '/')
       }
 
       return {}
