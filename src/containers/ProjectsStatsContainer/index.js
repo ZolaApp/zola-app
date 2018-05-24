@@ -8,7 +8,7 @@ const ProjectsStatsContainer = () => (
   <Query query={query}>
     {({ loading, error, data }) =>
       loading ? (
-        <Loader isCenter withText isDark />
+        <Loader isCentered withText isDark />
       ) : (
         <ProjectsStats firstName={data.user.firstName} />
       )

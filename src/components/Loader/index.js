@@ -4,16 +4,16 @@ import Text from '@components/Text'
 import { StyledLoaderWrapper, StyledLoader } from './styles'
 
 type Props = {
-  isCenter: boolean,
+  isCentered: boolean,
   withText: boolean,
   isDark: boolean
 }
 
 const Loader = (props: Props) => {
-  const { withText, isCenter, isDark } = props
+  const { withText, isCentered, isDark } = props
 
   return (
-    <StyledLoaderWrapper isCenter={isCenter}>
+    <StyledLoaderWrapper isCentered={isCentered}>
       <StyledLoader {...props} />
       {withText && (
         <Text size="regular" color={isDark ? 'dark' : 'light'}>
@@ -26,7 +26,7 @@ const Loader = (props: Props) => {
 
 Loader.defaultProps = {
   withText: false,
-  isCenter: false,
+  isCentered: false,
   isDark: false
 }
 

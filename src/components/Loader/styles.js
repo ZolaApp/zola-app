@@ -15,7 +15,7 @@ export const StyledLoaderWrapper = styled.div`
   display: flex;
   align-self: center;
 
-  ${({ isCenter }) => isCenter && `justify-content: center;`};
+  ${({ isCentered }) => isCentered && `justify-content: center;`};
 
   ${Text} {
     margin-left: ${({ theme }) => theme.sizes.tiny};
