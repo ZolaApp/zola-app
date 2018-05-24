@@ -1,0 +1,6 @@
+query sidebarQuery {
+  user: getUser {
+    id
+    firstName
+  }
+}

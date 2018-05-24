@@ -1,14 +1,19 @@
+// @flow
 import React from 'react'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
 import { Texts, Stats, StatBlock } from './styles'
 
-const ProjectsStats = () => {
+type Props = {
+  firstName: string
+}
+
+const ProjectsStats = ({ firstName }: Props) => {
   return (
     <Wrapper mBottom="xlarge">
       <Wrapper padding="large">
         <Texts>
-          <Text size="large">Hello Tommy!</Text>
+          <Text size="large">Hello {firstName}!</Text>
           <Text color="semiDark">
             Here are some statistics about your projects
           </Text>
@@ -24,7 +29,7 @@ const ProjectsStats = () => {
         <StatBlock>
           <Text size="huge">78%</Text>
           <Text size="regular" color="semiDark">
-            Translation compete
+            Translation complete
           </Text>
         </StatBlock>
         <StatBlock>

@@ -1,28 +1,33 @@
-import styled, { keyframes } from 'styled-components'
+// @flow
+import React from 'react'
+import Text from '@components/Text'
+import { StyledLoaderWrapper, StyledLoader } from './styles'
 
-const spinAnimation = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
+type Props = {
+  isCenter: boolean,
+  withText: boolean,
+  isDark: boolean
+}
 
-  to {
-    transform: rotate(360deg);
-  }
-`
+const Loader = (props: Props) => {
+  const { withText, isCenter, isDark } = props
 
-const Loader = styled.div`
-  display: inline-block;
-  border: 2px solid ${({ theme }) => theme.colors.alphaLight};
-  border-left: 2px solid ${({ theme }) => theme.colors.light};
-  animation: ${spinAnimation} 1s infinite linear;
-  margin-right: ${({ theme }) => theme.sizes.tiny};
+  return (
+    <StyledLoaderWrapper isCenter={isCenter}>
+      <StyledLoader {...props} />
+      {withText && (
+        <Text size="regular" color={isDark ? 'dark' : 'light'}>
+          Loading
+        </Text>
+      )}
+    </StyledLoaderWrapper>
+  )
+}
 
-  &,
-  &::after {
-    border-radius: 50%;
-    width: 1em;
-    height: 1em;
-  }
-`
+Loader.defaultProps = {
+  withText: false,
+  isCenter: false,
+  isDark: false
+}
 
 export default Loader
