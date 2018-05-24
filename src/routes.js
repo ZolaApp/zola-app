@@ -1,3 +1,4 @@
+// This file doesn’t go through Babel and thus can’t use ES2015 modules.
 const routes = require('next-routes')()
 
 routes
