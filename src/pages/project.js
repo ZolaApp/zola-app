@@ -3,7 +3,7 @@ import React from 'react'
 import ErrorPage from 'next/error'
 import Wrapper from '@components/Wrapper'
 import Sidebar from '@components/Sidebar'
-import SingleProjectPage from '@containers/SingleProjectPage'
+import SingleProjectPageContainer from '@containers/SingleProjectPageContainer'
 import withAuthentication from '@higherOrders/withAuthentication'
 
 type Props = {
@@ -22,7 +22,7 @@ const Project = (props: Props) => {
   return (
     <Wrapper flex>
       <Sidebar />
-      <SingleProjectPage projectSlug={projectSlug} />
+      <SingleProjectPageContainer projectSlug={projectSlug} />
     </Wrapper>
   )
 }

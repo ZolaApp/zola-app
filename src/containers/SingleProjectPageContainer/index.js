@@ -11,7 +11,7 @@ type Props = {
   projectSlug: string
 }
 
-const SingleProjectPage = (props: Props) => (
+const SingleProjectPageContainer = (props: Props) => (
   <Wrapper flex contentCentered>
     <Query query={query} variables={{ projectSlug: props.projectSlug }}>
       {({ error, loading, data }) => {
@@ -29,4 +29,4 @@ const SingleProjectPage = (props: Props) => (
   </Wrapper>
 )
 
-export default SingleProjectPage
+export default SingleProjectPageContainer

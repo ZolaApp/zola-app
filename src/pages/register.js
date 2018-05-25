@@ -3,12 +3,12 @@ import React from 'react'
 import withNoAuthentication from '@higherOrders/withNoAuthentication'
 import Wrapper from '@components/Wrapper'
 import RegistrationHeader from '@components/RegistrationHeader'
-import RegistrationForm from '@containers/RegistrationForm'
+import RegistrationFormContainer from '@containers/RegistrationFormContainer'
 
 const Register = () => (
   <Wrapper center width="small">
     <RegistrationHeader />
-    <RegistrationForm />
+    <RegistrationFormContainer />
   </Wrapper>
 )
 
