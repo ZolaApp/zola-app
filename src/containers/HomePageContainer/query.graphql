@@ -1,4 +1,4 @@
-query sidebarQuery {
+query homePageQuery {
   user: getUser {
     id
     firstName
