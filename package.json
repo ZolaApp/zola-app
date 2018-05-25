@@ -70,6 +70,6 @@
     "react-apollo": "2.1.4",
     "react-dom": "16.4.0",
     "react-toastify": "4.0.1",
-    "styled-components": "3.2.6"
+    "styled-components": "3.3.0"
   }
 }
