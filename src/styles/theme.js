@@ -9,6 +9,7 @@ export default {
     orange: 'rgb(255, 161, 7)',
     brown: 'rgb(40, 40, 40)',
     alphaBrown: 'rgba(40, 40, 40, 0.5)',
+    alphaLightBrown: 'rgba(40, 40, 40, 0.1)',
     accentBrown: 'rgba(216, 216, 216, 0.05)',
     alphaDark: 'rgba(234, 234, 234, 0.2)',
     semiDark: 'rgba(25, 25, 25, 0.5)',
@@ -31,7 +32,8 @@ export default {
       regular: '0.875em',
       default: '1em',
       medium: '1.125em',
-      large: '1.375em'
+      large: '1.375em',
+      huge: '1.875em'
     }
   },
   sizes: {

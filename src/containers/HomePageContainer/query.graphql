@@ -1,0 +1,6 @@
+query homePageQuery {
+  user: getUser {
+    id
+    firstName
+  }
+}
