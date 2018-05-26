@@ -19,7 +19,7 @@ const formatDateRelative = (date: Date) => {
   }
 
   if (!isSameYear) {
-    return `on ${format(date, 'MMMM Do YYYY')}`
+    return `on ${format(date, 'MMMM Do, YYYY')}`
   }
 
   return `on ${format(date, 'MMMM Do')}`
