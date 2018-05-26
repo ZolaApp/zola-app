@@ -13,7 +13,14 @@ type Props = {
 
 class SingleProjectPageContainer extends React.Component<Props> {
   static getInitialProps(context: any) {
-    return { projectSlug: context.query.projectSlug }
+    const { projectSlug } = context.query
+
+    // We can return an actual 404 before rendering the <ErrorPage> server-side.
+    if (!projectSlug && context.res) {
+      context.res.statusCode = 404
+    }
+
+    return { projectSlug }
   }
 
   render() {
