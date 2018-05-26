@@ -3,4 +3,11 @@ query homePageQuery {
     id
     firstName
   }
+
+  projects: getProjects {
+    updatedAt
+    name
+    slug
+    description
+  }
 }

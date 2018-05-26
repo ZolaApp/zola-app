@@ -32,6 +32,10 @@ const withApolloClient = (App: any) => {
         )
       } catch (error) {
         console.error('Error while running `getDataFromTree`', error)
+
+        if (error.networkError) {
+          console.error('Error result', error.networkError.result)
+        }
       }
 
       if (!process.browser) {
