@@ -14,7 +14,7 @@ const withAuthentication = (Component: any) => {
         redirectTo(context, '/login')
       }
 
-      return {}
+      return { query: context.query }
     }
 
     render() {

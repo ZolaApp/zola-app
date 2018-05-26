@@ -1,12 +1,12 @@
 import React from 'react'
 import Wrapper from '@components/Wrapper'
 import ProjectRow from '@components/ProjectRow'
-import ProjectListHeader from '@components/ProjectListHeader'
+import ProjectsHeader from '@components/ProjectsHeader'
 
 const ProjectList = () => {
   return (
     <Wrapper>
-      <ProjectListHeader />
+      <ProjectsHeader />
       <Wrapper padding="regular">
         <ProjectRow />
         <ProjectRow />

@@ -8,7 +8,7 @@ import { AUTH_COOKIE } from '@constants/cookies'
 import View from '@components/LoginForm'
 import mutation from './mutation.graphql'
 
-const LoginForm = () => (
+const LoginFormContainer = () => (
   <Mutation mutation={mutation}>
     {(loginUser, { loading, error, data }) => (
       <View
@@ -35,4 +35,4 @@ const LoginForm = () => (
   </Mutation>
 )
 
-export default LoginForm
+export default LoginFormContainer

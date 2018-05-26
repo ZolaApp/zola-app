@@ -1,21 +1,30 @@
 // @flow
 import React from 'react'
+import ErrorPage from 'next/error'
 import Wrapper from '@components/Wrapper'
 import Sidebar from '@components/Sidebar'
-import ProjectSidebar from '@components/ProjectSidebar'
-import KeyList from '@components/KeyList'
-import KeysFilters from '@components/KeysFilters'
+import SingleProjectPageContainer from '@containers/SingleProjectPageContainer'
 import withAuthentication from '@higherOrders/withAuthentication'
 
-const Project = () => (
-  <Wrapper flex>
-    <Sidebar />
-    <ProjectSidebar />
-    <Wrapper padding="xlarge" flex align="column">
-      <KeysFilters />
-      <KeyList />
+type Props = {
+  query: {
+    projectSlug: string
+  }
+}
+
+const Project = (props: Props) => {
+  const { projectSlug } = props.query
+
+  if (!projectSlug) {
+    return <ErrorPage statusCode={404} />
+  }
+
+  return (
+    <Wrapper flex>
+      <Sidebar />
+      <SingleProjectPageContainer projectSlug={projectSlug} />
     </Wrapper>
-  </Wrapper>
-)
+  )
+}
 
 export default withAuthentication(Project)

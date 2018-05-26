@@ -1,0 +1,5 @@
+query getProject($projectSlug: String!) {
+  getProject(projectSlug: $projectSlug) {
+    name
+  }
+}

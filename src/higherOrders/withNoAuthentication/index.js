@@ -14,7 +14,7 @@ const withNoAuthentication = (Component: any) => {
         redirectTo(context, '/')
       }
 
-      return {}
+      return { query: context.query }
     }
 
     render() {

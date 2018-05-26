@@ -7,7 +7,7 @@ import serializeForm from 'form-serialize'
 import View from '@components/RegistrationForm'
 import mutation from './mutation.graphql'
 
-const RegistrationForm = () => (
+const RegistrationFormContainer = () => (
   <Mutation mutation={mutation}>
     {(createUser, { loading, error, data }) => (
       <View
@@ -30,4 +30,4 @@ const RegistrationForm = () => (
   </Mutation>
 )
 
-export default RegistrationForm
+export default RegistrationFormContainer
