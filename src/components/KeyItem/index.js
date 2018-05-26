@@ -5,6 +5,7 @@ import ButtonIcon from '@components/ButtonIcon'
 import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
 import KeyDetails from '@components/KeyDetails'
+import type { TranslationKey } from '@types/TranslationKey'
 import {
   KeyRow,
   KeyValue,
@@ -14,7 +15,9 @@ import {
   Actions
 } from './styles'
 
-type Props = {}
+type Props = {
+  value: TranslationKey
+}
 
 type State = {
   detailsOpened: boolean
@@ -31,11 +34,13 @@ export default class KeyItem extends Component<Props, State> {
 
   render() {
     const { detailsOpened } = this.state
+    const { value } = this.props
+    const { key } = value
 
     return (
       <div>
         <KeyRow onClick={this.onRowClick} opened={detailsOpened}>
-          <KeyValue>signup.login.success</KeyValue>
+          <KeyValue>{key}</KeyValue>
           <KeyTranslationColumn>
             <LocaleLabel>en</LocaleLabel>
             <Text>"What's your first name ?"</Text>
