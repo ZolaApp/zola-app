@@ -14,7 +14,11 @@ const withAuthentication = (Component: any) => {
         redirectTo(context, '/login')
       }
 
-      return { query: context.query }
+      if (typeof Component.getInitialProps === 'function') {
+        return Component.getInitialProps(context)
+      }
+
+      return {}
     }
 
     render() {

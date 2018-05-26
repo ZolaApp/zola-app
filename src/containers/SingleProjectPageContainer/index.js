@@ -11,22 +11,36 @@ type Props = {
   projectSlug: string
 }
 
-const SingleProjectPageContainer = (props: Props) => (
-  <Wrapper flex contentCentered>
-    <Query query={query} variables={{ projectSlug: props.projectSlug }}>
-      {({ error, loading, data }) => {
-        if (error) {
-          return <ErrorPage statusCode={404} />
-        }
+class SingleProjectPageContainer extends React.Component<Props> {
+  static getInitialProps(context: any) {
+    return { projectSlug: context.query.projectSlug }
+  }
 
-        if (loading) {
-          return <Loader isCentered withText isDark />
-        }
+  render() {
+    const { projectSlug } = this.props
 
-        return <View />
-      }}
-    </Query>
-  </Wrapper>
-)
+    if (!projectSlug) {
+      return <ErrorPage statusCode={404} />
+    }
+
+    return (
+      <Wrapper flex contentCentered stretch>
+        <Query query={query} variables={{ projectSlug }}>
+          {({ error, loading, data }) => {
+            if (error) {
+              return <ErrorPage statusCode={404} />
+            }
+
+            if (loading) {
+              return <Loader isCentered withText isDark />
+            }
+
+            return <View />
+          }}
+        </Query>
+      </Wrapper>
+    )
+  }
+}
 
 export default SingleProjectPageContainer

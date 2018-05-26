@@ -14,7 +14,11 @@ const withNoAuthentication = (Component: any) => {
         redirectTo(context, '/')
       }
 
-      return { query: context.query }
+      if (typeof Component.getInitialProps === 'function') {
+        return Component.getInitialProps(context)
+      }
+
+      return {}
     }
 
     render() {

@@ -31,6 +31,7 @@ const Wrapper = styled.div`
       display: flex;
       justify-content: center;
     `};
+  ${({ stretch }) => stretch && `min-height: 100vh;`};
 `
 
 export default Wrapper
