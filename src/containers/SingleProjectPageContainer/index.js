@@ -11,22 +11,43 @@ type Props = {
   projectSlug: string
 }
 
-const SingleProjectPageContainer = (props: Props) => (
-  <Wrapper flex contentCentered>
-    <Query query={query} variables={{ projectSlug: props.projectSlug }}>
-      {({ error, loading, data }) => {
-        if (error) {
-          return <ErrorPage statusCode={404} />
-        }
+class SingleProjectPageContainer extends React.Component<Props> {
+  static getInitialProps(context: any) {
+    const { projectSlug } = context.query
 
-        if (loading) {
-          return <Loader isCentered withText isDark />
-        }
+    // We can return an actual 404 before rendering the <ErrorPage> server-side.
+    if (!projectSlug && context.res) {
+      context.res.statusCode = 404
+    }
 
-        return <View />
-      }}
-    </Query>
-  </Wrapper>
-)
+    return { projectSlug }
+  }
+
+  render() {
+    const { projectSlug } = this.props
+
+    if (!projectSlug) {
+      return <ErrorPage statusCode={404} />
+    }
+
+    return (
+      <Wrapper flex contentCentered stretch>
+        <Query query={query} variables={{ projectSlug }}>
+          {({ error, loading, data }) => {
+            if (error) {
+              return <ErrorPage statusCode={404} />
+            }
+
+            if (loading) {
+              return <Loader isCentered withText isDark />
+            }
+
+            return <View />
+          }}
+        </Query>
+      </Wrapper>
+    )
+  }
+}
 
 export default SingleProjectPageContainer
