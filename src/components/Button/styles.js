@@ -29,7 +29,7 @@ export const StyledButton = styled.button`
 
   ${({ transparent, theme }) =>
     transparent &&
-    css`
+    `
       padding: 0;
       background: transparent;
       &:hover {
