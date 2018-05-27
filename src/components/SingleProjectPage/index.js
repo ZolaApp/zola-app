@@ -1,20 +1,14 @@
 // @flow
 import React from 'react'
-import Wrapper from '@components/Wrapper'
-import Sidebar from '@components/Sidebar'
-import ProjectSidebar from '@components/ProjectSidebar'
+import SingleProjectLayout from '@components/SingleProjectLayout'
 import KeyList from '@components/KeyList'
 import KeysFilters from '@components/KeysFilters'
 
 const SingleProjectPage = () => (
-  <Wrapper flex>
-    <Sidebar />
-    <ProjectSidebar />
-    <Wrapper padding="xlarge" flex align="column">
-      <KeysFilters />
-      <KeyList />
-    </Wrapper>
-  </Wrapper>
+  <SingleProjectLayout>
+    <KeysFilters />
+    <KeyList />
+  </SingleProjectLayout>
 )
 
 export default SingleProjectPage
