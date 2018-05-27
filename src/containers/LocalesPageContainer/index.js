@@ -2,7 +2,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import ErrorPage from 'next/error'
-import View from '@components/SingleProjectPage'
+import View from '@components/LocalesPage'
 import Wrapper from '@components/Wrapper'
 import Loader from '@components/Loader'
 import query from './query.graphql'
@@ -11,10 +11,10 @@ type Props = {
   projectSlug: string
 }
 
-const SingleProjectPageContainer = ({ projectSlug }: Props) => (
+const LocalesPageContainer = ({ projectSlug }: Props) => (
   <Wrapper flex contentCentered stretch>
     <Query query={query} variables={{ projectSlug }}>
-      {({ error, loading, data }: any) => {
+      {({ error, loading, data }) => {
         if (error) {
           return <ErrorPage statusCode={404} />
         }
@@ -23,10 +23,10 @@ const SingleProjectPageContainer = ({ projectSlug }: Props) => (
           return <Loader isCentered withText isDark />
         }
 
-        return <View project={data.project} />
+        return <View />
       }}
     </Query>
   </Wrapper>
 )
 
-export default SingleProjectPageContainer
+export default LocalesPageContainer

@@ -16,14 +16,19 @@ import {
 } from './styles'
 
 type Props = {
-  value: TranslationKey
+  value: TranslationKey,
+  isEven: boolean
 }
 
 type State = {
   detailsOpened: boolean
 }
 
-export default class KeyItem extends Component<Props, State> {
+class KeyItem extends Component<Props, State> {
+  static defaultProps = {
+    isEven: true
+  }
+
   state = {
     detailsOpened: false
   }
@@ -33,13 +38,18 @@ export default class KeyItem extends Component<Props, State> {
   }
 
   render() {
+    const { isEven } = this.props
     const { detailsOpened } = this.state
     const { value } = this.props
     const { key } = value
 
     return (
       <div>
-        <KeyRow onClick={this.onRowClick} opened={detailsOpened}>
+        <KeyRow
+          onClick={this.onRowClick}
+          opened={detailsOpened}
+          isEven={isEven}
+        >
           <KeyValue>{key}</KeyValue>
           <KeyTranslationColumn>
             <LocaleLabel>en</LocaleLabel>
@@ -60,3 +70,5 @@ export default class KeyItem extends Component<Props, State> {
     )
   }
 }
+
+export default KeyItem

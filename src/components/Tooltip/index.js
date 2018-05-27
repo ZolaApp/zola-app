@@ -1,10 +1,10 @@
 // @flow
-import React from 'react'
+import React, { type Node } from 'react'
 import { Wrapper, StyledTooltip } from './styles'
 
 type Props = {
   text: string,
-  children: string
+  children: Node
 }
 
 const Tooltip = ({ children, text }: Props) => {

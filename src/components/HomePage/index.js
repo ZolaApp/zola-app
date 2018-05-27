@@ -1,18 +1,20 @@
 // @flow
 import React from 'react'
+import { type Project } from '@types/Project'
 import Wrapper from '@components/Wrapper'
-import ProjectList from '@components/ProjectList'
+import ProjectsList from '@components/ProjectsList'
 import ProjectsStats from '@components/ProjectsStats'
 
 type Props = {
-  firstName: string
+  firstName: string,
+  projects: Array<Project>
 }
 
-const HomePage = ({ firstName }: Props) => (
+const HomePage = ({ firstName, projects }: Props) => (
   <Wrapper flex>
     <Wrapper center width="regular" mTop="large">
       <ProjectsStats firstName={firstName} />
-      <ProjectList />
+      <ProjectsList projects={projects} />
     </Wrapper>
   </Wrapper>
 )
