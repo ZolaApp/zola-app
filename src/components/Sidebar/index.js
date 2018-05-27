@@ -4,7 +4,7 @@ import Dialog from 'react-a11y-dialog'
 import Wrapper from '@components/Wrapper'
 import Icon from '@components/Icon'
 import LogoSmall from '@components/LogoSmall'
-import NewProjectModal from '@components/NewProjectModal'
+import NewProjectModalContainer from '@containers/NewProjectModalContainer'
 import { StyledSidebar, StyledButton } from './styles'
 
 type Props = {
@@ -27,11 +27,10 @@ class Sidebar extends Component<Props, State> {
   dialog = null
 
   onAddClick = () => {
-    this.dialog && this.dialog.show()
+    if (this.dialog) this.dialog.show()
   }
 
   render() {
-    // const { isProjectModalVisible } = this.state
     const { small } = this.props
 
     return (
@@ -43,16 +42,11 @@ class Sidebar extends Component<Props, State> {
           dialogRef={dialog => (this.dialog = dialog)}
           title="Add a new project"
         >
-          <NewProjectModal />
+          <NewProjectModalContainer />
         </Dialog>
         <LogoSmall />
         <Wrapper mTop="xlarge">
           <Wrapper>
-            <StyledButton>
-              <Icon icon="search" />
-            </StyledButton>
-          </Wrapper>
-          <Wrapper mTop="regular">
             <StyledButton onClick={this.onAddClick}>
               <Icon icon="plus" />
             </StyledButton>

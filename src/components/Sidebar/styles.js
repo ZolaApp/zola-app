@@ -14,6 +14,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
   border: none;
   background: transparent;
-  padding: ${({ theme }) => theme.sizes.regular};
   width: 100%;
+  margin-bottom: ${({ theme }) => theme.sizes.large};
+  outline: none;
 `

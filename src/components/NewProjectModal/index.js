@@ -5,11 +5,20 @@ import Text from '@components/Text'
 import InputWithLabel from '@components/InputWithLabel'
 import SelectDropdown from '@components/SelectDropdown'
 import Button from '@components/Button'
+import type { Locale } from '@types/Locale'
 import { Label } from './styles'
 
-type Props = {}
+type Props = {
+  locales: Array<Locale>
+}
 
-const NewProjectModal = (props: Props) => {
+const NewProjectModal = ({ locales }: Props) => {
+  let normalizedOptions = [...locales]
+  normalizedOptions = normalizedOptions
+    // We'll need to remove that when the list will be shorter
+    .splice(0, 100)
+    .map(l => ({ text: l.name, value: l.code }))
+
   return (
     <div>
       <Wrapper padding="regular">
@@ -32,13 +41,7 @@ const NewProjectModal = (props: Props) => {
             }}
             isMultiple={false}
             placeholder="Please select a locale"
-            options={[
-              { text: 'Missing translations', value: 'missing' },
-              { text: 'Unused keys', value: 'unused' },
-              { text: 'New keys', value: 'new' },
-              { text: 'Live env', value: 'live-env' },
-              { text: 'To translate', value: 'to-translate' }
-            ]}
+            options={normalizedOptions}
           />
         </Wrapper>
         <Wrapper mTop="large">

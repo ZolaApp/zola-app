@@ -6,7 +6,7 @@ import { Switcher } from './styles'
 const ProjectSwitcher = () => {
   return (
     <Wrapper mLeft="regular">
-      <Text color="semiGray">Projects</Text>
+      <Text color="semiGray">Project</Text>
       <Wrapper mTop="tiny">
         <Switcher>
           <Text color="light" size="medium">
