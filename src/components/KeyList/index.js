@@ -11,7 +11,9 @@ type Props = {
 const KeyList = ({ keys }: Props) => {
   return (
     <ListWrapper>
-      {keys.map(k => <KeyItem key={k.key} value={k} isEven />)}
+      {keys.map((k, index) => (
+        <KeyItem key={k.key} value={k} isEven={index % 2 === 0} />
+      ))}
     </ListWrapper>
   )
 }

@@ -38,9 +38,8 @@ class KeyItem extends Component<Props, State> {
   }
 
   render() {
-    const { isEven } = this.props
+    const { isEven, value } = this.props
     const { detailsOpened } = this.state
-    const { value } = this.props
     const { key } = value
 
     return (
