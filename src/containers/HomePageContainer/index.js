@@ -8,13 +8,15 @@ import query from './query.graphql'
 const HomePageContainer = () => (
   <Wrapper flex contentCentered>
     <Query query={query}>
-      {({ loading, error, data }) =>
-        loading ? (
-          <Loader isCentered withText isDark />
-        ) : (
-          <HomePage firstName={data.user.firstName} />
+      {({ loading, error, data }) => {
+        if (loading) {
+          return <Loader isCentered withText isDark />
+        }
+
+        return (
+          <HomePage firstName={data.user.firstName} projects={data.projects} />
         )
-      }
+      }}
     </Query>
   </Wrapper>
 )
