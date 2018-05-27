@@ -1,7 +1,11 @@
 // @flow
+import type { TranslationKey } from '@types/TranslationKey'
+
 export type Project = {
-  updatedAt: Date,
   name: string,
   slug: string,
-  description: string
+  description: string,
+  locales: Array<string>,
+  translationKeys: Array<TranslationKey>,
+  updatedAt: Date
 }
