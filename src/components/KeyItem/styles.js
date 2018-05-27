@@ -63,8 +63,12 @@ export const KeyRow = styled.div`
   display: grid;
   grid-template-columns: 30% 20% auto;
   padding: ${({ theme }) => theme.sizes.regular};
-  background: ${({ opened, theme }) =>
-    opened ? theme.colors.dark : theme.colors.light};
+  background: ${({ opened, isEven, theme }) =>
+    opened
+      ? theme.colors.dark
+      : isEven
+        ? theme.colors.semiAccentLight
+        : theme.colors.light};
   user-select: none;
 
   &:hover {
