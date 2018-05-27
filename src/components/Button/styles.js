@@ -44,4 +44,9 @@ export const StyledButton = styled.button`
       color: ${theme.colors.alphaBrown};
       border-color: ${theme.colors.gray};
     `};
+
+  &[disabled] {
+    opacity: 0.4;
+    cursor: default;
+  }
 `

@@ -14,7 +14,7 @@ import {
 } from './styles'
 
 type Props = {
-  onApply: any,
+  onApply: (Array<string>) => any,
   options: { value: string, text: string }[],
   isMultiple: boolean,
   placeholder: string
@@ -57,22 +57,32 @@ class SelectDropdown extends Component<Props, State> {
   isOptionSelected = (value: string) =>
     this.state.selectedOptions.includes(value)
 
-  onToggle = () => {
+  getTriggerLabel = () => {
+    return this.state.selectedOptions.length
+      ? this.state.selectedOptions.join(', ')
+      : this.props.placeholder
+  }
+
+  onApply = () => {
+    console.log('applying...')
+    this.props.onApply(this.state.selectedOptions)
+  }
+
+  onCancel = () => {
     this.setState(state => ({ ...state, selectedOptions: [] }))
   }
 
   render() {
-    const { selectedOptions } = this.state
-    const { options, onApply, placeholder } = this.props
+    const { options } = this.props
 
     return (
-      <Dropdown onToggle={this.onToggle}>
-        {({ isOpened, toggle }) => (
+      <Dropdown onCancel={this.onCancel} onApply={this.onApply}>
+        {({ isOpened, toggle, cancel, apply }) => (
           <Wrapper>
             <DropdownTrigger
               onClick={toggle}
               isOpened={isOpened}
-              placeholder={placeholder}
+              triggerLabel={this.getTriggerLabel()}
             />
             {isOpened && (
               <DropdownBubble>
@@ -89,10 +99,14 @@ class SelectDropdown extends Component<Props, State> {
                   ))}
                 </OptionsList>
                 <DropdownActions>
-                  <Button transparent onClick={toggle}>
+                  <Button transparent onClick={cancel}>
                     Cancel
                   </Button>
-                  <Button transparent onClick={() => onApply(selectedOptions)}>
+                  <Button
+                    transparent
+                    onClick={apply}
+                    disabled={this.state.selectedOptions.length === 0}
+                  >
                     Apply
                   </Button>
                 </DropdownActions>

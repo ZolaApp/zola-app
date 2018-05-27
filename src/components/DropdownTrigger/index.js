@@ -6,16 +6,14 @@ import { Button } from './styles'
 type Props = {
   isOpened: boolean,
   onClick: () => {},
-  placeholder: string
+  triggerLabel: string
 }
 
-const DropdownTrigger = ({ onClick, isOpened, placeholder }: Props) => {
-  return (
-    <Button onClick={onClick} isOpened={isOpened}>
-      {placeholder}
-      <Icon icon="arrow-down" width="16px" />
-    </Button>
-  )
-}
+const DropdownTrigger = ({ onClick, isOpened, triggerLabel }: Props) => (
+  <Button onClick={onClick} isOpened={isOpened}>
+    {triggerLabel}
+    <Icon icon="arrow-down" width="16px" />
+  </Button>
+)
 
 export default DropdownTrigger
