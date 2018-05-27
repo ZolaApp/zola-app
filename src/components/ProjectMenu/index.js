@@ -17,7 +17,11 @@ type Props = { router: any, href: string }
 const ProjectMenu = ({ router, href }: Props) => (
   <Wrapper mTop="xlarge">
     {MENU_ITEMS.map(({ route, icon, label }) => (
-      <Link route={route} params={{ projectSlug: router.query.projectSlug }}>
+      <Link
+        key={route}
+        route={route}
+        params={{ projectSlug: router.query.projectSlug }}
+      >
         <MenuItem selected={router.pathname === `/${route}`}>
           <Icon icon={icon} />
           <Text size="default" color="light">

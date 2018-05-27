@@ -5,6 +5,7 @@ import ButtonIcon from '@components/ButtonIcon'
 import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
 import KeyDetails from '@components/KeyDetails'
+import type { TranslationKey } from '@types/TranslationKey'
 import {
   KeyRow,
   KeyValue,
@@ -15,6 +16,7 @@ import {
 } from './styles'
 
 type Props = {
+  value: TranslationKey,
   isEven: boolean
 }
 
@@ -36,8 +38,9 @@ class KeyItem extends Component<Props, State> {
   }
 
   render() {
-    const { isEven } = this.props
+    const { isEven, value } = this.props
     const { detailsOpened } = this.state
+    const { key } = value
 
     return (
       <div>
@@ -46,7 +49,7 @@ class KeyItem extends Component<Props, State> {
           opened={detailsOpened}
           isEven={isEven}
         >
-          <KeyValue>signup.login.success</KeyValue>
+          <KeyValue>{key}</KeyValue>
           <KeyTranslationColumn>
             <LocaleLabel>en</LocaleLabel>
             <Text>"What's your first name ?"</Text>

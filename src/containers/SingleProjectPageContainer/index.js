@@ -14,7 +14,7 @@ type Props = {
 const SingleProjectPageContainer = ({ projectSlug }: Props) => (
   <Wrapper flex contentCentered stretch>
     <Query query={query} variables={{ projectSlug }}>
-      {({ error, loading, data }) => {
+      {({ error, loading, data }: any) => {
         if (error) {
           return <ErrorPage statusCode={404} />
         }
@@ -23,7 +23,7 @@ const SingleProjectPageContainer = ({ projectSlug }: Props) => (
           return <Loader isCentered withText isDark />
         }
 
-        return <View />
+        return <View project={data.project} />
       }}
     </Query>
   </Wrapper>
