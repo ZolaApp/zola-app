@@ -1,36 +1,66 @@
 // @flow
-import React from 'react'
+import React, { Component } from 'react'
+import Dialog from 'react-a11y-dialog'
 import Wrapper from '@components/Wrapper'
 import Icon from '@components/Icon'
 import LogoSmall from '@components/LogoSmall'
+import NewProjectModal from '@components/NewProjectModal'
 import { StyledSidebar, StyledButton } from './styles'
 
 type Props = {
   small: boolean
 }
 
-const Sidebar = ({ small }: Props) => {
-  return (
-    <StyledSidebar small={small}>
-      <LogoSmall />
-      <Wrapper mTop="xlarge">
-        <Wrapper>
-          <StyledButton>
-            <Icon icon="search" />
-          </StyledButton>
-        </Wrapper>
-        <Wrapper mTop="regular">
-          <StyledButton>
-            <Icon icon="plus" />
-          </StyledButton>
-        </Wrapper>
-      </Wrapper>
-    </StyledSidebar>
-  )
+type State = {
+  isProjectModalVisible: boolean
 }
 
-Sidebar.defaultProps = {
-  small: false
+class Sidebar extends Component<Props, State> {
+  static defaultProps = {
+    small: false
+  }
+
+  state = {
+    isProjectModalVisible: false
+  }
+
+  dialog = null
+
+  onAddClick = () => {
+    this.dialog && this.dialog.show()
+  }
+
+  render() {
+    // const { isProjectModalVisible } = this.state
+    const { small } = this.props
+
+    return (
+      <StyledSidebar small={small}>
+        <Dialog
+          id="new-project-dialog"
+          appRoot="#__next"
+          dialogRoot="#dialog-root"
+          dialogRef={dialog => (this.dialog = dialog)}
+          title="Add a new project"
+        >
+          <NewProjectModal />
+        </Dialog>
+        <LogoSmall />
+        <Wrapper mTop="xlarge">
+          <Wrapper>
+            <StyledButton>
+              <Icon icon="search" />
+            </StyledButton>
+          </Wrapper>
+          <Wrapper mTop="regular">
+            <StyledButton onClick={this.onAddClick}>
+              <Icon icon="plus" />
+            </StyledButton>
+          </Wrapper>
+        </Wrapper>
+      </StyledSidebar>
+    )
+  }
 }
 
 export default Sidebar

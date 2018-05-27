@@ -113,3 +113,39 @@ a {
   opacity: 0;
   transition: opacity 300ms;
 }
+
+#new-project-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#new-project-dialog[aria-hidden='true'] {
+  visibility: hidden;
+}
+
+#new-project-dialog div[role='dialog'] {
+  position: relative;
+  background: #fff;
+  width: 410px;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+#new-project-dialog div[role='document'] > button {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+#new-project-dialog-title {
+  margin: 15px;
+  margin-bottom: 0;
+  font-size: 1.125em;
+}

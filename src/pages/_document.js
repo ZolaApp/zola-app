@@ -29,6 +29,7 @@ export default class MyDocument extends Document {
           <div dangerouslySetInnerHTML={{ __html: this.props.spriteContent }} />
           <Main />
           <NextScript />
+          <div id="dialog-root" />
         </body>
       </html>
     )

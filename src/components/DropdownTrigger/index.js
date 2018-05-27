@@ -5,13 +5,14 @@ import { Button } from './styles'
 
 type Props = {
   isOpened: boolean,
-  onClick: () => {}
+  onClick: () => {},
+  placeholder: string
 }
 
-const DropdownTrigger = ({ onClick, isOpened }: Props) => {
+const DropdownTrigger = ({ onClick, isOpened, placeholder }: Props) => {
   return (
     <Button onClick={onClick} isOpened={isOpened}>
-      Tags
+      {placeholder}
       <Icon icon="arrow-down" width="16px" />
     </Button>
   )

@@ -14,8 +14,10 @@ import {
 } from './styles'
 
 type Props = {
-  onApply: (selectedOptions: string[]) => {},
-  options: { value: string, text: string }[]
+  onApply: any,
+  options: { value: string, text: string }[],
+  isMultiple: boolean,
+  placeholder: string
 }
 
 type State = {
@@ -23,16 +25,25 @@ type State = {
 }
 
 class SelectDropdown extends Component<Props, State> {
+  static defaultProps = {
+    isMultiple: true,
+    placeholder: 'Please select an option'
+  }
+
   state = {
     selectedOptions: []
   }
 
   selectItem = (value: string) => {
+    const { isMultiple } = this.props
     const updatedSelectedOptions = [...this.state.selectedOptions]
     const index = updatedSelectedOptions.indexOf(value)
 
     if (index !== -1) {
       updatedSelectedOptions.splice(index, 1)
+    } else if (!isMultiple) {
+      updatedSelectedOptions.splice(index, 1)
+      updatedSelectedOptions.push(value)
     } else {
       updatedSelectedOptions.push(value)
     }
@@ -52,13 +63,17 @@ class SelectDropdown extends Component<Props, State> {
 
   render() {
     const { selectedOptions } = this.state
-    const { options, onApply } = this.props
+    const { options, onApply, placeholder } = this.props
 
     return (
       <Dropdown onToggle={this.onToggle}>
         {({ isOpened, toggle }) => (
           <Wrapper>
-            <DropdownTrigger onClick={toggle} isOpened={isOpened} />
+            <DropdownTrigger
+              onClick={toggle}
+              isOpened={isOpened}
+              placeholder={placeholder}
+            />
             {isOpened && (
               <DropdownBubble>
                 <OptionsList>
