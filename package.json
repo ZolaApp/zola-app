@@ -6,7 +6,8 @@
     "build": "./scripts/build.sh",
     "start": "./scripts/start.sh",
     "icons": "./scripts/icons.sh",
-    "lint:svg": "./scripts/lint-svg.sh"
+    "lint:svg": "./scripts/lint-svg.sh",
+    "heroku-postbuild": "./scripts/build.sh"
   },
   "husky": {
     "hooks": {
