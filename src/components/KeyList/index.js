@@ -5,10 +5,10 @@ import { ListWrapper } from './styles'
 const KeyList = () => {
   return (
     <ListWrapper>
-      <KeyItem />
-      <KeyItem />
-      <KeyItem />
-      <KeyItem />
+      <KeyItem isEven />
+      <KeyItem isEven={false} />
+      <KeyItem isEven />
+      <KeyItem isEven={false} />
     </ListWrapper>
   )
 }

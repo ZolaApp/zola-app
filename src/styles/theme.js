@@ -2,6 +2,7 @@ export default {
   colors: {
     light: 'rgb(255, 255, 255)',
     semiLight: 'rgba(255, 255, 255, 0.5)',
+    semiAccentLight: 'rgb(251, 251, 251)', // Lol
     accentLight: 'rgb(240, 240, 240)',
     dark: 'rgb(25, 25, 25)',
     accentDark: 'rgb(35, 35, 35)',

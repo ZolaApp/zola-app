@@ -2,7 +2,13 @@ import styled from 'styled-components'
 import Text from '@components/Text'
 import { StyledLabel } from '@components/Label/styles'
 
-export const Row = styled.div``
+export const Row = styled.div`
+  background-color: ${({ isEven, theme }) =>
+    isEven ? theme.colors.semiAccentLight : theme.colors.light};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.accentLight}
+`
 
 export const RowWrapper = styled.div`
   display: grid;

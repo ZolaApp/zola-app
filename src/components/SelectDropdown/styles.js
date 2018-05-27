@@ -15,6 +15,7 @@ export const DropdownBubble = styled.div`
   padding: ${({ theme }) => theme.sizes.regular};
   background: ${({ theme }) => theme.colors.dark};
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  z-index: 50;
 `
 
 export const OptionsList = styled.div``

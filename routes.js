@@ -2,6 +2,8 @@
 const routes = require('next-routes')()
 
 // Dynamic routes should be added below.
-routes.add('project', '/project/:projectSlug')
+routes
+  .add('project', '/project/:projectSlug')
+  .add('locales', '/project/:projectSlug/locales')
 
 module.exports = routes

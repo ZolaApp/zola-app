@@ -9,11 +9,12 @@ import Tooltip from '@components/Tooltip'
 import { Row, RowWrapper, Texts, Labels } from './styles'
 
 type Props = {
-  project: Project
+  project: Project,
+  isEven: boolean
 }
 
-const ProjectRow = ({ project }: Props) => (
-  <Row>
+const ProjectRow = ({ project, isEven }: Props) => (
+  <Row isEven={isEven}>
     <Wrapper padding="regular">
       <RowWrapper>
         <Texts>
@@ -41,5 +42,9 @@ const ProjectRow = ({ project }: Props) => (
     </Wrapper>
   </Row>
 )
+
+ProjectRow.defaultProps = {
+  isEven: true
+}
 
 export default ProjectRow
