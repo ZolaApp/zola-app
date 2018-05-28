@@ -5,16 +5,14 @@ import ProjectSidebarUser from '@components/ProjectSidebarUser'
 import ProjectMenu from '@components/ProjectMenu'
 import { StyledSidebar } from './styles'
 
-const ProjectSidebar = () => {
-  return (
-    <StyledSidebar>
-      <Wrapper>
-        <ProjectSwitcher />
-        <ProjectMenu />
-      </Wrapper>
-      <ProjectSidebarUser />
-    </StyledSidebar>
-  )
-}
+const ProjectSidebar = () => (
+  <StyledSidebar>
+    <Wrapper>
+      <ProjectSwitcher />
+      <ProjectMenu />
+    </Wrapper>
+    <ProjectSidebarUser />
+  </StyledSidebar>
+)
 
 export default ProjectSidebar
