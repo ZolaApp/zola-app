@@ -1,0 +1,9 @@
+mutation createProject($name: String!) {
+  createProject(name: $name) {
+    status
+    errors {
+      field
+      message
+    }
+  }
+}

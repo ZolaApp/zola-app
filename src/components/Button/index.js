@@ -16,7 +16,8 @@ const Button = (props: Props) => (
 )
 
 Button.defaultProps = {
-  isLoading: false
+  isLoading: false,
+  type: 'button'
 }
 
 export default Button

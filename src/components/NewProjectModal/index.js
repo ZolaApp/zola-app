@@ -2,14 +2,13 @@
 import React, { Component } from 'react'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
-import InputWithLabel from '@components/InputWithLabel'
-import SelectDropdown from '@components/SelectDropdown'
-import Button from '@components/Button'
+import NewProjectForm from '@components/NewProjectForm'
 import type { Locale } from '@types/Locale'
-import { Label } from './styles'
 
 type Props = {
-  locales: Array<Locale>
+  locales: Array<Locale>,
+  onSubmit: () => any,
+  errors: Array<any>
 }
 
 type State = {
@@ -26,10 +25,10 @@ class NewProjectModal extends Component<Props, State> {
   }
 
   render() {
-    const { locales } = this.props
-    let normalizedOptions = [...locales]
-    normalizedOptions = normalizedOptions
-      // We'll need to remove that when the list will be shorter
+    const { locales, onSubmit, errors } = this.props
+    let normalizedLocales = [...locales]
+    // TODO: We'll need to remove that size limit when the list will be shorter
+    normalizedLocales = normalizedLocales
       .splice(0, 100)
       .map(l => ({ text: l.name, value: l.code }))
 
@@ -39,25 +38,11 @@ class NewProjectModal extends Component<Props, State> {
           <Text>Create a new projet and import your keys</Text>
         </Wrapper>
         <Wrapper padding="regular">
-          <Wrapper>
-            <InputWithLabel
-              label="Project name"
-              name="name"
-              placeholder="MyAppName"
-            />
-          </Wrapper>
-          <Wrapper mTop="regular">
-            <Label htmlFor="locale">Default locale</Label>
-            <SelectDropdown
-              onApply={options => this.onApply(options)}
-              isMultiple={false}
-              placeholder="Please select a locale"
-              options={normalizedOptions}
-            />
-          </Wrapper>
-          <Wrapper mTop="large">
-            <Button>Add project</Button>
-          </Wrapper>
+          <NewProjectForm
+            locales={normalizedLocales}
+            onSubmit={onSubmit}
+            errors={errors}
+          />
         </Wrapper>
       </div>
     )

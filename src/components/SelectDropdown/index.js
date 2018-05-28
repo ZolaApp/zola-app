@@ -15,7 +15,7 @@ import {
 
 type Props = {
   onApply: (Array<string>) => any,
-  options: { value: string, text: string }[],
+  options: Array<{ value: string, text: string }>,
   isMultiple: boolean,
   placeholder: string
 }
@@ -58,13 +58,17 @@ class SelectDropdown extends Component<Props, State> {
     this.state.selectedOptions.includes(value)
 
   getTriggerLabel = () => {
-    return this.state.selectedOptions.length
-      ? this.state.selectedOptions.join(', ')
+    const { options } = this.props
+    const selectedOptionsTexts = options
+      .filter(o => this.state.selectedOptions.includes(o.value))
+      .map(o => o.text)
+
+    return selectedOptionsTexts.length
+      ? selectedOptionsTexts.join(', ')
       : this.props.placeholder
   }
 
   onApply = () => {
-    console.log('applying...')
     this.props.onApply(this.state.selectedOptions)
   }
 
@@ -92,6 +96,7 @@ class SelectDropdown extends Component<Props, State> {
                       key={option.value}
                       onClick={() => this.selectItem(option.value)}
                       selected={this.isOptionSelected(option.value)}
+                      type="button"
                     >
                       <Icon icon="tick" width="10px" />
                       <Text size="regular">{option.text}</Text>

@@ -10,7 +10,7 @@ type Props = {
 }
 
 const DropdownTrigger = ({ onClick, isOpened, triggerLabel }: Props) => (
-  <Button onClick={onClick} isOpened={isOpened}>
+  <Button onClick={onClick} isOpened={isOpened} type="button">
     {triggerLabel}
     <Icon icon="arrow-down" width="16px" />
   </Button>
