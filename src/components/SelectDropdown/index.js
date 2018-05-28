@@ -5,6 +5,7 @@ import DropdownTrigger from '@components/DropdownTrigger'
 import Icon from '@components/Icon'
 import Text from '@components/Text'
 import Button from '@components/Button'
+import { type SelectOption } from '@types/SelectOption'
 import {
   Wrapper,
   DropdownBubble,
@@ -15,7 +16,7 @@ import {
 
 type Props = {
   onApply: (Array<string>) => any,
-  options: Array<{ value: string, text: string }>,
+  options: Array<SelectOption>,
   isMultiple: boolean,
   placeholder: string
 }

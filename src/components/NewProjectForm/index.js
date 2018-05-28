@@ -7,11 +7,12 @@ import Button from '@components/Button'
 import InputWithLabel from '@components/InputWithLabel'
 import SelectDropdown from '@components/SelectDropdown'
 import { type ValidationError } from '@types/ValidationError'
+import { type SelectOption } from '@types/SelectOption'
 import { Label } from './styles'
 
 type Props = {
   onSubmit: () => any,
-  locales: Array<{ value: string, text: string }>,
+  locales: Array<SelectOption>,
   errors: Array<ValidationError>
 }
 

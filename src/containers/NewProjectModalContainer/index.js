@@ -13,29 +13,26 @@ import mutation from './mutation.graphql'
 const NewProjectModalContainer = () => (
   <Wrapper>
     <Mutation mutation={mutation}>
-      {(
-        createProject,
-        { error: mutationError, loading: mutationIsLoading, data: mutationData }
-      ) => {
+      {(createProject, mutationData) => {
         return (
           <Query query={query}>
-            {({
-              error: queryError,
-              loading: queryIsLoading,
-              data: queryData
-            }) => {
-              if (queryError) {
+            {queryData => {
+              if (queryData.error) {
                 return <ErrorPage statusCode={404} />
               }
 
-              if (queryIsLoading) {
+              if (queryData.loading) {
                 return <Loader isCentered withText isDark />
               }
 
               return (
                 <View
-                  locales={queryData.locales}
-                  errors={mutationData ? mutationData.createProject.errors : []}
+                  locales={queryData.data.locales}
+                  errors={
+                    mutationData.data
+                      ? mutationData.data.createProject.errors
+                      : []
+                  }
                   onSubmit={async e => {
                     e.preventDefault()
                     const variables = serializeForm(e.target, { hash: true })
