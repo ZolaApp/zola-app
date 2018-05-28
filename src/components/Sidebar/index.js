@@ -37,7 +37,7 @@ class Sidebar extends Component<Props, State> {
       <StyledSidebar small={small}>
         <Dialog
           id="new-project-dialog"
-          appRoot="#__next"
+          appRoot="#main"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
           title="Add a new project"
