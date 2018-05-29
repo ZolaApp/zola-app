@@ -1,60 +1,27 @@
 // @flow
-import React, { Component } from 'react'
-import Dialog from 'react-a11y-dialog'
-import Wrapper from '@components/Wrapper'
-import Icon from '@components/Icon'
+import React from 'react'
+import Link from 'next/link'
 import LogoSmall from '@components/LogoSmall'
-import NewProjectModalContainer from '@containers/NewProjectModalContainer'
-import { StyledSidebar, StyledButton } from './styles'
+import { StyledSidebar } from './styles'
 
 type Props = {
   small: boolean
 }
 
-type State = {
-  isProjectModalVisible: boolean
+const Sidebar = ({ small }: Props) => {
+  return (
+    <StyledSidebar small={small}>
+      <Link href="/">
+        <a>
+          <LogoSmall />
+        </a>
+      </Link>
+    </StyledSidebar>
+  )
 }
 
-class Sidebar extends Component<Props, State> {
-  static defaultProps = {
-    small: false
-  }
-
-  state = {
-    isProjectModalVisible: false
-  }
-
-  dialog = null
-
-  onAddClick = () => {
-    if (this.dialog) this.dialog.show()
-  }
-
-  render() {
-    const { small } = this.props
-
-    return (
-      <StyledSidebar small={small}>
-        <Dialog
-          id="new-project-dialog"
-          appRoot="#main"
-          dialogRoot="#dialog-root"
-          dialogRef={dialog => (this.dialog = dialog)}
-          title="Add a new project"
-        >
-          <NewProjectModalContainer />
-        </Dialog>
-        <LogoSmall />
-        <Wrapper mTop="xlarge">
-          <Wrapper>
-            <StyledButton onClick={this.onAddClick}>
-              <Icon icon="plus" />
-            </StyledButton>
-          </Wrapper>
-        </Wrapper>
-      </StyledSidebar>
-    )
-  }
+Sidebar.defaultProps = {
+  small: false
 }
 
 export default Sidebar

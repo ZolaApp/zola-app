@@ -1,0 +1,11 @@
+query sidebarQuery($projectSlug: String!) {
+  project: getProject(projectSlug: $projectSlug) {
+    id
+    name
+  }
+
+  user: getUser {
+    fullName
+    job
+  }
+}

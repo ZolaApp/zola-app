@@ -16,13 +16,9 @@ const ProjectsList = ({ projects }: Props) => (
     <ProjectsHeader />
     <Wrapper padding="regular">
       {projects.map((project, index) => (
-        <Link href={`/project/${project.slug}`}>
+        <Link key={project.slug} href={`/project/${project.slug}`}>
           <StyledLink>
-            <ProjectRow
-              key={project.slug}
-              project={project}
-              isEven={index % 2 === 0}
-            />
+            <ProjectRow project={project} isEven={index % 2 === 0} />
           </StyledLink>
         </Link>
       ))}
