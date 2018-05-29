@@ -42,6 +42,7 @@ class NewProjectForm extends Component<Props, State> {
             label="Project name"
             name="name"
             placeholder="MyAppName"
+            required
           />
           <Errors name="name" errors={nameErrors} />
         </Wrapper>
@@ -53,10 +54,17 @@ class NewProjectForm extends Component<Props, State> {
             placeholder="Please select a locale"
             options={locales}
           />
-          <input type="hidden" name="defaultLocaleId" value={defaultLocaleId} />
+          <input
+            required
+            type="hidden"
+            name="defaultLocaleId"
+            value={defaultLocaleId}
+          />
         </Wrapper>
         <Wrapper mTop="large">
-          <Button type="submit">Add project</Button>
+          <Button type="submit" disabled={defaultLocaleId === ''}>
+            Add project
+          </Button>
         </Wrapper>
       </form>
     )
