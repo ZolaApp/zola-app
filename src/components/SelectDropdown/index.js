@@ -18,6 +18,7 @@ type Props = {
   onApply: (Array<string>) => any,
   options: Array<SelectOption>,
   isMultiple: boolean,
+  hasValue: boolean,
   placeholder: string
 }
 
@@ -28,6 +29,7 @@ type State = {
 class SelectDropdown extends Component<Props, State> {
   static defaultProps = {
     isMultiple: true,
+    hasValue: false,
     placeholder: 'Please select an option'
   }
 
@@ -45,9 +47,12 @@ class SelectDropdown extends Component<Props, State> {
     } else if (!isMultiple) {
       updatedSelectedOptions.splice(index, 1)
       updatedSelectedOptions.push(value)
-      apply()
     } else {
       updatedSelectedOptions.push(value)
+    }
+
+    if (!isMultiple) {
+      apply()
     }
 
     this.setState(state => ({
@@ -85,7 +90,7 @@ class SelectDropdown extends Component<Props, State> {
   }
 
   render() {
-    const { options, isMultiple } = this.props
+    const { options, isMultiple, hasValue } = this.props
 
     return (
       <Dropdown onCancel={this.onCancel} onApply={this.onApply}>
@@ -95,6 +100,7 @@ class SelectDropdown extends Component<Props, State> {
               onClick={toggle}
               isOpened={isOpened}
               triggerLabel={this.getTriggerLabel()}
+              hasValue={hasValue}
             />
             {isOpened && (
               <DropdownBubble>

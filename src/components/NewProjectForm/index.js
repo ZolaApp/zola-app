@@ -26,7 +26,7 @@ class NewProjectForm extends Component<Props, State> {
   }
 
   onSelectApply = (options: Array<any>) => {
-    this.setState(state => ({ ...state, defaultLocaleId: options[0] }))
+    this.setState(state => ({ ...state, defaultLocaleId: options[0] || '' }))
   }
 
   render() {
@@ -51,6 +51,7 @@ class NewProjectForm extends Component<Props, State> {
           <SelectDropdown
             onApply={this.onSelectApply}
             isMultiple={false}
+            hasValue={defaultLocaleId !== ''}
             placeholder="Please select a locale"
             options={locales}
           />
