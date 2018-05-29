@@ -46,12 +46,14 @@ const NewProjectModalContainer = ({ dialog }: Props) => (
                   isLoading={mutationData.loading}
                   onSubmit={async (e: any) => {
                     e.preventDefault()
-                    const variables = serializeForm(e.target, { hash: true })
+                    const formNode = e.target
+                    const variables = serializeForm(formNode, { hash: true })
                     // $FlowFixMe
                     const response = await createProject({ variables })
 
                     if (response.data.createProject.status === 'SUCCESS') {
                       dialog.hide()
+                      formNode.reset()
                       Router.push('/')
                       toast.success('✅ Success! The project has been created.')
                     }
