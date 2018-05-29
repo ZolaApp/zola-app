@@ -18,6 +18,16 @@ const LocalesRow = ({ isEven, locale }: Props) => (
           <Text size="medium">{locale.name}</Text>
           {locale.isDefault && <Text color="semiDark">Default locale</Text>}
         </Texts>
+
+        <Texts>
+          <Text>{locale.translatedPercentage * 100}%</Text>
+          <Text color="semiDark">Translated</Text>
+        </Texts>
+
+        <Texts bordered>
+          <Text>{locale.missingTranslations}</Text>
+          <Text color="semiDark">Missing translations</Text>
+        </Texts>
       </RowWrapper>
     </Wrapper>
   </Row>

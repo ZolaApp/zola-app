@@ -5,18 +5,22 @@ import { StyledLabel } from '@components/Label/styles'
 export const Row = styled.div`
   background-color: ${({ isEven, theme }) =>
     isEven ? theme.colors.semiAccentLight : theme.colors.light};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.accentLight}
 `
 
 export const RowWrapper = styled.div`
   display: grid;
-  grid-template-columns: auto 100px;
+  grid-template-columns: auto 100px 150px;
 `
 
 export const Texts = styled.div`
   display: grid;
+
+  ${({ bordered }) =>
+    bordered &&
+    `
+  border-left: 1px solid rgb(219, 219, 219);
+  padding-left: 2em;
+  `};
 
   ${Text} {
     &:last-child {

@@ -24,8 +24,19 @@ const LocalesPageContainer = ({ projectSlug }: Props) => (
         }
 
         const mockedLocales = [
-          { name: 'French', code: 'FR', isDefault: true },
-          { name: 'English', code: 'EN' }
+          {
+            name: 'French',
+            code: 'FR',
+            isDefault: true,
+            translatedPercentage: 1,
+            missingTranslations: 0
+          },
+          {
+            name: 'English',
+            code: 'EN',
+            translatedPercentage: 0.96,
+            missingTranslations: 22
+          }
         ]
 
         return (
