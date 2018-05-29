@@ -35,7 +35,8 @@ const NewKeyModalContainer = ({ dialog, project }: Props) => (
             projectId={project.id}
             onSubmit={async (e: any) => {
               e.preventDefault()
-              const variables = serializeForm(e.target, { hash: true })
+              const formNode = e.target
+              const variables = serializeForm(formNode, { hash: true })
               // $FlowFixMe
               const response = await addTranslationKeyToProject({ variables })
 
@@ -43,6 +44,7 @@ const NewKeyModalContainer = ({ dialog, project }: Props) => (
                 response.data.addTranslationKeyToProject.status === 'SUCCESS'
               ) {
                 dialog.hide()
+                formNode.reset()
                 toast.success('✅ Success! The key has been created.')
               }
             }}
