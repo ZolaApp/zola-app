@@ -31,6 +31,7 @@ class ProjectsHeader extends Component {
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
           title="Add a new project"
+          closeButtonContent="× Close"
         >
           <NewProjectModalContainer dialog={this.dialog} />
         </Dialog>
