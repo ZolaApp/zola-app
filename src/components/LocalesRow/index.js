@@ -20,12 +20,12 @@ const LocalesRow = ({ isEven, locale }: Props) => (
         </Texts>
 
         <Texts>
-          <Text>{locale.translatedPercentage * 100}%</Text>
+          <Text size="medium">{locale.translatedPercentage * 100}%</Text>
           <Text color="semiDark">Translated</Text>
         </Texts>
 
         <Texts bordered>
-          <Text>{locale.missingTranslations}</Text>
+          <Text size="medium">{locale.missingTranslations}</Text>
           <Text color="semiDark">Missing translations</Text>
         </Texts>
       </RowWrapper>
