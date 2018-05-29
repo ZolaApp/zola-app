@@ -43,6 +43,11 @@ export const StyledButton = styled.button`
       background: ${theme.colors.alphaDark};
       color: ${theme.colors.alphaBrown};
       border-color: ${theme.colors.gray};
+
+      &:hover {
+        background: ${theme.colors.semiGray};
+        border-color: ${theme.colors.gray};
+      }
     `};
 
   &[disabled] {
