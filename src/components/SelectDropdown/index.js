@@ -35,7 +35,7 @@ class SelectDropdown extends Component<Props, State> {
     selectedOptions: []
   }
 
-  selectItem = (value: string) => {
+  selectItem = (value: string, apply: any) => {
     const { isMultiple } = this.props
     const updatedSelectedOptions = [...this.state.selectedOptions]
     const index = updatedSelectedOptions.indexOf(value)
@@ -45,6 +45,7 @@ class SelectDropdown extends Component<Props, State> {
     } else if (!isMultiple) {
       updatedSelectedOptions.splice(index, 1)
       updatedSelectedOptions.push(value)
+      apply()
     } else {
       updatedSelectedOptions.push(value)
     }
@@ -59,14 +60,20 @@ class SelectDropdown extends Component<Props, State> {
     this.state.selectedOptions.includes(value)
 
   getTriggerLabel = () => {
-    const { options } = this.props
+    const { options, isMultiple, placeholder } = this.props
     const selectedOptionsTexts = options
       .filter(o => this.state.selectedOptions.includes(o.value))
       .map(o => o.text)
 
-    return selectedOptionsTexts.length
+    let endValue = selectedOptionsTexts.length
       ? selectedOptionsTexts.join(', ')
-      : this.props.placeholder
+      : placeholder
+
+    if (isMultiple) {
+      endValue = placeholder
+    }
+
+    return endValue
   }
 
   onApply = () => {
@@ -78,7 +85,7 @@ class SelectDropdown extends Component<Props, State> {
   }
 
   render() {
-    const { options } = this.props
+    const { options, isMultiple } = this.props
 
     return (
       <Dropdown onCancel={this.onCancel} onApply={this.onApply}>
@@ -95,7 +102,7 @@ class SelectDropdown extends Component<Props, State> {
                   {options.map(option => (
                     <OptionRow
                       key={option.value}
-                      onClick={() => this.selectItem(option.value)}
+                      onClick={() => this.selectItem(option.value, apply)}
                       selected={this.isOptionSelected(option.value)}
                       type="button"
                     >
@@ -104,18 +111,20 @@ class SelectDropdown extends Component<Props, State> {
                     </OptionRow>
                   ))}
                 </OptionsList>
-                <DropdownActions>
-                  <Button transparent onClick={cancel}>
-                    Cancel
-                  </Button>
-                  <Button
-                    transparent
-                    onClick={apply}
-                    disabled={this.state.selectedOptions.length === 0}
-                  >
-                    Apply
-                  </Button>
-                </DropdownActions>
+                {isMultiple && (
+                  <DropdownActions>
+                    <Button transparent onClick={cancel}>
+                      Cancel
+                    </Button>
+                    <Button
+                      transparent
+                      onClick={apply}
+                      disabled={this.state.selectedOptions.length === 0}
+                    >
+                      Apply
+                    </Button>
+                  </DropdownActions>
+                )}
               </DropdownBubble>
             )}
           </Wrapper>
