@@ -8,7 +8,8 @@ import type { Locale } from '@types/Locale'
 type Props = {
   locales: Array<Locale>,
   onSubmit: () => any,
-  errors: Array<any>
+  errors: Array<any>,
+  isLoading: boolean
 }
 
 type State = {
@@ -25,7 +26,7 @@ class NewProjectModal extends Component<Props, State> {
   }
 
   render() {
-    const { locales, onSubmit, errors } = this.props
+    const { locales, onSubmit, errors, isLoading } = this.props
     let normalizedLocales = [...locales]
     // TODO: We'll need to remove that size limit when the list will be shorter
     normalizedLocales = normalizedLocales
@@ -42,6 +43,7 @@ class NewProjectModal extends Component<Props, State> {
             locales={normalizedLocales}
             onSubmit={onSubmit}
             errors={errors}
+            isLoading={isLoading}
           />
         </Wrapper>
       </div>

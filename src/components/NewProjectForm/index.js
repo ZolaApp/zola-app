@@ -13,7 +13,8 @@ import { Label } from './styles'
 type Props = {
   onSubmit: () => any,
   locales: Array<SelectOption>,
-  errors: Array<ValidationError>
+  errors: Array<ValidationError>,
+  isLoading: boolean
 }
 
 type State = {
@@ -31,7 +32,7 @@ class NewProjectForm extends Component<Props, State> {
 
   render() {
     const { defaultLocaleId } = this.state
-    const { errors, locales, onSubmit } = this.props
+    const { errors, locales, onSubmit, isLoading } = this.props
     const findErrors = errorFinder(errors)
     const nameErrors = findErrors('name')
 
@@ -63,7 +64,11 @@ class NewProjectForm extends Component<Props, State> {
           />
         </Wrapper>
         <Wrapper mTop="large">
-          <Button type="submit" disabled={defaultLocaleId === ''}>
+          <Button
+            type="submit"
+            disabled={defaultLocaleId === ''}
+            isLoading={isLoading}
+          >
             Add project
           </Button>
         </Wrapper>

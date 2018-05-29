@@ -32,7 +32,7 @@ class ProjectsHeader extends Component {
           dialogRef={dialog => (this.dialog = dialog)}
           title="Add a new project"
         >
-          <NewProjectModalContainer />
+          <NewProjectModalContainer dialog={this.dialog} />
         </Dialog>
       </Wrapper>
     )
