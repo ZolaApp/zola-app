@@ -2,7 +2,7 @@
 import React, { type Node } from 'react'
 import Wrapper from '@components/Wrapper'
 import Sidebar from '@components/Sidebar'
-import ProjectSidebar from '@components/ProjectSidebar'
+import ProjectSidebarContainer from '@containers/ProjectSidebarContainer'
 
 type Props = {
   children: Node
@@ -11,7 +11,7 @@ type Props = {
 const SingleProjectLayout = (props: Props) => (
   <Wrapper flex>
     <Sidebar />
-    <ProjectSidebar />
+    <ProjectSidebarContainer />
 
     <Wrapper padding="xlarge" flex align="column">
       {props.children}
