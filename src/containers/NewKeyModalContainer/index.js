@@ -36,7 +36,6 @@ const NewKeyModalContainer = ({ dialog, project }: Props) => (
             onSubmit={async (e: any) => {
               e.preventDefault()
               const variables = serializeForm(e.target, { hash: true })
-              console.log('EVENT', variables)
               // $FlowFixMe
               const response = await addTranslationKeyToProject({ variables })
 
