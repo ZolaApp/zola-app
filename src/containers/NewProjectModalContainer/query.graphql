@@ -1,5 +1,6 @@
 query homePageQuery {
   locales: getLocales {
+    id
     name
     code
   }

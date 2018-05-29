@@ -1,5 +1,5 @@
-mutation createProject($name: String!) {
-  createProject(name: $name) {
+mutation createProject($name: String!, $defaultLocaleId: ID!) {
+  createProject(name: $name, defaultLocaleId: $defaultLocaleId) {
     status
     errors {
       field

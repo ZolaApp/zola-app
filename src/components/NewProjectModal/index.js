@@ -30,7 +30,7 @@ class NewProjectModal extends Component<Props, State> {
     // TODO: We'll need to remove that size limit when the list will be shorter
     normalizedLocales = normalizedLocales
       .splice(0, 100)
-      .map(l => ({ text: l.name, value: l.code }))
+      .map(l => ({ text: l.name, value: String(l.id) }))
 
     return (
       <div>
