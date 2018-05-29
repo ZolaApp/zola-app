@@ -1,6 +1,6 @@
 // @flow
 export type Locale = {
-  id: number,
+  id: string,
   name: string,
   code: string
 }

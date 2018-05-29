@@ -10,7 +10,7 @@ export const StyledButton = styled.button`
     light ? theme.colors.dark : theme.colors.light};
   padding: 0.6em 1em;
   font-family: ${({ theme }) => theme.fonts.families.sourceSans};
-  font-size: ${({ theme }) => theme.fonts.sizes.medium};
+  font-size: ${({ theme }) => theme.fonts.sizes.default};
   border: solid 1px
     ${({ light, theme }) => (light ? theme.colors.light : theme.colors.dark)};
   border-radius: ${({ theme }) => theme.globals.radius};
