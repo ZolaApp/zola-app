@@ -1,5 +1,5 @@
 query getProject($projectSlug: String!) {
-  getProject(projectSlug: $projectSlug) {
+  project: getProject(projectSlug: $projectSlug) {
     name
     locales {
       name
