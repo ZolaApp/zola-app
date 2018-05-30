@@ -6,8 +6,10 @@ query homePageQuery {
 
   projects: getProjects {
     updatedAt
-    name
     slug
+    name
     description
+    missingTranslations
+    newKeys
   }
 }

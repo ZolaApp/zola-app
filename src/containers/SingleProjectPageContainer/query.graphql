@@ -2,16 +2,12 @@ query getProject($projectSlug: String!) {
   project: getProject(projectSlug: $projectSlug) {
     id
     name
-
-    missingTranslations
-    newKeys
     translationKeys {
       key
       translationValues {
         value
       }
     }
-
     locales {
       name
       code
