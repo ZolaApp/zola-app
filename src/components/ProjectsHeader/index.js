@@ -27,7 +27,7 @@ class ProjectsHeader extends Component {
         </HeaderWrapper>
         <Dialog
           id="new-project-dialog"
-          appRoot="#main"
+          appRoot="#__next"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
           title="Add a new project"
