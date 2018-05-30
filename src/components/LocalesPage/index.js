@@ -27,7 +27,7 @@ const LocalesPage = ({ project }: Props) => (
       </Wrapper>
 
       {project.locales.map((locale, index) => (
-        <LocaleRow isEven={index % 2 === 0} locale={locale} />
+        <LocaleRow key={locale.code} isEven={index % 2 === 0} locale={locale} />
       ))}
     </Wrapper>
   </SingleProjectLayout>
