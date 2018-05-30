@@ -12,7 +12,6 @@ query getProject($projectSlug: String!) {
         value
       }
     }
-
     locales {
       name
       code

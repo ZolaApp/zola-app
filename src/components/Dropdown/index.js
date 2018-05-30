@@ -29,21 +29,21 @@ class Dropdown extends React.Component<Props, State> {
   cancel = () => {
     this.setState(
       ({ isOpened }) => ({ isOpened: !isOpened }),
-      () => this.props.onCancel()
+      this.props.onCancel
     )
   }
 
   apply = () => {
     this.setState(
       ({ isOpened }) => ({ isOpened: !isOpened }),
-      () => this.props.onApply()
+      this.props.onApply
     )
   }
 
   toggle = () =>
     this.setState(
       ({ isOpened }) => ({ isOpened: !isOpened }),
-      () => this.props.onToggle()
+      this.props.onToggle
     )
 
   render() {
