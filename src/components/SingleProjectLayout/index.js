@@ -13,7 +13,7 @@ const SingleProjectLayout = (props: Props) => (
     <Sidebar />
     <ProjectSidebarContainer />
 
-    <Wrapper padding="xlarge" flex align="column">
+    <Wrapper padding="xlarge" flex align="column" center>
       {props.children}
     </Wrapper>
   </Wrapper>
