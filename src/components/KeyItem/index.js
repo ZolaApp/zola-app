@@ -11,8 +11,7 @@ import {
   KeyValue,
   KeyTranslationColumn,
   KeyTagsAndActionsColumn,
-  TagList,
-  Actions
+  TagList
 } from './styles'
 
 type Props = {
@@ -58,10 +57,7 @@ class KeyItem extends Component<Props, State> {
             <TagList>
               <Tag>Missing translation</Tag>
             </TagList>
-            <Actions>
-              <ButtonIcon icon="edit" onClick={() => {}} />
-              <ButtonIcon icon="delete" onClick={() => {}} />
-            </Actions>
+            <ButtonIcon icon="delete" onClick={() => {}} />
           </KeyTagsAndActionsColumn>
         </KeyRow>
         {detailsOpened && <KeyDetails />}

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { StyledButton } from '@components/ButtonIcon/styles'
 import { StyledLabel } from '@components/LocaleLabel/styles'
 import { StyledTag } from '@components/Tag/styles'
 
@@ -23,9 +24,13 @@ export const KeyTranslationColumn = styled.div`
 `
 
 export const KeyTagsAndActionsColumn = styled.div`
-  display: inline-block;
+  display: inline-flex;
   justify-self: end;
   align-self: center;
+
+  ${StyledButton} {
+    margin-left: ${({ theme }) => theme.sizes.regular};
+  }
 `
 
 export const TagList = styled.div`
@@ -41,27 +46,10 @@ export const TagList = styled.div`
   }
 `
 
-export const Actions = styled.div`
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: ${({ theme }) => theme.sizes.regular};
-  padding-left: ${({ theme }) => theme.sizes.regular};
-  border-left: solid 1px ${({ theme }) => theme.colors.border};
-
-  > button {
-    display: inline-block;
-    margin-right: ${({ theme }) => theme.sizes.regular};
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-`
-
 export const KeyRow = styled.div`
   cursor: pointer;
   display: grid;
-  grid-template-columns: 30% 20% auto;
+  grid-template-columns: 30% 20% 50%;
   padding: ${({ theme }) => theme.sizes.regular};
   background: ${({ opened, isEven, theme }) =>
     opened
@@ -94,7 +82,7 @@ export const KeyRow = styled.div`
     ${({ opened, theme }) => opened && `background: ${theme.colors.alphaDark}`};
   }
 
-  ${Actions} {
-    ${({ opened, theme }) => opened && `filter: invert(100%);`};
+  ${StyledButton} {
+    ${({ opened, theme }) => opened && `fill: ${theme.colors.light};`};
   }
 `
