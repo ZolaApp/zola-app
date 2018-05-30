@@ -70,7 +70,7 @@
     "nodemon": "1.17.5",
     "nprogress": "0.2.0",
     "react": "16.4.0",
-    "react-a11y-dialog": "^3.0.5",
+    "react-a11y-dialog": "3.0.5",
     "react-apollo": "2.1.4",
     "react-dom": "16.4.0",
     "react-toastify": "4.0.1",
