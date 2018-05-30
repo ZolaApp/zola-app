@@ -30,7 +30,7 @@ class SingleProjectPage extends Component<Props> {
         <KeyList keys={keys} onAddKeyClick={this.onAddKeyClick} />
         <Dialog
           id="new-project-dialog"
-          appRoot="#main"
+          appRoot="#__next"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
           title="Add a new project"

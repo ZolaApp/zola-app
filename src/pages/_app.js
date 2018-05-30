@@ -3,7 +3,6 @@ import React, { Fragment } from 'react'
 import App, { Container } from 'next/app'
 import Router from 'next/router'
 import NProgress from 'nprogress'
-import { PageTransition } from 'next-page-transitions'
 import { ApolloProvider } from 'react-apollo'
 import { ThemeProvider } from 'styled-components'
 import { ToastContainer } from 'react-toastify'
@@ -37,12 +36,12 @@ class ZolaApp extends App {
                 pauseOnHover
               />
 
-              <PageTransition timeout={300} classNames="page-transition">
-                <Component key={router.route} {...pageProps} />
-              </PageTransition>
+              <Component key={router.route} {...pageProps} />
             </Fragment>
           </ThemeProvider>
         </ApolloProvider>
+
+        <div id="dialog-root" />
       </Container>
     )
   }
