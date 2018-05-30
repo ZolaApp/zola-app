@@ -13,7 +13,7 @@ type Props = {
 }
 
 const KeyList = ({ keys, onAddKeyClick }: Props) => {
-  const hasKeys = Boolean(keys.length)
+  const hasKeys = keys.length > 0
 
   return (
     <ListWrapper>
