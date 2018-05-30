@@ -6,6 +6,7 @@ import Wrapper from '@components/Wrapper'
 import Button from '@components/Button'
 import InputWithLabel from '@components/InputWithLabel'
 import Errors from '@components/Errors'
+import errorFinder from '@helpers/errorFinder'
 import { type ValidationError } from '@types/ValidationError'
 import { Box, DoubleInputsWrapper, InlineWrapper } from './styles'
 
@@ -14,10 +15,6 @@ type Props = {
   isLoading: boolean,
   errors: Array<ValidationError>
 }
-
-const errorFinder = (errors: Array<ValidationError>) => (
-  field: string
-): Array<ValidationError> => errors.filter(error => error.field === field)
 
 const RegistrationForm = (props: Props) => {
   const findErrors = errorFinder(props.errors)

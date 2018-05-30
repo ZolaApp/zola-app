@@ -1,0 +1,9 @@
+mutation createProject($name: String!, $defaultLocaleId: ID!) {
+  createProject(name: $name, defaultLocaleId: $defaultLocaleId) {
+    status
+    errors {
+      field
+      message
+    }
+  }
+}

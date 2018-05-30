@@ -2,6 +2,10 @@ query getProject($projectSlug: String!) {
   project: getProject(projectSlug: $projectSlug) {
     id
     name
+    slug
+
+    missingTranslations
+    newKeys
     translationKeys {
       key
       translationValues {

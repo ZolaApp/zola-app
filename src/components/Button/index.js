@@ -5,7 +5,8 @@ import { StyledButton } from './styles'
 
 type Props = {
   isLoading: boolean,
-  children: Node
+  children: Node,
+  type: string
 }
 
 const Button = (props: Props) => (
@@ -16,7 +17,8 @@ const Button = (props: Props) => (
 )
 
 Button.defaultProps = {
-  isLoading: false
+  isLoading: false,
+  type: 'button'
 }
 
 export default Button

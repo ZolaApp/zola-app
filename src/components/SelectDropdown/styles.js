@@ -18,7 +18,10 @@ export const DropdownBubble = styled.div`
   z-index: 50;
 `
 
-export const OptionsList = styled.div``
+export const OptionsList = styled.div`
+  max-height: 170px;
+  overflow: scroll;
+`
 
 export const OptionRow = styled.button`
   user-select: none;

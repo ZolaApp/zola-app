@@ -3,6 +3,7 @@ import { type TranslationKey } from '@types/TranslationKey'
 import { type Locale } from '@types/Locale'
 
 export type Project = {
+  id: string,
   updatedAt: Date,
 
   name: string,

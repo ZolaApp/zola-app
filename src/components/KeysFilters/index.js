@@ -6,6 +6,7 @@ const KeysFilters = () => {
   return (
     <Wrapper>
       <SelectDropdown
+        placeholder="Tags"
         onApply={options => {
           // TODO: handle filtering
           console.log('apply...', options)
