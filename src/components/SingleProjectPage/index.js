@@ -22,12 +22,17 @@ class SingleProjectPage extends Component<Props> {
 
   render() {
     const { project } = this.props
+    const { locales } = project
     const keys = project.translationKeys
 
     return (
       <SingleProjectLayout>
         <KeysHeader onAddKeyClick={this.onAddKeyClick} />
-        <KeyList keys={keys} onAddKeyClick={this.onAddKeyClick} />
+        <KeyList
+          keys={keys}
+          onAddKeyClick={this.onAddKeyClick}
+          locales={locales}
+        />
         <Dialog
           id="new-project-dialog"
           appRoot="#__next"

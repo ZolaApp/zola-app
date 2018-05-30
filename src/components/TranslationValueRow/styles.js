@@ -17,7 +17,7 @@ export const ContentWrapper = styled.div`
   }
 `
 
-export const Locale = styled.div`
+export const LocaleWrapper = styled.div`
   display: inline-block;
   width: 70px;
   text-align: center;

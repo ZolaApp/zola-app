@@ -4,8 +4,9 @@ import Text from '@components/Text'
 import ButtonIcon from '@components/ButtonIcon'
 import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
-import KeyDetails from '@components/KeyDetails'
+import KeyDetailsContainer from '@containers/KeyDetailsContainer'
 import type { TranslationKey } from '@types/TranslationKey'
+import type { Locale } from '@types/Locale'
 import {
   KeyRow,
   KeyValue,
@@ -16,7 +17,8 @@ import {
 
 type Props = {
   value: TranslationKey,
-  isEven: boolean
+  isEven: boolean,
+  locales: Array<Locale>
 }
 
 type State = {
@@ -37,7 +39,7 @@ class KeyItem extends Component<Props, State> {
   }
 
   render() {
-    const { isEven, value } = this.props
+    const { isEven, value, locales } = this.props
     const { detailsOpened } = this.state
     const { key } = value
 
@@ -60,7 +62,9 @@ class KeyItem extends Component<Props, State> {
             <ButtonIcon icon="delete" onClick={() => {}} />
           </KeyTagsAndActionsColumn>
         </KeyRow>
-        {detailsOpened && <KeyDetails />}
+        {detailsOpened && (
+          <KeyDetailsContainer translationKey={value} locales={locales} />
+        )}
       </div>
     )
   }
