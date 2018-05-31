@@ -1,0 +1,9 @@
+mutation addLocaleToProject($localeId: ID!, $projectId: ID!) {
+  addLocaleToProject(localeId: $localeId, projectId: $projectId) {
+    status
+    errors {
+      field
+      message
+    }
+  }
+}

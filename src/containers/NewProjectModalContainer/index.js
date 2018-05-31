@@ -4,7 +4,6 @@ import { Query, Mutation } from 'react-apollo'
 import Router from 'next/router'
 import { toast } from 'react-toastify'
 import serializeForm from 'form-serialize'
-import ErrorPage from 'next/error'
 import View from '@components/NewProjectModal'
 import Wrapper from '@components/Wrapper'
 import Loader from '@components/Loader'
@@ -27,10 +26,6 @@ const NewProjectModalContainer = ({ dialog }: Props) => (
         return (
           <Query query={query}>
             {(queryData: any) => {
-              if (queryData.error) {
-                return <ErrorPage statusCode={404} />
-              }
-
               if (queryData.loading) {
                 return <Loader isCentered withText isDark />
               }

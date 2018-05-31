@@ -27,6 +27,12 @@ class ProjectsHeader extends Component {
         </HeaderWrapper>
         <Dialog
           id="new-project-dialog"
+          classNames={{
+            base: 'dialog',
+            document: 'dialog__document',
+            closeButton: 'dialog__close-button',
+            title: 'dialog__title'
+          }}
           appRoot="#__next"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
