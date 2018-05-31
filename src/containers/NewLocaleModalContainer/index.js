@@ -22,7 +22,8 @@ const NewLocaleModalContainer = ({ dialog, project }: Props) => (
       mutation={mutation}
       // $FlowFixMe
       refetchQueries={[
-        { query: projectQuery, variables: { projectSlug: project.slug } }
+        { query: projectQuery, variables: { projectSlug: project.slug } },
+        { query: query }
       ]}
     >
       {(addLocaleToProject, mutationData) => (
@@ -49,7 +50,13 @@ const NewLocaleModalContainer = ({ dialog, project }: Props) => (
                     toast.success('✅ Success! The locale has been added.')
                   }
                 }}
-                locales={queryData.data.locales}
+                locales={queryData.data.locales.filter(
+                  // Remove locales already used by the project
+                  queryLocale =>
+                    !project.locales.find(
+                      projectLocale => projectLocale.code === queryLocale.code
+                    )
+                )}
               />
             )
           }}
