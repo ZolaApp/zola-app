@@ -12,10 +12,10 @@ import query from './query.graphql'
 import mutation from './mutation.graphql'
 
 type Props = {
-  dialog: any
+  getDialog: any
 }
 
-const NewProjectModalContainer = ({ dialog }: Props) => (
+const NewProjectModalContainer = ({ getDialog }: Props) => (
   <Wrapper>
     <Mutation
       mutation={mutation}
@@ -47,6 +47,7 @@ const NewProjectModalContainer = ({ dialog }: Props) => (
                     const response = await createProject({ variables })
 
                     if (response.data.createProject.status === 'SUCCESS') {
+                      const dialog = getDialog()
                       dialog.hide()
                       formNode.reset()
                       Router.push('/')

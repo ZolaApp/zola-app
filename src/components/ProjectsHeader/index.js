@@ -13,6 +13,8 @@ class ProjectsHeader extends Component {
     if (this.dialog) this.dialog.show()
   }
 
+  exposeDialog = () => this.dialog
+
   render() {
     return (
       <Wrapper padding="large">
@@ -39,7 +41,7 @@ class ProjectsHeader extends Component {
           title="Add a new project"
           closeButtonContent="× Close"
         >
-          <NewProjectModalContainer dialog={this.dialog} />
+          <NewProjectModalContainer getDialog={this.exposeDialog} />
         </Dialog>
       </Wrapper>
     )
