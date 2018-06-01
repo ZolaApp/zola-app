@@ -10,6 +10,8 @@ const Text = styled.span`
   font-weight: normal;
   display: inline-block;
   ${({ theme, underline }) => underline && `text-decoration: underline;`};
+  ${({ theme, monospaced }) =>
+    monospaced && `font-family: ${theme.fonts.families.sourceCode}`};
 `
 
 export default Text
