@@ -7,12 +7,14 @@ query getProject($projectSlug: String!) {
     missingTranslations
     newKeys
     translationKeys {
+      id
       key
       translationValues {
         value
       }
     }
     locales {
+      id
       name
       code
     }

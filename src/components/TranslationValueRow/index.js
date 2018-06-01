@@ -6,7 +6,8 @@ import { Wrapper, ContentWrapper, LocaleWrapper, Textarea } from './styles'
 
 type Props = {
   locale: Locale,
-  translationKeyValue: TranslationValue | null
+  translationKeyValue: TranslationValue | null,
+  onBlur: string => any
 }
 
 type State = {
@@ -20,15 +21,20 @@ class TranslationValueRow extends Component<Props, State> {
     value: ''
   }
 
-  toggleFocus = () => {
-    this.setState(state => ({ isFocused: !state.isFocused }))
-  }
-
   onChange = (value: string) => {
     this.setState(state => ({
       ...state,
       value
     }))
+  }
+
+  toggleFocus = () => {
+    this.setState(state => ({ isFocused: !state.isFocused }))
+  }
+
+  onInputBlur = () => {
+    this.props.onBlur(this.state.value)
+    this.toggleFocus()
   }
 
   componentDidMount = () => {
@@ -56,7 +62,7 @@ class TranslationValueRow extends Component<Props, State> {
             value={value}
             onChange={e => this.onChange(e.target.value)}
             onFocus={this.toggleFocus}
-            onBlur={this.toggleFocus}
+            onBlur={this.onInputBlur}
           />
         </ContentWrapper>
       </Wrapper>
