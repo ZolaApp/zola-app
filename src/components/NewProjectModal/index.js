@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react'
 import Wrapper from '@components/Wrapper'
-import Text from '@components/Text'
 import NewProjectForm from '@components/NewProjectForm'
 import type { Locale } from '@types/Locale'
 
@@ -34,19 +33,14 @@ class NewProjectModal extends Component<Props, State> {
       .map(l => ({ text: l.name, value: String(l.id) }))
 
     return (
-      <div>
-        <Wrapper padding="regular">
-          <Text>Create a new projet and import your keys</Text>
-        </Wrapper>
-        <Wrapper padding="regular">
-          <NewProjectForm
-            locales={normalizedLocales}
-            onSubmit={onSubmit}
-            errors={errors}
-            isLoading={isLoading}
-          />
-        </Wrapper>
-      </div>
+      <Wrapper padding="regular">
+        <NewProjectForm
+          locales={normalizedLocales}
+          onSubmit={onSubmit}
+          errors={errors}
+          isLoading={isLoading}
+        />
+      </Wrapper>
     )
   }
 }

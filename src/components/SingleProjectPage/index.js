@@ -20,6 +20,8 @@ class SingleProjectPage extends Component<Props> {
     }
   }
 
+  exposeDialog = () => this.dialog
+
   render() {
     const { project } = this.props
     const keys = project.translationKeys
@@ -29,14 +31,23 @@ class SingleProjectPage extends Component<Props> {
         <KeysHeader onAddKeyClick={this.onAddKeyClick} />
         <KeyList keys={keys} onAddKeyClick={this.onAddKeyClick} />
         <Dialog
-          id="new-project-dialog"
+          id="new-key-dialog"
+          classNames={{
+            base: 'dialog',
+            document: 'dialog__document',
+            closeButton: 'dialog__close-button',
+            title: 'dialog__title'
+          }}
           appRoot="#__next"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
-          title="Add a new project"
+          title="Add a new key"
           closeButtonContent="× Close"
         >
-          <NewKeyModalContainer dialog={this.dialog} project={project} />
+          <NewKeyModalContainer
+            getDialog={this.exposeDialog}
+            project={project}
+          />
         </Dialog>
       </SingleProjectLayout>
     )

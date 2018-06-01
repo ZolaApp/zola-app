@@ -10,11 +10,11 @@ import { type Project } from '@types/Project'
 import mutation from './mutation.graphql'
 
 type Props = {
-  dialog: any,
+  getDialog: any,
   project: Project
 }
 
-const NewKeyModalContainer = ({ dialog, project }: Props) => (
+const NewKeyModalContainer = ({ getDialog, project }: Props) => (
   <Wrapper>
     <Mutation
       mutation={mutation}
@@ -43,6 +43,7 @@ const NewKeyModalContainer = ({ dialog, project }: Props) => (
               if (
                 response.data.addTranslationKeyToProject.status === 'SUCCESS'
               ) {
+                const dialog = getDialog()
                 dialog.hide()
                 formNode.reset()
                 toast.success('✅ Success! The key has been created.')

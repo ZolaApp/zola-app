@@ -11,7 +11,7 @@ type Props = { router: any, href: string }
 
 const ProjectMenu = ({ router, href }: Props) => (
   <Wrapper mTop="xlarge">
-    <Link href={`/project/${router.query.projectSlug}`}>
+    <Link href={`/project/${router.query.projectSlug}`} passHref>
       <MenuItem selected={router.pathname === '/project'}>
         <Icon icon="key" />
         <Text size="default" color="light">
@@ -20,7 +20,7 @@ const ProjectMenu = ({ router, href }: Props) => (
       </MenuItem>
     </Link>
 
-    <Link href={`/project/${router.query.projectSlug}/locales`}>
+    <Link href={`/project/${router.query.projectSlug}/locales`} passHref>
       <MenuItem selected={router.pathname === '/locales'}>
         <Icon icon="planet" />
         <Text size="default" color="light">

@@ -13,6 +13,8 @@ class ProjectsHeader extends Component {
     if (this.dialog) this.dialog.show()
   }
 
+  exposeDialog = () => this.dialog
+
   render() {
     return (
       <Wrapper padding="large">
@@ -27,13 +29,19 @@ class ProjectsHeader extends Component {
         </HeaderWrapper>
         <Dialog
           id="new-project-dialog"
+          classNames={{
+            base: 'dialog',
+            document: 'dialog__document',
+            closeButton: 'dialog__close-button',
+            title: 'dialog__title'
+          }}
           appRoot="#__next"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
           title="Add a new project"
           closeButtonContent="× Close"
         >
-          <NewProjectModalContainer dialog={this.dialog} />
+          <NewProjectModalContainer getDialog={this.exposeDialog} />
         </Dialog>
       </Wrapper>
     )
