@@ -27,7 +27,7 @@ class NewProjectForm extends Component<Props, State> {
   }
 
   onSelectApply = (options: Array<any>) => {
-    this.setState(state => ({ ...state, defaultLocaleId: options[0] || '' }))
+    this.setState(state => ({ defaultLocaleId: options[0] || '' }))
   }
 
   render() {
@@ -56,12 +56,7 @@ class NewProjectForm extends Component<Props, State> {
             placeholder="Please select a locale"
             options={locales}
           />
-          <input
-            required
-            type="hidden"
-            name="defaultLocaleId"
-            value={defaultLocaleId}
-          />
+          <input type="hidden" name="defaultLocaleId" value={defaultLocaleId} />
         </Wrapper>
         <Wrapper mTop="large">
           <Button
