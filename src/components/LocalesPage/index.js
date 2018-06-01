@@ -21,6 +21,8 @@ class LocalesPage extends React.Component<Props> {
     if (this.dialog) this.dialog.show()
   }
 
+  exposeDialog = () => this.dialog
+
   render() {
     const { project } = this.props
 
@@ -62,7 +64,10 @@ class LocalesPage extends React.Component<Props> {
           title="Add a new locale"
           closeButtonContent="× Close"
         >
-          <NewLocaleModalContainer dialog={this.dialog} project={project} />
+          <NewLocaleModalContainer
+            getDialog={this.exposeDialog}
+            project={project}
+          />
         </Dialog>
       </SingleProjectLayout>
     )

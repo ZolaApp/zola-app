@@ -12,11 +12,11 @@ import mutation from './mutation.graphql'
 import query from './query.graphql'
 
 type Props = {
-  dialog: any,
+  getDialog: any,
   project: Project
 }
 
-const NewLocaleModalContainer = ({ dialog, project }: Props) => (
+const NewLocaleModalContainer = ({ getDialog, project }: Props) => (
   <Wrapper>
     <Mutation
       mutation={mutation}
@@ -45,6 +45,7 @@ const NewLocaleModalContainer = ({ dialog, project }: Props) => (
                   const response = await addLocaleToProject({ variables })
 
                   if (response.data.addLocaleToProject.status === 'SUCCESS') {
+                    const dialog = getDialog()
                     dialog.hide()
                     form.reset()
                     toast.success('✅ Success! The locale has been added.')
