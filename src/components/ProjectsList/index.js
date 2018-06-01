@@ -48,7 +48,7 @@ class ProjectsList extends Component<Props> {
             <Wrapper mTop="regular" contentCentered>
               <NoResultsWrapper>
                 <Text monospaced>
-                  Oh no, you haven't created a project at the moment :(
+                  Oh no, you haven’t created a project at the moment :(
                 </Text>
                 <Button onClick={this.openNewProjectDialog}>
                   Create your first project
