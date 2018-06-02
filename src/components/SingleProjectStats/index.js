@@ -1,58 +1,45 @@
-// @flow
 import React from 'react'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
 import StatBlock from '@components/StatBlock'
-import { Texts, Stats } from './styles'
+import { Stats } from './styles'
 
-type Props = {
-  firstName: string
-}
-
-const ProjectsStats = ({ firstName }: Props) => {
+const ProjectStats = () => {
   return (
     <Wrapper mBottom="xlarge">
-      <Wrapper padding="large">
-        <Texts>
-          <Text size="large">Hello {firstName}!</Text>
-          <Text color="semiDark">
-            Here are some statistics about your projects
-          </Text>
-        </Texts>
-      </Wrapper>
       <Stats>
         <StatBlock>
-          <Text size="huge">8</Text>
+          <Text size="huge">3465</Text>
           <Text size="regular" color="semiDark">
-            Projects
+            Total keys
           </Text>
         </StatBlock>
         <StatBlock>
-          <Text size="huge">78%</Text>
+          <Text size="huge">94%</Text>
           <Text size="regular" color="semiDark">
             Translation complete
           </Text>
         </StatBlock>
         <StatBlock>
-          <Text size="huge">4</Text>
+          <Text size="huge">6</Text>
           <Text size="regular" color="semiDark">
             Locales
           </Text>
         </StatBlock>
         <StatBlock>
-          <Text size="huge">34</Text>
+          <Text size="huge">67</Text>
           <Text size="regular" color="semiDark">
             New keys
           </Text>
         </StatBlock>
         <StatBlock>
-          <Text size="huge">12</Text>
+          <Text size="huge">11</Text>
           <Text size="regular" color="semiDark">
-            Missing translations
+            Missing translation
           </Text>
         </StatBlock>
         <StatBlock>
-          <Text size="huge">76</Text>
+          <Text size="huge">28</Text>
           <Text size="regular" color="semiDark">
             Unused keys
           </Text>
@@ -62,4 +49,4 @@ const ProjectsStats = ({ firstName }: Props) => {
   )
 }
 
-export default ProjectsStats
+export default ProjectStats
