@@ -23,7 +23,7 @@ const Icon = ({ icon, className, width, color }: Props) => {
       aria-hidden
       focusable="false"
     >
-      <use xlinkHref={`#icons--sprite_${icon}`} />
+      <use xlinkHref={`#icon-${icon}`} />
     </StyledIcon>
   )
 }
