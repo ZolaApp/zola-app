@@ -4,8 +4,11 @@ query getProject($projectSlug: String!) {
     name
     slug
 
-    missingTranslations
-    newKeys
+    stats {
+      missingTranslationsCount
+      newKeysCount
+    }
+
     translationKeys {
       id
       key
@@ -18,6 +21,7 @@ query getProject($projectSlug: String!) {
         }
       }
     }
+
     locales {
       id
       name
