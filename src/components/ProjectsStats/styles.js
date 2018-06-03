@@ -11,7 +11,8 @@ export const Texts = styled.div`
   }
 `
 
-export const Stats = styled.div`
+export const StatsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 185px);
+  grid-template-columns: repeat(5, 185px);
+  justify-content: center;
 `

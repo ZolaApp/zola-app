@@ -4,10 +4,23 @@ query homePageQuery {
     firstName
   }
 
+  stats: getGlobalStats {
+    projectsCount
+    completePercentage
+    localesCount
+    newKeysCount
+    missingTranslationsCount
+  }
+
   projects: getProjects {
     updatedAt
     slug
     name
     description
+
+    stats {
+      missingTranslationsCount
+      newKeysCount
+    }
   }
 }

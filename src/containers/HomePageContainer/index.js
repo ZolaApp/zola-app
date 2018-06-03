@@ -14,7 +14,11 @@ const HomePageContainer = () => (
         }
 
         return (
-          <HomePage firstName={data.user.firstName} projects={data.projects} />
+          <HomePage
+            firstName={data.user.firstName}
+            stats={data.stats}
+            projects={data.projects}
+          />
         )
       }}
     </Query>

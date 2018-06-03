@@ -1,8 +1,9 @@
 // @flow
 export type Stats = {
-  translationKeysCount: number,
-  missingTranslationsCount: number,
-  newKeysCount: number,
+  projectsCount: number,
   localesCount: number,
-  completePercentage: number
+  translationKeysCount: number,
+  completePercentage: number,
+  newKeysCount: number,
+  missingTranslationsCount: number
 }
