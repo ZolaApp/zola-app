@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { StyledButton } from '@components/ButtonIcon/styles'
 import { StyledLabel } from '@components/LocaleLabel/styles'
 import { StyledTag } from '@components/Tag/styles'
+import Text from '@components/Text'
 
 export const KeyValue = styled.div`
   display: inline-block;
@@ -20,6 +21,15 @@ export const KeyTranslationColumn = styled.div`
 
   ${StyledLabel} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
+    opacity: ${({ hasValueForDefaultLocale }) =>
+      hasValueForDefaultLocale ? '1' : '0.5'};
+  }
+
+  ${Text} {
+    font-style: ${({ hasValueForDefaultLocale }) =>
+      hasValueForDefaultLocale ? 'normal' : 'italic'};
+    opacity: ${({ hasValueForDefaultLocale, theme }) =>
+      hasValueForDefaultLocale ? '1' : '0.5'};
   }
 `
 
@@ -51,8 +61,8 @@ export const KeyRow = styled.div`
   display: grid;
   grid-template-columns: 30% 20% 50%;
   padding: ${({ theme }) => theme.sizes.regular};
-  background: ${({ opened, isEven, theme }) =>
-    opened
+  background: ${({ isOpened, isEven, theme }) =>
+    isOpened
       ? theme.colors.dark
       : isEven
         ? theme.colors.semiAccentLight
@@ -60,29 +70,30 @@ export const KeyRow = styled.div`
   user-select: none;
 
   &:hover {
-    background: ${({ theme, opened }) =>
-      opened ? theme.colors.dark : theme.colors.lightGray};
+    background: ${({ theme, isOpened }) =>
+      isOpened ? theme.colors.dark : theme.colors.lightGray};
   }
 
   ${KeyValue} {
-    ${({ opened, theme }) =>
-      opened &&
+    ${({ isOpened, theme }) =>
+      isOpened &&
       `
         background: ${theme.colors.alphaDark};
         color: ${theme.colors.light};
       `};
   }
 
-  ${KeyTranslationColumn} {
-    ${({ opened, theme }) =>
-      opened && `span { color: ${theme.colors.light}; }`};
-  }
-
   ${StyledLabel} {
-    ${({ opened, theme }) => opened && `background: ${theme.colors.alphaDark}`};
+    ${({ isOpened, theme }) =>
+      isOpened && `background: ${theme.colors.alphaDark}`};
   }
 
   ${StyledButton} {
-    ${({ opened, theme }) => opened && `fill: ${theme.colors.light};`};
+    ${({ isOpened, theme }) => isOpened && `fill: ${theme.colors.light};`};
+  }
+
+  ${Text} {
+    color: ${({ isOpened, theme }) =>
+      isOpened ? theme.colors.light : theme.colors.dark};
   }
 `

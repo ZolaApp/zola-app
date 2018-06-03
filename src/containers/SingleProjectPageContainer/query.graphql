@@ -15,6 +15,8 @@ query getProject($projectSlug: String!) {
     translationKeys {
       id
       key
+      hasMissingTranslations
+      isNew
       translationValues {
         value
         locale {
