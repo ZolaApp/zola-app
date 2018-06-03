@@ -3,6 +3,7 @@ import Text from '@components/Text'
 
 export const ListWrapper = styled.div`
   width: 100%;
+  margin-bottom: ${({ theme }) => theme.sizes.xlarge};
 `
 
 export const NoResultsWrapper = styled.div`

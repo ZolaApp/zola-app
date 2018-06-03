@@ -4,6 +4,7 @@ import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
 import Button from '@components/Button'
 import KeyItem from '@components/KeyItem'
+import KeyListPaginationBar from '@components/KeyListPaginationBar'
 import type { TranslationKey } from '@types/TranslationKey'
 import type { Locale } from '@types/Locale'
 import { ListWrapper, NoResultsWrapper } from './styles'
@@ -28,6 +29,51 @@ const KeyList = ({ keys, onAddKeyClick, locales }: Props) => {
             locales={locales}
           />
         ))}
+      {hasKeys &&
+        keys.map((k, index) => (
+          <KeyItem
+            key={k.key}
+            value={k}
+            isEven={index % 2 === 0}
+            locales={locales}
+          />
+        ))}
+      {hasKeys &&
+        keys.map((k, index) => (
+          <KeyItem
+            key={k.key}
+            value={k}
+            isEven={index % 2 === 0}
+            locales={locales}
+          />
+        ))}
+      {hasKeys &&
+        keys.map((k, index) => (
+          <KeyItem
+            key={k.key}
+            value={k}
+            isEven={index % 2 === 0}
+            locales={locales}
+          />
+        ))}
+      {hasKeys &&
+        keys.map((k, index) => (
+          <KeyItem
+            key={k.key}
+            value={k}
+            isEven={index % 2 === 0}
+            locales={locales}
+          />
+        ))}
+      {hasKeys &&
+        keys.map((k, index) => (
+          <KeyItem
+            key={k.key}
+            value={k}
+            isEven={index % 2 === 0}
+            locales={locales}
+          />
+        ))}
       {!hasKeys && (
         <Wrapper flex contentCentered mTop="xlarge">
           <NoResultsWrapper>
@@ -38,6 +84,7 @@ const KeyList = ({ keys, onAddKeyClick, locales }: Props) => {
           </NoResultsWrapper>
         </Wrapper>
       )}
+      <KeyListPaginationBar />
     </ListWrapper>
   )
 }
