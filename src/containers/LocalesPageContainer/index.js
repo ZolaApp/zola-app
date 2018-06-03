@@ -23,30 +23,7 @@ const LocalesPageContainer = ({ projectSlug }: Props) => (
           return <Loader isCentered withText isDark />
         }
 
-        const mockedLocales = [
-          {
-            name: 'French',
-            code: 'FR',
-            isDefault: true,
-            translatedPercentage: 1,
-            missingTranslations: 0
-          },
-          {
-            name: 'English',
-            code: 'EN',
-            translatedPercentage: 0.96,
-            missingTranslations: 22
-          }
-        ]
-
-        return (
-          <View
-            project={{
-              ...data.project,
-              locales: mockedLocales
-            }}
-          />
-        )
+        return <View project={data.project} />
       }}
     </Query>
   </Wrapper>

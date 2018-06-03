@@ -10,7 +10,7 @@ type Props = {
   locale: Locale
 }
 
-const LocalesRow = ({ isEven, locale }: Props) => (
+const LocaleRow = ({ isEven, locale }: Props) => (
   <Row isEven={isEven}>
     <Wrapper padding="regular">
       <RowWrapper>
@@ -33,4 +33,4 @@ const LocalesRow = ({ isEven, locale }: Props) => (
   </Row>
 )
 
-export default LocalesRow
+export default LocaleRow

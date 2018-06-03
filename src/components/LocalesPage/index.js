@@ -6,7 +6,7 @@ import NewLocaleModalContainer from '@containers/NewLocaleModalContainer'
 import SingleProjectLayout from '@components/SingleProjectLayout'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
-import LocaleRow from '@components/LocalesRow'
+import LocaleRow from '@components/LocaleRow'
 import Button from '@components/Button'
 import { Texts, HeaderWrapper } from './styles'
 
