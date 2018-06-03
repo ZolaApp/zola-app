@@ -1,3 +1,4 @@
+const fs = require('fs')
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -9,7 +10,9 @@ const environmentVariables = Object.entries(process.env).reduce(
 
     return acc
   },
-  {}
+  {
+    SVG_SPRITE: fs.readFileSync('./src/static/icons.svg', { encoding: 'utf8' })
+  }
 )
 
 module.exports = {

@@ -4,6 +4,7 @@ import Dialog from 'react-a11y-dialog'
 import SingleProjectLayout from '@components/SingleProjectLayout'
 import KeyList from '@components/KeyList'
 import KeysHeader from '@components/KeysHeader'
+import SingleProjectStats from '@components/SingleProjectStats'
 import type { Project } from '@types/Project'
 import NewKeyModalContainer from '@containers/NewKeyModalContainer'
 
@@ -29,6 +30,7 @@ class SingleProjectPage extends Component<Props> {
 
     return (
       <SingleProjectLayout>
+        <SingleProjectStats stats={project.stats} />
         <KeysHeader onAddKeyClick={this.onAddKeyClick} />
         <KeyList
           keys={keys}

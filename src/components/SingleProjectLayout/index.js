@@ -3,6 +3,7 @@ import React, { type Node } from 'react'
 import Wrapper from '@components/Wrapper'
 import Sidebar from '@components/Sidebar'
 import ProjectSidebarContainer from '@containers/ProjectSidebarContainer'
+import { SidebarsWrapper, ContentWrapper } from './styles'
 
 type Props = {
   children: Node
@@ -10,12 +11,16 @@ type Props = {
 
 const SingleProjectLayout = (props: Props) => (
   <Wrapper flex>
-    <Sidebar />
-    <ProjectSidebarContainer />
+    <SidebarsWrapper>
+      <Sidebar />
+      <ProjectSidebarContainer />
+    </SidebarsWrapper>
 
-    <Wrapper padding="xlarge" flex align="column" center>
-      {props.children}
-    </Wrapper>
+    <ContentWrapper>
+      <Wrapper padding="xlarge" flex align="column" center>
+        {props.children}
+      </Wrapper>
+    </ContentWrapper>
   </Wrapper>
 )
 
