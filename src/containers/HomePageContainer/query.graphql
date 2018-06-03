@@ -9,7 +9,5 @@ query homePageQuery {
     slug
     name
     description
-    missingTranslations
-    newKeys
   }
 }
