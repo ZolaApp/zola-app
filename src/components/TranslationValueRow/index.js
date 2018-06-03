@@ -21,11 +21,8 @@ class TranslationValueRow extends Component<Props, State> {
     value: ''
   }
 
-  onChange = (value: string) => {
-    this.setState(state => ({
-      ...state,
-      value
-    }))
+  onChange = ({ target: { value } }: SyntheticInputEvent<HTMLInputElement>) => {
+    this.setState({ value })
   }
 
   toggleFocus = () => {
@@ -60,7 +57,7 @@ class TranslationValueRow extends Component<Props, State> {
             rows="1"
             placeholder={`Translation for ${locale.name}`}
             value={value}
-            onChange={e => this.onChange(e.target.value)}
+            onChange={this.onChange}
             onFocus={this.toggleFocus}
             onBlur={this.onInputBlur}
           />
