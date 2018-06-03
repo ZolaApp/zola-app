@@ -81,7 +81,8 @@ class KeyItem extends Component<Props, State> {
           </KeyTranslationColumn>
           <KeyTagsAndActionsColumn>
             <TagList>
-              <Tag>Missing translation</Tag>
+              {value.hasMissingTranslations && <Tag>Missing translation</Tag>}
+              {value.isNew && <Tag color="orange">New key</Tag>}
             </TagList>
             <ButtonIcon icon="delete" onClick={() => {}} />
           </KeyTagsAndActionsColumn>
