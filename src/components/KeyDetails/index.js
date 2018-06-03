@@ -12,10 +12,10 @@ type Props = {
 
 const KeyDetails = ({ translationKey, locales }: Props) => (
   <DetailsWrapper>
-    {locales.map(l => (
+    {locales.map(locale => (
       <TranslationValueRowContainer
-        key={l.code}
-        locale={l}
+        key={locale.code}
+        locale={locale}
         translationKey={translationKey}
       />
     ))}

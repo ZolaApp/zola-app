@@ -7,9 +7,12 @@ import Wrapper from '@components/Wrapper'
 import { type Locale } from '@types/Locale'
 import { type TranslationKey } from '@types/TranslationKey'
 import { type TranslationValue } from '@types/TranslationValue'
+import { withRouter } from 'next/router'
+import getProjectQuery from '@containers/SingleProjectPageContainer/query.graphql'
 import mutation from './mutation.graphql'
 
 type Props = {
+  router: any,
   locale: Locale,
   translationKey: TranslationKey
 }
@@ -22,9 +25,22 @@ const valueFinder = (
     translationValues.find(v => v.locale.code === localeCode)) ||
   null
 
-const TranslationValueRowContainer = ({ locale, translationKey }: Props) => (
+const TranslationValueRowContainer = ({
+  router,
+  locale,
+  translationKey
+}: Props) => (
   <Wrapper>
-    <Mutation mutation={mutation}>
+    <Mutation
+      mutation={mutation}
+      // $FlowFixMe
+      refetchQueries={[
+        {
+          query: getProjectQuery,
+          variables: { projectSlug: router.query.projectSlug }
+        }
+      ]}
+    >
       {(addTranslationValueToTranslationKey, mutationData) => {
         return (
           <View
@@ -65,4 +81,4 @@ const TranslationValueRowContainer = ({ locale, translationKey }: Props) => (
   </Wrapper>
 )
 
-export default TranslationValueRowContainer
+export default withRouter(TranslationValueRowContainer)
