@@ -2,7 +2,8 @@
 import React from 'react'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
-import { Texts, Stats, StatBlock } from './styles'
+import StatBlock from '@components/StatBlock'
+import { Texts, Stats } from './styles'
 
 type Props = {
   firstName: string
