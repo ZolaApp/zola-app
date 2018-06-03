@@ -15,7 +15,7 @@ const ProjectStats = ({ stats }: Props) => {
     <Wrapper mBottom="xlarge">
       <StatsWrapper>
         <StatBlock>
-          <Text size="huge">3465</Text>
+          <Text size="huge">{stats.translationKeysCount}</Text>
           <Text size="regular" color="semiDark">
             Total keys
           </Text>
