@@ -1,3 +1,3 @@
 #!/bin/bash
 npm run lint:svg
-npx spritesh --input ./src/assets/images/icons --output ./src/static/icons.svg
+npx spritesh --input ./src/assets/icons --output ./src/static/icons.svg
