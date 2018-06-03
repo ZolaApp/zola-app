@@ -7,6 +7,8 @@ query getProject($projectSlug: String!) {
     stats {
       missingTranslationsCount
       newKeysCount
+      localesCount
+      completePercentage
     }
 
     translationKeys {

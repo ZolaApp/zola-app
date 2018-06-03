@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Stats = styled.div`
+export const StatsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(5, auto);
 `

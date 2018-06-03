@@ -29,7 +29,7 @@ class SingleProjectPage extends Component<Props> {
 
     return (
       <SingleProjectLayout>
-        <SingleProjectStats />
+        <SingleProjectStats stats={project.stats} />
         <KeysHeader onAddKeyClick={this.onAddKeyClick} />
         <KeyList keys={keys} onAddKeyClick={this.onAddKeyClick} />
         <Dialog
