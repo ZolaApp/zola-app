@@ -4,7 +4,7 @@ import Text from '@components/Text'
 import ButtonIcon from '@components/ButtonIcon'
 import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
-import KeyDetailsContainer from '@containers/KeyDetailsContainer'
+import KeyDetails from '@components/KeyDetails'
 import type { TranslationKey } from '@types/TranslationKey'
 import type { Locale } from '@types/Locale'
 import {
@@ -63,7 +63,7 @@ class KeyItem extends Component<Props, State> {
           </KeyTagsAndActionsColumn>
         </KeyRow>
         {detailsOpened && (
-          <KeyDetailsContainer translationKey={value} locales={locales} />
+          <KeyDetails translationKey={value} locales={locales} />
         )}
       </div>
     )
