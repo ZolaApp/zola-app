@@ -7,4 +7,9 @@ export const StyledButton = styled.button`
   padding: 0;
   line-height: 1em;
   cursor: pointer;
+  outline: none;
+
+  &:focus {
+    fill: blue;
+  }
 `

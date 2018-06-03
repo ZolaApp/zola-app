@@ -5,21 +5,28 @@ import Text from '@components/Text'
 import Button from '@components/Button'
 import KeyItem from '@components/KeyItem'
 import type { TranslationKey } from '@types/TranslationKey'
+import type { Locale } from '@types/Locale'
 import { ListWrapper, NoResultsWrapper } from './styles'
 
 type Props = {
   keys: Array<TranslationKey>,
+  locales: Array<Locale>,
   onAddKeyClick: () => any
 }
 
-const KeyList = ({ keys, onAddKeyClick }: Props) => {
+const KeyList = ({ keys, onAddKeyClick, locales }: Props) => {
   const hasKeys = keys.length > 0
 
   return (
     <ListWrapper>
       {hasKeys &&
         keys.map((k, index) => (
-          <KeyItem key={k.key} value={k} isEven={index % 2 === 0} />
+          <KeyItem
+            key={k.key}
+            value={k}
+            isEven={index % 2 === 0}
+            locales={locales}
+          />
         ))}
       {!hasKeys && (
         <Wrapper flex contentCentered mTop="xlarge">

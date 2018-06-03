@@ -6,18 +6,19 @@ import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
 import KeyDetails from '@components/KeyDetails'
 import type { TranslationKey } from '@types/TranslationKey'
+import type { Locale } from '@types/Locale'
 import {
   KeyRow,
   KeyValue,
   KeyTranslationColumn,
   KeyTagsAndActionsColumn,
-  TagList,
-  Actions
+  TagList
 } from './styles'
 
 type Props = {
   value: TranslationKey,
-  isEven: boolean
+  isEven: boolean,
+  locales: Array<Locale>
 }
 
 type State = {
@@ -38,7 +39,7 @@ class KeyItem extends Component<Props, State> {
   }
 
   render() {
-    const { isEven, value } = this.props
+    const { isEven, value, locales } = this.props
     const { detailsOpened } = this.state
     const { key } = value
 
@@ -58,13 +59,12 @@ class KeyItem extends Component<Props, State> {
             <TagList>
               <Tag>Missing translation</Tag>
             </TagList>
-            <Actions>
-              <ButtonIcon icon="edit" onClick={() => {}} />
-              <ButtonIcon icon="delete" onClick={() => {}} />
-            </Actions>
+            <ButtonIcon icon="delete" onClick={() => {}} />
           </KeyTagsAndActionsColumn>
         </KeyRow>
-        {detailsOpened && <KeyDetails />}
+        {detailsOpened && (
+          <KeyDetails translationKey={value} locales={locales} />
+        )}
       </div>
     )
   }

@@ -25,13 +25,18 @@ class SingleProjectPage extends Component<Props> {
 
   render() {
     const { project } = this.props
+    const { locales } = project
     const keys = project.translationKeys
 
     return (
       <SingleProjectLayout>
         <SingleProjectStats stats={project.stats} />
         <KeysHeader onAddKeyClick={this.onAddKeyClick} />
-        <KeyList keys={keys} onAddKeyClick={this.onAddKeyClick} />
+        <KeyList
+          keys={keys}
+          onAddKeyClick={this.onAddKeyClick}
+          locales={locales}
+        />
         <Dialog
           id="new-key-dialog"
           classNames={{

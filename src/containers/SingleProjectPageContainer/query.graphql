@@ -13,13 +13,20 @@ query getProject($projectSlug: String!) {
     }
 
     translationKeys {
+      id
       key
       translationValues {
         value
+        locale {
+          id
+          name
+          code
+        }
       }
     }
 
     locales {
+      id
       name
       code
     }

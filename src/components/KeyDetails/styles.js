@@ -7,12 +7,5 @@ export const DetailsWrapper = styled.div`
   border-top: solid 1px ${({ theme }) => theme.colors.alphaLight};
   background: ${({ theme }) => theme.colors.dark};
   color: ${({ theme }) => theme.colors.light};
-`
-
-export const TranslationsList = styled.div``
-
-export const Actions = styled.div`
-  position: absolute;
-  bottom: ${({ theme }) => theme.sizes.regular};
-  right: ${({ theme }) => theme.sizes.regular};
+  border-bottom: solid 2px ${({ theme }) => theme.colors.light};
 `
