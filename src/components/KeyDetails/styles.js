@@ -7,4 +7,5 @@ export const DetailsWrapper = styled.div`
   border-top: solid 1px ${({ theme }) => theme.colors.alphaLight};
   background: ${({ theme }) => theme.colors.dark};
   color: ${({ theme }) => theme.colors.light};
+  border-bottom: solid 2px ${({ theme }) => theme.colors.light};
 `
