@@ -32,10 +32,12 @@ const ProjectRow = ({ project, isEven }: Props) => (
         </Texts>
         <Labels>
           <Tooltip text="Missing translations">
-            <Label background="rose">{project.missingTranslations}</Label>
+            <Label background="rose">
+              {project.stats.missingTranslationsCount}
+            </Label>
           </Tooltip>
           <Tooltip text="New translations">
-            <Label background="orange">{project.newKeys}</Label>
+            <Label background="orange">{project.stats.newKeysCount}</Label>
           </Tooltip>
         </Labels>
       </RowWrapper>

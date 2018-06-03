@@ -9,5 +9,10 @@ query homePageQuery {
     slug
     name
     description
+
+    stats {
+      missingTranslationsCount
+      newKeysCount
+    }
   }
 }
