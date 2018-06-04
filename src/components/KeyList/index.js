@@ -29,51 +29,6 @@ const KeyList = ({ keys, onAddKeyClick, locales }: Props) => {
             locales={locales}
           />
         ))}
-      {hasKeys &&
-        keys.map((k, index) => (
-          <KeyItem
-            key={k.key}
-            value={k}
-            isEven={index % 2 === 0}
-            locales={locales}
-          />
-        ))}
-      {hasKeys &&
-        keys.map((k, index) => (
-          <KeyItem
-            key={k.key}
-            value={k}
-            isEven={index % 2 === 0}
-            locales={locales}
-          />
-        ))}
-      {hasKeys &&
-        keys.map((k, index) => (
-          <KeyItem
-            key={k.key}
-            value={k}
-            isEven={index % 2 === 0}
-            locales={locales}
-          />
-        ))}
-      {hasKeys &&
-        keys.map((k, index) => (
-          <KeyItem
-            key={k.key}
-            value={k}
-            isEven={index % 2 === 0}
-            locales={locales}
-          />
-        ))}
-      {hasKeys &&
-        keys.map((k, index) => (
-          <KeyItem
-            key={k.key}
-            value={k}
-            isEven={index % 2 === 0}
-            locales={locales}
-          />
-        ))}
       {!hasKeys && (
         <Wrapper flex contentCentered mTop="xlarge">
           <NoResultsWrapper>
