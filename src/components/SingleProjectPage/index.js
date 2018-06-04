@@ -26,7 +26,7 @@ class SingleProjectPage extends Component<Props> {
   render() {
     const { project } = this.props
     const { locales } = project
-    const keys = project.translationKeys.translationKeys
+    const keys = project.translationKeyPage.translationKeys
 
     return (
       <SingleProjectLayout>
