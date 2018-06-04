@@ -47,6 +47,10 @@ const NewKeyModalContainer = ({ getDialog, project }: Props) => (
                 dialog.hide()
                 formNode.reset()
                 toast.success('✅ Success! The key has been created.')
+              } else {
+                const errorMessage =
+                  response.data.addTranslationKeyToProject.errors[0].message
+                toast.error(errorMessage)
               }
             }}
           />
