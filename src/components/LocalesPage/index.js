@@ -45,6 +45,7 @@ class LocalesPage extends React.Component<Props> {
           {project.locales.map((locale, index) => (
             <LocaleRow
               key={locale.code}
+              isDefault={index === 0}
               isEven={index % 2 === 0}
               locale={locale}
             />
