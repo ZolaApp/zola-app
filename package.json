@@ -44,7 +44,7 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-node": "6.0.1",
     "eslint-plugin-promise": "3.8.0",
-    "eslint-plugin-react": "7.9.0",
+    "eslint-plugin-react": "7.9.1",
     "eslint-plugin-standard": "3.1.0",
     "flow-bin": "0.73.0",
     "husky": "0.15.0-rc.13",
