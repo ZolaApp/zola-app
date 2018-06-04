@@ -2,6 +2,7 @@
 // Set up using https://github.com/zeit/next.js/blob/canary/examples/with-apollo/lib/init-apollo.js
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
 import fetch from 'isomorphic-unfetch'
+import { toast } from 'react-toastify'
 import getAccessToken from '@helpers/getAccessToken'
 import redirectTo from '@helpers/redirectTo'
 
@@ -34,6 +35,17 @@ const create = (context: any = {}, initialState: any) =>
       credentials: 'same-origin',
       fetch: customFetch(context)
     }),
+    onError: ({ graphQLErrors, networkError }) => {
+      if (graphQLErrors) {
+        graphQLErrors.forEach(error => {
+          toast.error(`[GraphQL error]: ${error.message}}`)
+        })
+      }
+
+      if (networkError) {
+        toast.error(`[Network error]: ${networkError}`)
+      }
+    },
     cache: new InMemoryCache().restore(initialState || {})
   })
 
