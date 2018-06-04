@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
@@ -10,7 +11,11 @@ import {
   StatWrapper
 } from './styles'
 
-const KeyListPaginationBar = () => {
+type Props = {
+  keysCount: number
+}
+
+const KeyListPaginationBar = ({ keysCount }: Props) => {
   return (
     <FixedBar>
       <Wrapper flex center pLeft="xlarge" pRight="xlarge">
@@ -23,7 +28,7 @@ const KeyListPaginationBar = () => {
             <Text color="light">PAGINATION</Text>
           </PaginationWrapper>
           <StatWrapper>
-            <Text color="light">634 keys found</Text>
+            <Text color="light">{keysCount} keys found</Text>
           </StatWrapper>
         </StyledBar>
       </Wrapper>

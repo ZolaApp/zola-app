@@ -12,10 +12,11 @@ import { ListWrapper, NoResultsWrapper } from './styles'
 type Props = {
   keys: Array<TranslationKey>,
   locales: Array<Locale>,
+  keysCount: number,
   onAddKeyClick: () => any
 }
 
-const KeyList = ({ keys, onAddKeyClick, locales }: Props) => {
+const KeyList = ({ keys, onAddKeyClick, locales, keysCount }: Props) => {
   const hasKeys = keys.length > 0
 
   return (
@@ -39,7 +40,7 @@ const KeyList = ({ keys, onAddKeyClick, locales }: Props) => {
           </NoResultsWrapper>
         </Wrapper>
       )}
-      <KeyListPaginationBar />
+      <KeyListPaginationBar keysCount={keysCount} />
     </ListWrapper>
   )
 }
