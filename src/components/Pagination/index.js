@@ -1,10 +1,12 @@
 // @flow
 import React, { Component } from 'react'
 import Paginator from 'paginator'
+import { withRouter } from 'next/router'
 import Link from 'next/link'
 import { PaginationItem } from './styles'
 
 type Props = {
+  router: any,
   keysCount: number,
   activeIndex: number
 }
@@ -31,14 +33,16 @@ class Pagination extends Component<Props> {
   }
 
   render() {
-    const { keysCount, activeIndex } = this.props
+    const { keysCount, activeIndex, router } = this.props
     const paginationElements = buildPagination(keysCount, activeIndex)
 
     return (
       <div>
         {paginationElements.map(page => (
           <PaginationItem key={page} isActive={page === activeIndex + 1}>
-            <Link light={page === activeIndex + 1} href={`page/${page}`}>
+            <Link
+              href={`${router.route}/${router.query.projectSlug}?page=${page}`}
+            >
               <a>{page}</a>
             </Link>
           </PaginationItem>
@@ -48,4 +52,4 @@ class Pagination extends Component<Props> {
   }
 }
 
-export default Pagination
+export default withRouter(Pagination)
