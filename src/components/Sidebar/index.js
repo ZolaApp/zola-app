@@ -2,6 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import LogoSmall from '@components/LogoSmall'
+import Icon from '@components/Icon'
 import { StyledSidebar } from './styles'
 
 type Props = {
@@ -14,6 +15,11 @@ const Sidebar = ({ small }: Props) => {
       <Link href="/">
         <a>
           <LogoSmall />
+        </a>
+      </Link>
+      <Link href="/logout">
+        <a>
+          <Icon icon="logout" />
         </a>
       </Link>
     </StyledSidebar>
