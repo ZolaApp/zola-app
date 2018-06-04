@@ -32,7 +32,7 @@ const KeyList = ({ keys, onAddKeyClick, locales }: Props) => {
         <Wrapper flex contentCentered mTop="xlarge">
           <NoResultsWrapper>
             <Text size="medium">
-              Oh no! There isn’t any keys in this project
+              Oh no! There aren’t any keys in this project
             </Text>
             <Button onClick={onAddKeyClick}>Create your first key</Button>
           </NoResultsWrapper>
