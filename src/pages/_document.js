@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>Zola App</title>
+          <title>Zola</title>
           <link rel="icon" href="/static/favicon.png" />
           <link rel="stylesheet" href="/_next/static/style.css" />
           {this.props.styleTags}
