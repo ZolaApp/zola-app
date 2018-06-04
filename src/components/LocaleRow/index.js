@@ -10,7 +10,7 @@ type Props = {
   locale: Locale
 }
 
-const LocalesRow = ({ isEven, locale }: Props) => (
+const LocaleRow = ({ isEven, locale }: Props) => (
   <Row isEven={isEven}>
     <Wrapper padding="regular">
       <RowWrapper>
@@ -20,7 +20,7 @@ const LocalesRow = ({ isEven, locale }: Props) => (
         </Texts>
 
         <Texts>
-          <Text size="medium">{locale.translatedPercentage * 100}%</Text>
+          <Text size="medium">{locale.completePercentage}%</Text>
           <Text color="semiDark">Translated</Text>
         </Texts>
 
@@ -33,4 +33,4 @@ const LocalesRow = ({ isEven, locale }: Props) => (
   </Row>
 )
 
-export default LocalesRow
+export default LocaleRow

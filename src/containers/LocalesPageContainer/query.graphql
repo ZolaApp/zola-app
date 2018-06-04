@@ -3,9 +3,13 @@ query getProject($projectSlug: String!) {
     id
     slug
     name
+
     locales {
       name
       code
+
+      completePercentage
+      missingTranslations
     }
   }
 }
