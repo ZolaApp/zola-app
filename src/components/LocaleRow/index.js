@@ -6,17 +6,18 @@ import Text from '@components/Text'
 import { Row, RowWrapper, Texts } from './styles'
 
 type Props = {
+  isDefault: boolean,
   isEven: boolean,
   locale: Locale
 }
 
-const LocaleRow = ({ isEven, locale }: Props) => (
+const LocaleRow = ({ isDefault, isEven, locale }: Props) => (
   <Row isEven={isEven}>
     <Wrapper padding="regular">
       <RowWrapper>
         <Texts>
           <Text size="medium">{locale.name}</Text>
-          {locale.isDefault && <Text color="semiDark">Default locale</Text>}
+          {isDefault && <Text color="semiDark">Default locale</Text>}
         </Texts>
 
         <Texts>
