@@ -40,7 +40,7 @@ const KeyList = ({ keys, onAddKeyClick, locales, keysCount }: Props) => {
           </NoResultsWrapper>
         </Wrapper>
       )}
-      <KeyListPaginationBar keysCount={keysCount} />
+      {hasKeys && <KeyListPaginationBar keysCount={keysCount} />}
     </ListWrapper>
   )
 }
