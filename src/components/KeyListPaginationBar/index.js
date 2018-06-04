@@ -3,6 +3,7 @@ import React from 'react'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
 import Icon from '@components/Icon'
+import Pagination from '@components/Pagination'
 import {
   FixedBar,
   StyledBar,
@@ -25,7 +26,7 @@ const KeyListPaginationBar = ({ keysCount }: Props) => {
             <Text color="light">Export all keys</Text>
           </ExportButton>
           <PaginationWrapper>
-            <Text color="light">PAGINATION</Text>
+            <Pagination keysCount={keysCount} />
           </PaginationWrapper>
           <StatWrapper>
             <Text color="light">{keysCount} keys found</Text>
