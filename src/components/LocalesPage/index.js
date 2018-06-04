@@ -6,7 +6,7 @@ import NewLocaleModalContainer from '@containers/NewLocaleModalContainer'
 import SingleProjectLayout from '@components/SingleProjectLayout'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
-import LocaleRow from '@components/LocalesRow'
+import LocaleRow from '@components/LocaleRow'
 import Button from '@components/Button'
 import { Texts, HeaderWrapper } from './styles'
 
@@ -45,6 +45,7 @@ class LocalesPage extends React.Component<Props> {
           {project.locales.map((locale, index) => (
             <LocaleRow
               key={locale.code}
+              isDefault={index === 0}
               isEven={index % 2 === 0}
               locale={locale}
             />

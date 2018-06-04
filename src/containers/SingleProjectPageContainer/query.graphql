@@ -12,17 +12,20 @@ query getProject($projectSlug: String!) {
       completePercentage
     }
 
-    translationKeys {
-      id
-      key
-      hasMissingTranslations
-      isNew
-      translationValues {
-        value
-        locale {
-          id
-          name
-          code
+    translationKeyPage {
+      translationKeys {
+        id
+        key
+        hasMissingTranslations
+        isNew
+
+        translationValues {
+          value
+          locale {
+            id
+            name
+            code
+          }
         }
       }
     }

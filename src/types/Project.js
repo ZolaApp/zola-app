@@ -13,7 +13,9 @@ export type Project = {
 
   missingTranslations: number,
   newKeys: number,
-  translationKeys: Array<TranslationKey>,
+  translationKeyPage: {
+    translationKeys: Array<TranslationKey>
+  },
 
   locales: Array<Locale>,
 

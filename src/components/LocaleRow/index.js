@@ -6,21 +6,22 @@ import Text from '@components/Text'
 import { Row, RowWrapper, Texts } from './styles'
 
 type Props = {
+  isDefault: boolean,
   isEven: boolean,
   locale: Locale
 }
 
-const LocalesRow = ({ isEven, locale }: Props) => (
+const LocaleRow = ({ isDefault, isEven, locale }: Props) => (
   <Row isEven={isEven}>
     <Wrapper padding="regular">
       <RowWrapper>
         <Texts>
           <Text size="medium">{locale.name}</Text>
-          {locale.isDefault && <Text color="semiDark">Default locale</Text>}
+          {isDefault && <Text color="semiDark">Default locale</Text>}
         </Texts>
 
         <Texts>
-          <Text size="medium">{locale.translatedPercentage * 100}%</Text>
+          <Text size="medium">{locale.completePercentage}%</Text>
           <Text color="semiDark">Translated</Text>
         </Texts>
 
@@ -33,4 +34,4 @@ const LocalesRow = ({ isEven, locale }: Props) => (
   </Row>
 )
 
-export default LocalesRow
+export default LocaleRow
