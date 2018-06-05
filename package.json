@@ -69,6 +69,7 @@
     "next-routes": "1.4.2",
     "nodemon": "1.17.5",
     "nprogress": "0.2.0",
+    "paginator": "^1.0.0",
     "react": "16.4.0",
     "react-a11y-dialog": "3.0.6",
     "react-apollo": "2.1.4",

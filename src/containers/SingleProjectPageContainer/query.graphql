@@ -1,5 +1,9 @@
-query getProject($projectSlug: String!) {
-  project: getProject(projectSlug: $projectSlug) {
+query getProject($projectSlug: String!, $page: Int!, $pageSize: Int!) {
+  project: getProject(
+    projectSlug: $projectSlug
+    page: $page
+    pageSize: $pageSize
+  ) {
     id
     name
     slug

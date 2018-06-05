@@ -59,7 +59,7 @@ export const TagList = styled.div`
 export const KeyRow = styled.div`
   cursor: pointer;
   display: grid;
-  grid-template-columns: 30% 20% 50%;
+  grid-template-columns: 30% 50% 20%;
   padding: ${({ theme }) => theme.sizes.regular};
   background: ${({ isOpened, isEven, theme }) =>
     isOpened

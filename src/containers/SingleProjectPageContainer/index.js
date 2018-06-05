@@ -1,32 +1,46 @@
 // @flow
 import React from 'react'
+import { withRouter } from 'next/router'
 import { Query } from 'react-apollo'
 import ErrorPage from 'next/error'
 import View from '@components/SingleProjectPage'
 import Wrapper from '@components/Wrapper'
 import Loader from '@components/Loader'
+import { KEYS_PER_PAGE } from '@constants/pagination'
 import query from './query.graphql'
 
 type Props = {
+  router: any,
   projectSlug: string
 }
 
-const SingleProjectPageContainer = ({ projectSlug }: Props) => (
-  <Wrapper flex contentCentered stretch>
-    <Query query={query} variables={{ projectSlug }}>
-      {({ error, loading, data }: any) => {
-        if (error) {
-          return <ErrorPage statusCode={404} />
-        }
+const SingleProjectPageContainer = ({ projectSlug, router }: Props) => {
+  const activePageIndex = Number(router.query.page - 1) || 0
 
-        if (loading) {
-          return <Loader isCentered withText isDark />
-        }
+  return (
+    <Wrapper flex contentCentered stretch>
+      <Query
+        query={query}
+        variables={{
+          projectSlug,
+          page: activePageIndex,
+          pageSize: KEYS_PER_PAGE
+        }}
+      >
+        {({ error, loading, data }: any) => {
+          if (error) {
+            return <ErrorPage statusCode={404} />
+          }
 
-        return <View project={data.project} />
-      }}
-    </Query>
-  </Wrapper>
-)
+          if (loading) {
+            return <Loader isCentered withText isDark />
+          }
 
-export default SingleProjectPageContainer
+          return <View project={data.project} />
+        }}
+      </Query>
+    </Wrapper>
+  )
+}
+
+export default withRouter(SingleProjectPageContainer)

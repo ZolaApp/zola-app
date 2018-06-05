@@ -36,6 +36,7 @@ class SingleProjectPage extends Component<Props> {
           keys={keys}
           onAddKeyClick={this.onAddKeyClick}
           locales={locales}
+          keysCount={project.stats.translationKeysCount}
         />
         <Dialog
           id="new-key-dialog"
