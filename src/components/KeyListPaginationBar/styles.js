@@ -19,8 +19,9 @@ export const StyledBar = styled.div`
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
 `
 
-export const ExportButton = StyledButton.extend`
+export const ExportButton = StyledButton.withComponent('a').extend`
   background: transparent;
+  text-decoration: none;
 
   ${StyledIcon} {
     fill: ${({ theme }) => theme.colors.light};

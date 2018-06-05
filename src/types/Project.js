@@ -9,6 +9,7 @@ export type Project = {
 
   name: string,
   slug: string,
+  cdnToken: string,
   description: string,
 
   missingTranslations: number,

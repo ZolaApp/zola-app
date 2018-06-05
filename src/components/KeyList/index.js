@@ -13,10 +13,17 @@ type Props = {
   keys: Array<TranslationKey>,
   locales: Array<Locale>,
   keysCount: number,
+  cdnToken: string,
   onAddKeyClick: () => any
 }
 
-const KeyList = ({ keys, onAddKeyClick, locales, keysCount }: Props) => {
+const KeyList = ({
+  keys,
+  onAddKeyClick,
+  locales,
+  cdnToken,
+  keysCount
+}: Props) => {
   const hasKeys = keys.length > 0
 
   return (
@@ -40,7 +47,9 @@ const KeyList = ({ keys, onAddKeyClick, locales, keysCount }: Props) => {
           </NoResultsWrapper>
         </Wrapper>
       )}
-      {hasKeys && <KeyListPaginationBar keysCount={keysCount} />}
+      {hasKeys && (
+        <KeyListPaginationBar keysCount={keysCount} cdnToken={cdnToken} />
+      )}
     </ListWrapper>
   )
 }
