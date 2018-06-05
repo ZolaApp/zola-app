@@ -19,7 +19,7 @@ type Props = {
 }
 
 const KeyItemContainer = ({ projectSlug, router, ...props }: Props) => {
-  const page = Number(router.query.page - 1) || 0
+  const page = Number(router.query.page) - 1 || 0
   const filters = router.query.filters ? router.query.filters.split(',') : []
 
   return (

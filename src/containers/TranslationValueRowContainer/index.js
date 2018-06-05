@@ -40,7 +40,7 @@ const TranslationValueRowContainer = ({
           query: projectQuery,
           variables: {
             projectSlug: router.query.projectSlug,
-            page: Number(router.query.page - 1) || 0,
+            page: Number(router.query.page) - 1 || 0,
             pageSize: KEYS_PER_PAGE,
             filters: router.query.filters ? router.query.filters.split(',') : []
           }

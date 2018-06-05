@@ -20,7 +20,7 @@ type Props = {
 }
 
 const NewLocaleModalContainer = ({ getDialog, project, router }: Props) => {
-  const page = Number(router.query.page - 1) || 0
+  const page = Number(router.query.page) - 1 || 0
   const filters = router.query.filters ? router.query.filters.split(',') : []
 
   return (
