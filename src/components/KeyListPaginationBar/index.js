@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import Wrapper from '@components/Wrapper'
+import Link from 'next/link'
 import Text from '@components/Text'
 import Icon from '@components/Icon'
 import Pagination from '@components/Pagination'
@@ -13,18 +14,21 @@ import {
 } from './styles'
 
 type Props = {
-  keysCount: number
+  keysCount: number,
+  cdnToken: string
 }
 
-const KeyListPaginationBar = ({ keysCount }: Props) => {
+const KeyListPaginationBar = ({ keysCount, cdnToken }: Props) => {
   return (
     <FixedBar>
       <Wrapper flex center pLeft="xlarge" pRight="xlarge">
         <StyledBar>
-          <ExportButton>
-            <Icon icon="download" />
-            <Text color="light">Export all keys</Text>
-          </ExportButton>
+          <Link passHref href={`${process.env.CDN_URL}${cdnToken}/download`}>
+            <ExportButton target="_blank">
+              <Icon icon="download" />
+              <Text color="light">Export all keys</Text>
+            </ExportButton>
+          </Link>
           <PaginationWrapper>
             <Pagination keysCount={keysCount} />
           </PaginationWrapper>

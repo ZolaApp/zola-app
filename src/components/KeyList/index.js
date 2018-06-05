@@ -11,10 +11,11 @@ import { ListWrapper, NoResultsWrapper } from './styles'
 
 type Props = {
   keys: Array<TranslationKey>,
+  onAddKeyClick: () => any,
   locales: Array<Locale>,
   keysCount: number,
-  onAddKeyClick: () => any,
-  projectSlug: string
+  projectSlug: string,
+  cdnToken: string
 }
 
 const KeyList = ({
@@ -22,7 +23,8 @@ const KeyList = ({
   onAddKeyClick,
   locales,
   keysCount,
-  projectSlug
+  projectSlug,
+  cdnToken
 }: Props) => {
   const hasKeys = keys.length > 0
 
@@ -48,7 +50,9 @@ const KeyList = ({
           </NoResultsWrapper>
         </Wrapper>
       )}
-      {hasKeys && <KeyListPaginationBar keysCount={keysCount} />}
+      {hasKeys && (
+        <KeyListPaginationBar keysCount={keysCount} cdnToken={cdnToken} />
+      )}
     </ListWrapper>
   )
 }
