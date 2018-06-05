@@ -2,7 +2,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { toast } from 'react-toastify'
+import { withRouter } from 'next/router'
 import serializeForm from 'form-serialize'
+import { KEYS_PER_PAGE } from '@constants/pagination'
 import View from '@components/NewKeyModal'
 import Wrapper from '@components/Wrapper'
 import projectQuery from '@containers/SingleProjectPageContainer/query.graphql'
@@ -11,53 +13,67 @@ import mutation from './mutation.graphql'
 
 type Props = {
   getDialog: any,
-  project: Project
+  project: Project,
+  router: any
 }
 
-const NewKeyModalContainer = ({ getDialog, project }: Props) => (
-  <Wrapper>
-    <Mutation
-      mutation={mutation}
-      // $FlowFixMe
-      refetchQueries={[
-        { query: projectQuery, variables: { projectSlug: project.slug } }
-      ]}
-    >
-      {(addTranslationKeyToProject, mutationData) => {
-        return (
-          <View
-            errors={
-              mutationData.data
-                ? mutationData.data.addTranslationKeyToProject.errors
-                : []
+const NewKeyModalContainer = ({ getDialog, project, router }: Props) => {
+  const page = router.query.page || 0
+
+  return (
+    <Wrapper>
+      <Mutation
+        mutation={mutation}
+        // $FlowFixMe
+        refetchQueries={[
+          {
+            query: projectQuery,
+            variables: {
+              projectSlug: project.slug,
+              page,
+              pageSize: KEYS_PER_PAGE
             }
-            isLoading={mutationData.loading}
-            projectId={project.id}
-            onSubmit={async (e: any) => {
-              e.preventDefault()
-              const formNode = e.target
-              const variables = serializeForm(formNode, { hash: true })
-              // $FlowFixMe
-              const response = await addTranslationKeyToProject({ variables })
-
-              if (
-                response.data.addTranslationKeyToProject.status === 'SUCCESS'
-              ) {
-                const dialog = getDialog()
-                dialog.hide()
-                formNode.reset()
-                toast.success('✅ Success! The key has been created.')
-              } else {
-                const errorMessage =
-                  response.data.addTranslationKeyToProject.errors[0].message
-                toast.error(errorMessage)
+          }
+        ]}
+      >
+        {(addTranslationKeyToProject, mutationData) => {
+          return (
+            <View
+              errors={
+                mutationData.data
+                  ? mutationData.data.addTranslationKeyToProject.errors
+                  : []
               }
-            }}
-          />
-        )
-      }}
-    </Mutation>
-  </Wrapper>
-)
+              isLoading={mutationData.loading}
+              projectId={project.id}
+              onSubmit={async (e: any) => {
+                e.preventDefault()
+                const formNode = e.target
+                const variables = serializeForm(formNode, { hash: true })
+                // $FlowFixMe
+                const response = await addTranslationKeyToProject({ variables })
 
-export default NewKeyModalContainer
+                if (
+                  response.data.addTranslationKeyToProject.status === 'SUCCESS'
+                ) {
+                  const dialog = getDialog()
+                  dialog.hide()
+                  formNode.reset()
+                  toast.success('✅ Success! The key has been created.')
+                } else {
+                  response.data.addTranslationKeyToProject.errors.forEach(
+                    error => {
+                      toast.error(error.message)
+                    }
+                  )
+                }
+              }}
+            />
+          )
+        }}
+      </Mutation>
+    </Wrapper>
+  )
+}
+
+export default withRouter(NewKeyModalContainer)

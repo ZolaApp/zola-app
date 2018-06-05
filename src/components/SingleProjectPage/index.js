@@ -33,6 +33,7 @@ class SingleProjectPage extends Component<Props> {
         <SingleProjectStats stats={project.stats} />
         <KeysHeader onAddKeyClick={this.onAddKeyClick} />
         <KeyList
+          projectSlug={project.slug}
           keys={keys}
           onAddKeyClick={this.onAddKeyClick}
           locales={locales}

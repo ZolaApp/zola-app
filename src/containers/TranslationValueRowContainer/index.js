@@ -2,13 +2,14 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { toast } from 'react-toastify'
-import View from '@components/TranslationValueRow'
-import Wrapper from '@components/Wrapper'
+import { withRouter } from 'next/router'
 import { type Locale } from '@types/Locale'
 import { type TranslationKey } from '@types/TranslationKey'
 import { type TranslationValue } from '@types/TranslationValue'
-import { withRouter } from 'next/router'
-import getProjectQuery from '@containers/SingleProjectPageContainer/query.graphql'
+import projectQuery from '@containers/SingleProjectPageContainer/query.graphql'
+import View from '@components/TranslationValueRow'
+import Wrapper from '@components/Wrapper'
+import { KEYS_PER_PAGE } from '@constants/pagination'
 import mutation from './mutation.graphql'
 
 type Props = {
@@ -36,8 +37,12 @@ const TranslationValueRowContainer = ({
       // $FlowFixMe
       refetchQueries={[
         {
-          query: getProjectQuery,
-          variables: { projectSlug: router.query.projectSlug }
+          query: projectQuery,
+          variables: {
+            projectSlug: router.query.projectSlug,
+            page: router.query.page || 0,
+            pageSize: KEYS_PER_PAGE
+          }
         }
       ]}
     >

@@ -19,7 +19,8 @@ import {
 type Props = {
   value: TranslationKey,
   isEven: boolean,
-  locales: Array<Locale>
+  locales: Array<Locale>,
+  onDeleteSubmit: () => any
 }
 
 type State = {
@@ -50,10 +51,12 @@ class KeyItem extends Component<Props, State> {
     this.setState(state => ({ ...state, detailsOpened: !state.detailsOpened }))
   }
 
+  onDeleteClick = (event: Event) => event.stopPropagation()
+
   render() {
-    const { isEven, value, locales } = this.props
+    const { isEven, value, locales, onDeleteSubmit } = this.props
     const { detailsOpened } = this.state
-    const { key } = value
+    const { id: keyId, key } = value
     const defaultLocale = locales[0]
     const defaultLocaleTranslationValue = valueGetter(
       value.translationValues,
@@ -84,7 +87,12 @@ class KeyItem extends Component<Props, State> {
               {value.hasMissingTranslations && <Tag>Missing translation</Tag>}
               {value.isNew && <Tag color="orange">New key</Tag>}
             </TagList>
-            <ButtonIcon icon="delete" onClick={() => {}} />
+
+            {/* eslint-disable-next-line */}
+            <form onSubmit={onDeleteSubmit} onClick={this.onDeleteClick}>
+              <input type="hidden" name="translationKeyId" value={keyId} />
+              <ButtonIcon icon="delete" type="submit" />
+            </form>
           </KeyTagsAndActionsColumn>
         </KeyRow>
         {detailsOpened && (
