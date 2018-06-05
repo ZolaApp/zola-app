@@ -1,9 +1,9 @@
 // @flow
 import React from 'react'
+import KeyItemContainer from '@containers/KeyItemContainer'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
 import Button from '@components/Button'
-import KeyItem from '@components/KeyItem'
 import KeyListPaginationBar from '@components/KeyListPaginationBar'
 import type { TranslationKey } from '@types/TranslationKey'
 import type { Locale } from '@types/Locale'
@@ -13,21 +13,29 @@ type Props = {
   keys: Array<TranslationKey>,
   locales: Array<Locale>,
   keysCount: number,
-  onAddKeyClick: () => any
+  onAddKeyClick: () => any,
+  projectSlug: string
 }
 
-const KeyList = ({ keys, onAddKeyClick, locales, keysCount }: Props) => {
+const KeyList = ({
+  keys,
+  onAddKeyClick,
+  locales,
+  keysCount,
+  projectSlug
+}: Props) => {
   const hasKeys = keys.length > 0
 
   return (
     <ListWrapper>
       {hasKeys &&
         keys.map((k, index) => (
-          <KeyItem
+          <KeyItemContainer
             key={k.key}
             value={k}
             isEven={index % 2 === 0}
             locales={locales}
+            projectSlug={projectSlug}
           />
         ))}
       {!hasKeys && (
