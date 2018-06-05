@@ -26,16 +26,12 @@ class NewProjectModal extends Component<Props, State> {
 
   render() {
     const { locales, onSubmit, errors, isLoading } = this.props
-    let normalizedLocales = [...locales]
-    // TODO: We'll need to remove that size limit when the list will be shorter
-    normalizedLocales = normalizedLocales
-      .splice(0, 100)
-      .map(l => ({ text: l.name, value: String(l.id) }))
+    let localesList = locales.map(l => ({ text: l.name, value: String(l.id) }))
 
     return (
       <Wrapper padding="regular">
         <NewProjectForm
-          locales={normalizedLocales}
+          locales={localesList}
           onSubmit={onSubmit}
           errors={errors}
           isLoading={isLoading}
