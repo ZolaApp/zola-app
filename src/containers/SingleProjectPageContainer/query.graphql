@@ -24,6 +24,7 @@ query getProject(
     }
 
     translationKeyPage {
+      totalCount
       translationKeys {
         id
         key

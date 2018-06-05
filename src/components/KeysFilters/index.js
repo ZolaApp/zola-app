@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import SelectDropdown from '@components/SelectDropdown'
 import { withRouter } from 'next/router'
+import qs from 'qs'
 import { Wrapper } from './styles'
 
 type Props = {
@@ -11,9 +12,10 @@ type Props = {
 class KeysFilters extends Component<Props> {
   pushFiltersToUrl = filters => {
     const { router } = this.props
-    const queryString = router.query.page
-      ? `page=${router.query.page}&filters=${filters.join(',')}`
-      : `filters=${filters.join(',')}`
+    const queryString = qs.stringify({
+      page: router.query.page,
+      filters: filters.join(',')
+    })
     router.push(`/project/${router.query.projectSlug}?${queryString}`)
   }
 
