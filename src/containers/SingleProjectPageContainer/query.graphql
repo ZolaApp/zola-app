@@ -1,8 +1,14 @@
-query getProject($projectSlug: String!, $page: Int!, $pageSize: Int!) {
+query getProject(
+  $projectSlug: String!
+  $page: Int!
+  $pageSize: Int!
+  $filters: [String]
+) {
   project: getProject(
     projectSlug: $projectSlug
     page: $page
     pageSize: $pageSize
+    filters: $filters
   ) {
     id
     name
@@ -18,6 +24,7 @@ query getProject($projectSlug: String!, $page: Int!, $pageSize: Int!) {
     }
 
     translationKeyPage {
+      totalCount
       translationKeys {
         id
         key

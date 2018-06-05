@@ -15,7 +15,8 @@ type Props = {
 }
 
 const SingleProjectPageContainer = ({ projectSlug, router }: Props) => {
-  const activePageIndex = Number(router.query.page - 1) || 0
+  const activePageIndex = Number(router.query.page) - 1 || 0
+  const filters = router.query.filters ? router.query.filters.split(',') : []
 
   return (
     <Wrapper flex contentCentered stretch>
@@ -24,7 +25,8 @@ const SingleProjectPageContainer = ({ projectSlug, router }: Props) => {
         variables={{
           projectSlug,
           page: activePageIndex,
-          pageSize: KEYS_PER_PAGE
+          pageSize: KEYS_PER_PAGE,
+          filters
         }}
       >
         {({ error, loading, data }: any) => {

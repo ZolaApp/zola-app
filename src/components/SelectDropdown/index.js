@@ -16,10 +16,14 @@ import {
 
 type Props = {
   onApply: (Array<string>) => any,
+  onCancel: () => any,
   options: Array<SelectOption>,
+  selectedOptions: string[],
   isMultiple: boolean,
   hasValue: boolean,
-  placeholder: string
+  placeholder: string,
+  applyLabel: string,
+  cancelLabel: string
 }
 
 type State = {
@@ -28,13 +32,20 @@ type State = {
 
 class SelectDropdown extends Component<Props, State> {
   static defaultProps = {
+    onCancel: () => {},
+    selectedOptions: [],
     isMultiple: true,
     hasValue: false,
-    placeholder: 'Please select an option'
+    placeholder: 'Please select an option',
+    applyLabel: 'Apply',
+    cancelLabel: 'Clear'
   }
 
-  state = {
-    selectedOptions: []
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      selectedOptions: props.selectedOptions
+    }
   }
 
   selectItem = (value: string, apply: any) => {
@@ -75,7 +86,12 @@ class SelectDropdown extends Component<Props, State> {
       : placeholder
 
     if (isMultiple) {
-      endValue = placeholder
+      endValue =
+        selectedOptionsTexts.length > 0
+          ? `${selectedOptionsTexts.length} filter${
+              selectedOptionsTexts.length > 1 ? 's' : ''
+            }`
+          : placeholder
     }
 
     return endValue
@@ -86,11 +102,20 @@ class SelectDropdown extends Component<Props, State> {
   }
 
   onCancel = () => {
-    this.setState(state => ({ ...state, selectedOptions: [] }))
+    this.setState(
+      state => ({ ...state, selectedOptions: [] }),
+      this.props.onCancel
+    )
   }
 
   render() {
-    const { options, isMultiple, hasValue } = this.props
+    const {
+      options,
+      isMultiple,
+      hasValue,
+      applyLabel,
+      cancelLabel
+    } = this.props
 
     return (
       <Dropdown onCancel={this.onCancel} onApply={this.onApply}>
@@ -120,14 +145,14 @@ class SelectDropdown extends Component<Props, State> {
                 {isMultiple && (
                   <DropdownActions>
                     <Button transparent onClick={cancel}>
-                      Cancel
+                      {cancelLabel}
                     </Button>
                     <Button
                       transparent
                       onClick={apply}
                       disabled={this.state.selectedOptions.length === 0}
                     >
-                      Apply
+                      {applyLabel}
                     </Button>
                   </DropdownActions>
                 )}

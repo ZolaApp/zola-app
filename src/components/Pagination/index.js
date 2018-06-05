@@ -4,6 +4,7 @@ import Paginator from 'paginator'
 import { withRouter } from 'next/router'
 import Link from 'next/link'
 import { KEYS_PER_PAGE, LINKS_COUNT } from '@constants/pagination'
+import qs from 'qs'
 import { PaginationItem } from './styles'
 
 type Props = {
@@ -25,6 +26,16 @@ const buildPagination = (totalPagesCount, currentPageIndex) => {
 }
 
 class Pagination extends Component<Props> {
+  getLinkHref = page => {
+    const { router } = this.props
+    const queryString = qs.stringify({
+      page: page,
+      filters: router.query.filters ? router.query.filters : []
+    })
+
+    return `/project/${router.query.projectSlug}?${queryString}`
+  }
+
   render() {
     const { keysCount, router } = this.props
     const activeIndex = router.query.page - 1 || 0
@@ -34,10 +45,7 @@ class Pagination extends Component<Props> {
       <div>
         {paginationElements.map(page => (
           <PaginationItem key={page} isActive={page === activeIndex + 1}>
-            <Link
-              prefetch
-              href={`${router.route}/${router.query.projectSlug}?page=${page}`}
-            >
+            <Link prefetch href={this.getLinkHref(page)}>
               <a>{page}</a>
             </Link>
           </PaginationItem>

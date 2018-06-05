@@ -20,7 +20,8 @@ type Props = {
 }
 
 const NewLocaleModalContainer = ({ getDialog, project, router }: Props) => {
-  const page = router.query.page || 0
+  const page = Number(router.query.page) - 1 || 0
+  const filters = router.query.filters ? router.query.filters.split(',') : []
 
   return (
     <Wrapper>
@@ -33,7 +34,8 @@ const NewLocaleModalContainer = ({ getDialog, project, router }: Props) => {
             variables: {
               projectSlug: project.slug,
               page,
-              pageSize: KEYS_PER_PAGE
+              pageSize: KEYS_PER_PAGE,
+              filters
             }
           },
           { query: query }
