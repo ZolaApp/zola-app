@@ -35,7 +35,7 @@ const KeyItemContainer = ({ projectSlug, router, ...props }: Props) => {
       {(deleteTranslationKey, mutationData) => (
         <View
           {...props}
-          onDelete={async (event: any) => {
+          onDeleteSubmit={async (event: any) => {
             event.preventDefault()
             const variables = serializeForm(event.target, { hash: true })
             // $FlowFixMe

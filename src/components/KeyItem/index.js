@@ -20,7 +20,7 @@ type Props = {
   value: TranslationKey,
   isEven: boolean,
   locales: Array<Locale>,
-  onDelete: () => any
+  onDeleteSubmit: () => any
 }
 
 type State = {
@@ -51,8 +51,10 @@ class KeyItem extends Component<Props, State> {
     this.setState(state => ({ ...state, detailsOpened: !state.detailsOpened }))
   }
 
+  onDeleteClick = (event: Event) => event.stopPropagation()
+
   render() {
-    const { isEven, value, locales, onDelete } = this.props
+    const { isEven, value, locales, onDeleteSubmit } = this.props
     const { detailsOpened } = this.state
     const { id: keyId, key } = value
     const defaultLocale = locales[0]
@@ -86,7 +88,8 @@ class KeyItem extends Component<Props, State> {
               {value.isNew && <Tag color="orange">New key</Tag>}
             </TagList>
 
-            <form onSubmit={onDelete}>
+            {/* eslint-disable-next-line */}
+            <form onSubmit={onDeleteSubmit} onClick={this.onDeleteClick}>
               <input type="hidden" name="translationKeyId" value={keyId} />
               <ButtonIcon icon="delete" type="submit" />
             </form>
