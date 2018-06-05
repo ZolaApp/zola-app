@@ -19,7 +19,8 @@ type Props = {
   options: Array<SelectOption>,
   isMultiple: boolean,
   hasValue: boolean,
-  placeholder: string
+  placeholder: string,
+  applyLabel: string
 }
 
 type State = {
@@ -30,7 +31,8 @@ class SelectDropdown extends Component<Props, State> {
   static defaultProps = {
     isMultiple: true,
     hasValue: false,
-    placeholder: 'Please select an option'
+    placeholder: 'Please select an option',
+    applyLabel: 'Apply'
   }
 
   state = {
@@ -90,7 +92,7 @@ class SelectDropdown extends Component<Props, State> {
   }
 
   render() {
-    const { options, isMultiple, hasValue } = this.props
+    const { options, isMultiple, hasValue, applyLabel } = this.props
 
     return (
       <Dropdown onCancel={this.onCancel} onApply={this.onApply}>
@@ -127,7 +129,7 @@ class SelectDropdown extends Component<Props, State> {
                       onClick={apply}
                       disabled={this.state.selectedOptions.length === 0}
                     >
-                      Apply
+                      {applyLabel}
                     </Button>
                   </DropdownActions>
                 )}

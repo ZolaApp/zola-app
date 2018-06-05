@@ -1,26 +1,37 @@
-import React from 'react'
+// @flow
+import React, { Component } from 'react'
 import SelectDropdown from '@components/SelectDropdown'
+import { withRouter } from 'next/router'
 import { Wrapper } from './styles'
 
-const KeysFilters = () => {
-  return (
-    <Wrapper>
-      <SelectDropdown
-        placeholder="Tags"
-        onApply={options => {
-          // TODO: handle filtering
-          console.log('apply...', options)
-        }}
-        options={[
-          { text: 'Missing translations', value: 'missing' },
-          { text: 'Unused keys', value: 'unused' },
-          { text: 'New keys', value: 'new' },
-          { text: 'Live env', value: 'live-env' },
-          { text: 'To translate', value: 'to-translate' }
-        ]}
-      />
-    </Wrapper>
-  )
+type Props = {
+  router: any
 }
 
-export default KeysFilters
+class KeysFilters extends Component<Props> {
+  onFilter = options => {
+    const { router } = this.props
+    const queryString = router.query.page
+      ? `page=${router.query.page}&filters=${options.join(',')}`
+      : `filters=${options.join(',')}`
+    router.push(`/project/${router.query.projectSlug}?${queryString}`)
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <SelectDropdown
+          placeholder="Filter keys"
+          applyLabel="Filter"
+          onApply={options => this.onFilter(options)}
+          options={[
+            { text: 'Missing translations', value: 'hasMissingTranslations' },
+            { text: 'New key', value: 'isNew' }
+          ]}
+        />
+      </Wrapper>
+    )
+  }
+}
+
+export default withRouter(KeysFilters)
