@@ -9,21 +9,40 @@ type Props = {
 }
 
 class KeysFilters extends Component<Props> {
-  onFilter = options => {
+  pushFiltersToUrl = filters => {
     const { router } = this.props
     const queryString = router.query.page
-      ? `page=${router.query.page}&filters=${options.join(',')}`
-      : `filters=${options.join(',')}`
+      ? `page=${router.query.page}&filters=${filters.join(',')}`
+      : `filters=${filters.join(',')}`
     router.push(`/project/${router.query.projectSlug}?${queryString}`)
   }
 
+  onFilter = filters => {
+    this.pushFiltersToUrl(filters)
+  }
+
+  getSelectedOptions = () => {
+    const { router } = this.props
+
+    return router.query.filters ? router.query.filters.split(',') : []
+  }
+
+  onCancel = () => {
+    this.pushFiltersToUrl([])
+  }
+
   render() {
+    const selectedOptions = this.getSelectedOptions()
+    const hasValue = selectedOptions.length > 0
+
     return (
       <Wrapper>
         <SelectDropdown
           placeholder="Filter keys"
-          applyLabel="Filter"
           onApply={options => this.onFilter(options)}
+          onCancel={this.onCancel}
+          selectedOptions={selectedOptions}
+          hasValue={hasValue}
           options={[
             { text: 'Missing translations', value: 'hasMissingTranslations' },
             { text: 'New key', value: 'isNew' }
