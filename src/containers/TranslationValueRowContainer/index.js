@@ -61,6 +61,15 @@ const TranslationValueRowContainer = ({
             }
             isLoading={mutationData.loading}
             onBlur={async value => {
+              const savedValue = valueFinder(
+                translationKey.translationValues,
+                locale.code
+              )
+
+              if (savedValue && savedValue.value === value) {
+                return false
+              }
+
               const variables = {
                 value,
                 translationKeyId: translationKey.id,
