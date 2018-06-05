@@ -52,7 +52,7 @@ class NewLocaleForm extends React.Component<Props, State> {
             isLoading={isLoading}
             disabled={localeId === ''}
           >
-            Add key
+            Add locale
           </Button>
         </Wrapper>
       </form>
