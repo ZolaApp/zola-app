@@ -7,6 +7,7 @@ query getProject($projectSlug: String!, $page: Int!, $pageSize: Int!) {
     id
     name
     slug
+    cdnToken
 
     stats {
       translationKeysCount
