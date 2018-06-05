@@ -31,7 +31,7 @@ const ProjectsStats = ({ firstName, stats }: Props) => (
       </StatBlock>
 
       <StatBlock>
-        <Text size="huge">{stats.completePercentage}</Text>
+        <Text size="huge">{stats.completePercentage}%</Text>
         <Text size="regular" color="semiDark">
           Translations complete
         </Text>
