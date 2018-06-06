@@ -12,12 +12,28 @@ type Props = {
   onAddKeyClick: () => any
 }
 
-class KeysHeader extends React.Component<Props> {
+type State = {
+  search: string
+}
+
+class KeysHeader extends React.Component<Props, State> {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      search: props.router.query.search ? props.router.query.search : ''
+    }
+  }
+
+  onChange = (e: any) => {
+    this.setState({ search: e.target.value })
+  }
+
   onKeyUp = (e: any) => {
     const { router } = this.props
     const { keyCode, target } = e
 
-    if (keyCode === 13 && Boolean(target.value)) {
+    if (keyCode === 13) {
       const queryString = qs.stringify({
         page: router.query.page,
         filters: router.filters ? router.filters.join(',') : [],
@@ -37,6 +53,8 @@ class KeysHeader extends React.Component<Props> {
           placeholder="Search for a key"
           name="search"
           onKeyUp={this.onKeyUp}
+          onChange={this.onChange}
+          value={this.state.search}
         />
         <Button bordered onClick={onAddKeyClick}>
           Add a new key
