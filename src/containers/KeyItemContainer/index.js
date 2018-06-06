@@ -21,6 +21,7 @@ type Props = {
 const KeyItemContainer = ({ projectSlug, router, ...props }: Props) => {
   const page = Number(router.query.page) - 1 || 0
   const filters = router.query.filters ? router.query.filters.split(',') : []
+  const search = router.query.search || null
 
   return (
     <Mutation
@@ -29,7 +30,13 @@ const KeyItemContainer = ({ projectSlug, router, ...props }: Props) => {
       refetchQueries={[
         {
           query: projectQuery,
-          variables: { projectSlug, page, pageSize: KEYS_PER_PAGE, filters }
+          variables: {
+            projectSlug,
+            page,
+            pageSize: KEYS_PER_PAGE,
+            filters,
+            search
+          }
         }
       ]}
     >
