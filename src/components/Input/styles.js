@@ -7,9 +7,14 @@ export const StyledInput = styled.input`
   font-size: ${({ theme }) => theme.fonts.sizes.regular};
   border: solid 1px ${({ theme }) => theme.colors.border};
   background: transparent;
+  outline: none;
 
   &[aria-invalid='true'] {
     border-color: ${({ theme }) => theme.colors.rose};
     color: ${({ theme }) => theme.colors.rose};
+  }
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.dark};
   }
 `
