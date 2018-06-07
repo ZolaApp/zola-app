@@ -13,6 +13,10 @@ const HomePageContainer = () => (
           return <Loader isCentered withText isDark />
         }
 
+        if (error) {
+          return null
+        }
+
         return (
           <HomePage
             firstName={data.user.firstName}
