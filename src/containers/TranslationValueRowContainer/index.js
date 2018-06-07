@@ -70,7 +70,10 @@ const TranslationValueRowContainer = ({
                 locale.code
               )
 
-              if (savedValue && savedValue.value === value) {
+              if (
+                (savedValue && savedValue.value === value) ||
+                (!savedValue && value === '')
+              ) {
                 return false
               }
 
@@ -84,12 +87,11 @@ const TranslationValueRowContainer = ({
               const response = await addTranslationValueToTranslationKey({
                 variables
               })
+              const mutationResponse =
+                response.data.addTranslationValueToTranslationKey
 
-              if (
-                response.data.addTranslationValueToTranslationKey.status ===
-                'SUCCESS'
-              ) {
-                toast.success('✅ Your translation has been updated!')
+              if (mutationResponse.status === 'FAILURE') {
+                toast.error(mutationResponse.errors[0].message)
               }
             }}
           />
