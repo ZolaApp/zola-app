@@ -20,6 +20,8 @@ class Textarea extends Component<Props, State> {
     this.state = { value: props.value }
   }
 
+  getRowsCount = (value: string) => value.split('\n').length
+
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     this.setState({ value: event.target.value })
   }
@@ -29,10 +31,14 @@ class Textarea extends Component<Props, State> {
   }
 
   render() {
+    const { value } = this.state
+
     return (
       <StyledTextarea
         {...this.props}
-        value={this.state.value}
+        rows={this.getRowsCount(value) || 1}
+        value={value}
+        onChange={this.handleChange}
         onBlur={this.handleBlur}
       />
     )
