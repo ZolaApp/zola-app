@@ -66,6 +66,10 @@ const NewLocaleModalContainer = ({ getDialog, project, router }: Props) => {
                       dialog.hide()
                       form.reset()
                       toast.success('✅ Success! The locale has been added.')
+                    } else {
+                      toast.error(
+                        response.data.addLocaleToProject.errors[0].message
+                      )
                     }
                   }}
                   locales={queryData.data.locales.filter(
