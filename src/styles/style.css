@@ -144,3 +144,11 @@ a {
   margin-bottom: 0;
   font-size: 1.125em;
 }
+
+/* Toast customization */
+.custom-toast {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1em;
+}
