@@ -5,7 +5,7 @@ import Router from 'next/router'
 import NProgress from 'nprogress'
 import { ApolloProvider } from 'react-apollo'
 import { ThemeProvider } from 'styled-components'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, Slide } from 'react-toastify'
 import withApolloClient from '@higherOrders/withApolloClient'
 import 'react-toastify/dist/ReactToastify.css'
 import theme from '../styles/theme'
@@ -26,6 +26,8 @@ class ZolaApp extends App {
           <ThemeProvider theme={theme}>
             <Fragment>
               <ToastContainer
+                toastClassName="custom-toast"
+                transition={Slide}
                 position="top-left"
                 autoClose={5000}
                 hideProgressBar
