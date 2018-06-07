@@ -21,6 +21,10 @@ export const DropdownBubble = styled.div`
 export const OptionsList = styled.div`
   max-height: 170px;
   overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const OptionRow = styled.button`
