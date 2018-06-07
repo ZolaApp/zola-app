@@ -2,9 +2,12 @@
 import React from 'react'
 import { type Locale } from '@types/Locale'
 import Wrapper from '@components/Wrapper'
+import Text from '@components/Text'
 import Button from '@components/Button'
+import Checkbox from '@components/Checkbox'
 import { StyledLabel } from '@components/InputWithLabel/styles'
 import SelectDropdown from '@components/SelectDropdown'
+import { CheckboxWrapper } from './styles'
 
 type Props = {
   onSubmit: () => any,
@@ -14,11 +17,16 @@ type Props = {
 }
 
 type State = {
-  localeId: string
+  localeId: string,
+  prefill: boolean
 }
 
 class NewLocaleForm extends React.Component<Props, State> {
-  state = { localeId: '' }
+  state = { localeId: '', prefill: false }
+
+  onPrefillCheckToggled = (prefill: boolean) => {
+    this.setState(state => ({ prefill }))
+  }
 
   onSelectApply = (options: Array<any>) => {
     this.setState(state => ({ localeId: options[0] || '' }))
@@ -26,7 +34,7 @@ class NewLocaleForm extends React.Component<Props, State> {
 
   render() {
     const { onSubmit, isLoading, projectId, locales } = this.props
-    const { localeId } = this.state
+    const { localeId, prefill } = this.state
 
     return (
       <form onSubmit={onSubmit}>
@@ -42,7 +50,17 @@ class NewLocaleForm extends React.Component<Props, State> {
             }))}
           />
 
+          <CheckboxWrapper>
+            <Checkbox onCheckToggled={this.onPrefillCheckToggled} />
+            <Text>Use auto-prefill translation feature</Text>
+          </CheckboxWrapper>
+
           <input type="hidden" name="localeId" value={localeId} />
+          <input
+            type="hidden"
+            name="shouldPrefillTranslations"
+            value={prefill}
+          />
           <input type="hidden" name="projectId" value={projectId} />
         </Wrapper>
 
