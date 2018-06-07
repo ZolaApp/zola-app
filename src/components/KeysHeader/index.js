@@ -39,7 +39,7 @@ class KeysHeader extends React.Component<Props, State> {
         filters: router.filters ? router.filters.join(',') : [],
         search: target.value
       })
-      router.push(`/project/${router.query.projectSlug}?${queryString}`)
+      router.replace(`/project/${router.query.projectSlug}?${queryString}`)
     }
   }
 

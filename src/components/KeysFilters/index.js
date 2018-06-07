@@ -16,7 +16,7 @@ class KeysFilters extends Component<Props> {
       page: router.query.page,
       filters: filters.join(',')
     })
-    router.push(`/project/${router.query.projectSlug}?${queryString}`)
+    router.replace(`/project/${router.query.projectSlug}?${queryString}`)
   }
 
   onFilter = filters => {
