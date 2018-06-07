@@ -2,7 +2,8 @@
 import React, { Component } from 'react'
 import { type Locale } from '@types/Locale'
 import { type TranslationValue } from '@types/TranslationValue'
-import { Wrapper, ContentWrapper, LocaleWrapper, Textarea } from './styles'
+import Textarea from '@components/Textarea'
+import { Wrapper, ContentWrapper, LocaleWrapper } from './styles'
 
 type Props = {
   locale: Locale,
@@ -11,53 +12,32 @@ type Props = {
 }
 
 type State = {
-  isFocused: boolean,
-  value: string
+  isFocused: boolean
 }
 
 class TranslationValueRow extends Component<Props, State> {
-  state = {
-    isFocused: false,
-    value: ''
-  }
-
-  onChange = ({ target: { value } }: SyntheticInputEvent<HTMLInputElement>) => {
-    this.setState({ value })
-  }
+  state = { isFocused: false }
 
   toggleFocus = () => {
     this.setState(state => ({ isFocused: !state.isFocused }))
   }
 
-  onInputBlur = () => {
-    this.props.onBlur(this.state.value)
+  onInputBlur = (value: string) => {
+    this.props.onBlur(value)
     this.toggleFocus()
   }
 
-  componentDidMount = () => {
-    const { translationKeyValue } = this.props
-
-    if (translationKeyValue) {
-      this.setState(state => ({
-        ...state,
-        value: translationKeyValue.value
-      }))
-    }
-  }
-
   render() {
-    const { isFocused, value } = this.state
-    const { locale } = this.props
+    const { isFocused } = this.state
+    const { locale, translationKeyValue } = this.props
 
     return (
       <Wrapper>
         <ContentWrapper isFocused={isFocused}>
           <LocaleWrapper>{locale.name}</LocaleWrapper>
           <Textarea
-            rows="1"
+            value={translationKeyValue ? translationKeyValue.value : ''}
             placeholder={`Translation for ${locale.name}`}
-            value={value}
-            onChange={this.onChange}
             onFocus={this.toggleFocus}
             onBlur={this.onInputBlur}
           />
