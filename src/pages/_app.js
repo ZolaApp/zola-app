@@ -27,6 +27,7 @@ class ZolaApp extends App {
             <Fragment>
               <ToastContainer
                 toastClassName="custom-toast"
+                closeButton={false}
                 transition={Slide}
                 position="top-left"
                 autoClose={5000}
