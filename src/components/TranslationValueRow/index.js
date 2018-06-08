@@ -21,13 +21,15 @@ type State = {
 class TranslationValueRow extends Component<Props, State> {
   state = { isFocused: false }
 
-  toggleFocus = () => {
-    this.setState(state => ({ isFocused: !state.isFocused }))
+  handleFocus = () => {
+    this.setState(state => ({ isFocused: true }))
   }
 
-  onInputBlur = (value: string) => {
-    this.props.onBlur(value)
-    this.toggleFocus()
+  handleBlur = (value: string) => {
+    this.setState(
+      state => ({ isFocused: false }),
+      () => this.props.onBlur(value)
+    )
   }
 
   render() {
@@ -41,8 +43,8 @@ class TranslationValueRow extends Component<Props, State> {
           <Textarea
             value={translationKeyValue ? translationKeyValue.value : ''}
             placeholder={`Translation for ${locale.name}`}
-            onFocus={this.toggleFocus}
-            onBlur={this.onInputBlur}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
           />
           {isLoading && (
             <LoaderWrapper>
