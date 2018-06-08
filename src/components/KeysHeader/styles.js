@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   }
 
   ${StyledInput} {
-    padding: 0.5em 0.7em;
+    padding: ${({ theme }) => theme.sizes.small};
     height: auto;
     min-width: 160px;
 

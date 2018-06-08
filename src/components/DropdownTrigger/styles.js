@@ -15,6 +15,8 @@ export const Button = StyledButton.extend`
   border: solid 1px ${({ theme }) => theme.colors.border};
   color: ${({ theme }) => theme.colors.border};
   fill: ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.globals.radius};
+
   ${({ isOpened, theme }) =>
     isOpened &&
     css`
