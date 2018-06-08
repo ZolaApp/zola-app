@@ -9,24 +9,26 @@ export const Row = styled.div`
 
 export const RowWrapper = styled.div`
   display: grid;
-  grid-template-columns: auto 100px 150px;
+  grid-template-columns: auto 100px 190px 102px;
 `
 
 export const Texts = styled.div`
   display: grid;
-
-  ${({ bordered }) =>
-    bordered &&
-    `
-  border-left: 1px solid rgb(219, 219, 219);
-  padding-left: 2em;
-  `};
 
   ${Text} {
     &:last-child {
       margin-top: ${({ theme }) => theme.sizes.tiny};
     }
   }
+
+  ${({ bordered }) =>
+    bordered &&
+    `
+    border-left: 1px solid rgb(219, 219, 219);
+    padding-left: 2em;
+  `};
+
+  ${({ contentCentered }) => contentCentered && `align-items: center;`};
 `
 
 export const Labels = styled.div`
