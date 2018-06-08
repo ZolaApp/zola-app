@@ -51,7 +51,7 @@ const NewProjectModalContainer = ({ getDialog }: Props) => (
                       dialog.hide()
                       formNode.reset()
                       Router.push('/')
-                      toast.success('✅ Success! The project has been created.')
+                      toast.success('Success! The project has been created.')
                     }
                   }}
                 />

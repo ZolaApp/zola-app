@@ -50,7 +50,7 @@ const KeyItemContainer = ({ projectSlug, router, ...props }: Props) => {
             const response = await deleteTranslationKey({ variables })
 
             if (response.data.deleteTranslationKey.status === 'SUCCESS') {
-              toast.success('✅ Success! The key has been deleted.')
+              toast.success('Success! The key has been deleted.')
             } else {
               response.data.deleteTranslationKey.errors.forEach(error => {
                 toast.error(error.message)
