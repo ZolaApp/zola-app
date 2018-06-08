@@ -1,22 +1,42 @@
 // @flow
 import React from 'react'
-import { toast } from 'react-toastify'
+import { withRouter } from 'next/router'
 import { Mutation } from 'react-apollo'
+import { toast } from 'react-toastify'
 import View from '@components/PrefillValueAction'
+import projectQuery from '@containers/SingleProjectPageContainer/query.graphql'
+import { KEYS_PER_PAGE } from '@constants/pagination'
 import mutation from './mutation.graphql'
 
 type Props = {
+  router: any,
   value: string,
   translationKeyId: string,
   localeId: string
 }
 
 const PrefillValueContainer = ({
+  router,
   value,
   localeId,
   translationKeyId
 }: Props) => (
-  <Mutation mutation={mutation}>
+  <Mutation
+    mutation={mutation}
+    // $FlowFixMe
+    refetchQueries={[
+      {
+        query: projectQuery,
+        variables: {
+          projectSlug: router.query.projectSlug,
+          page: Number(router.query.page) - 1 || 0,
+          pageSize: KEYS_PER_PAGE,
+          filters: router.query.filters ? router.query.filters.split(',') : [],
+          search: router.query.search || null
+        }
+      }
+    ]}
+  >
     {(prefillTranslationValue, { loading, error, data }) => (
       <View
         onClick={async () => {
@@ -25,7 +45,7 @@ const PrefillValueContainer = ({
           const response = await prefillTranslationValue({ variables })
 
           if (response.data.prefillTranslationValue.status === 'SUCCESS') {
-            toast.success('Success!')
+            toast.success('Success! Here is a prefilled value')
           }
         }}
         isLoading={loading}
@@ -35,4 +55,4 @@ const PrefillValueContainer = ({
   </Mutation>
 )
 
-export default PrefillValueContainer
+export default withRouter(PrefillValueContainer)
