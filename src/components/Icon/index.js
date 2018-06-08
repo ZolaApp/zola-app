@@ -6,10 +6,11 @@ type Props = {
   icon: string,
   className: string,
   width: string,
+  height?: string,
   color: string
 }
 
-const Icon = ({ icon, className, width, color }: Props) => {
+const Icon = ({ icon, className, width, height, color }: Props) => {
   if (!icon) {
     return null
   }
@@ -18,6 +19,7 @@ const Icon = ({ icon, className, width, color }: Props) => {
     <StyledIcon
       color={color}
       width={width}
+      height={height}
       className={className}
       viewBox="0 0 32 32"
       aria-hidden
