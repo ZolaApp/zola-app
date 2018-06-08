@@ -8,6 +8,7 @@ export const StyledInput = styled.input`
   border: solid 1px ${({ theme }) => theme.colors.border};
   background: transparent;
   outline: none;
+  border-radius: ${({ theme }) => theme.globals.radius};
 
   &[aria-invalid='true'] {
     border-color: ${({ theme }) => theme.colors.rose};

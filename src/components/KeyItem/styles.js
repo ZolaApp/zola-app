@@ -69,6 +69,13 @@ export const KeyRow = styled.div`
         : theme.colors.light};
   user-select: none;
 
+  ${({ isOpened, theme }) =>
+    isOpened &&
+    `
+    border-top-left-radius: ${theme.globals.radius};
+    border-top-right-radius: ${theme.globals.radius};
+  `};
+
   &:hover {
     background: ${({ theme, isOpened }) =>
       isOpened ? theme.colors.dark : theme.colors.lightGray};

@@ -13,7 +13,7 @@ export const ContentWrapper = styled.div`
       isFocused ? theme.colors.light : 'transparent'};
   padding: ${({ theme }) => theme.sizes.tiny};
   margin-bottom: ${({ theme }) => theme.sizes.tiny};
-  border-radius: 2px;
+  border-radius: 4px;
 
   ${StyledButton} {
     justify-self: start;
