@@ -10,6 +10,7 @@ export const StyledTextarea = styled.textarea`
   outline: none;
   color: ${({ theme }) => theme.colors.light};
   margin-left: ${({ theme }) => theme.sizes.regular};
+  resize: vertical;
 
   &::-webkit-input-placeholder {
     font-style: italic;

@@ -10,6 +10,6 @@ export const StyledButton = styled.button`
   outline: none;
 
   &:focus {
-    fill: blue;
+    fill: ${({ theme }) => theme.colors.rose};
   }
 `
