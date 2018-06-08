@@ -20,7 +20,7 @@ const RegistrationFormContainer = () => (
 
           if (response.data.createUser.status === 'SUCCESS') {
             Router.push('/login')
-            toast.success('✅ Success! You can now log in to your account.')
+            toast.success('Success! You can now log in to your account.')
           }
         }}
         isLoading={loading}
