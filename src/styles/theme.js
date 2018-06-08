@@ -30,21 +30,21 @@ export default {
       sourceCode: "'Source Code Pro', monospace"
     },
     sizes: {
-      regular: '0.875em',
-      default: '1em',
-      medium: '1.125em',
-      large: '1.375em',
-      huge: '1.875em'
+      regular: '0.875rem',
+      default: '1rem',
+      medium: '1.125rem',
+      large: '1.375rem',
+      huge: '1.875rem'
     }
   },
   sizes: {
-    tiny: '0.313em',
-    small: '0.5em',
-    regular: '1em',
-    large: '1.875em',
-    xlarge: '3.75em',
-    huge: '5.625em',
-    enormous: '7.5em',
+    tiny: '0.313rem',
+    small: '0.5rem',
+    regular: '1rem',
+    large: '1.875rem',
+    xlarge: '3.75rem',
+    huge: '5.625rem',
+    enormous: '7.5rem',
     wrappers: {
       small: '430px',
       regular: '1110px'
