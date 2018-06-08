@@ -15,6 +15,7 @@ export const PaginationItem = styled.div`
     text-align: center;
     text-decoration: none;
     font-size: ${({ theme }) => theme.fonts.sizes.regular};
+    border-radius: ${({ theme }) => theme.globals.radius};
 
     &:hover,
     &:focus {
