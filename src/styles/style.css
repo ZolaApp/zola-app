@@ -146,9 +146,22 @@ a {
 }
 
 /* Toast customization */
+.Toastify__toast-container {
+  width: auto;
+  max-width: 50vw;
+}
+
 .custom-toast {
   border-radius: 5px;
   padding: 15px 25px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1em;
+}
+
+.Toastify__toast--error {
+  background: rgb(251, 67, 89);
+}
+
+.Toastify__toast--success {
+  background: rgb(111, 213, 0);
 }
