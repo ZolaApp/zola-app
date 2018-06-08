@@ -30,6 +30,13 @@ class Textarea extends Component<Props, State> {
     this.props.onBlur(this.state.value)
   }
 
+  handleKeyDown = (event: KeyboardEvent) => {
+    if (event.keyCode === 13 && !event.shiftKey) {
+      event.preventDefault()
+      this.props.onBlur(this.state.value)
+    }
+  }
+
   render() {
     const { value } = this.state
 
@@ -40,6 +47,7 @@ class Textarea extends Component<Props, State> {
         value={value}
         onChange={this.handleChange}
         onBlur={this.handleBlur}
+        onKeyDown={this.handleKeyDown}
       />
     )
   }
