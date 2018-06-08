@@ -48,6 +48,7 @@ class LocalesPage extends React.Component<Props> {
               isDefault={index === 0}
               isEven={index % 2 === 0}
               locale={locale}
+              cdnToken={project.cdnToken}
             />
           ))}
         </Wrapper>

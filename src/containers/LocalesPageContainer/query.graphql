@@ -3,6 +3,7 @@ query getProject($projectSlug: String!) {
     id
     slug
     name
+    cdnToken
 
     locales {
       name
