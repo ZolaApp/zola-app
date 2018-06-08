@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import Text from '@components/Text'
+import Icon from '@components/Icon'
 import ButtonIcon from '@components/ButtonIcon'
 import LocaleLabel from '@components/LocaleLabel'
 import Tag from '@components/Tag'
@@ -88,6 +89,7 @@ class KeyItem extends Component<Props, State> {
               {value.isNew && <Tag color="orange">New key</Tag>}
             </TagList>
 
+            <Icon icon="edit" width="16px" height="1em" />
             {/* eslint-disable-next-line */}
             <form onSubmit={onDeleteSubmit} onClick={this.onDeleteClick}>
               <input type="hidden" name="translationKeyId" value={keyId} />
