@@ -46,3 +46,9 @@ export const LoaderWrapper = styled.div`
     margin-right: ${({ theme }) => theme.sizes.small};
   }
 `
+
+export const PrefillButtonWrapper = styled.div`
+  position: absolute;
+  right: 8px;
+  top: 3px;
+`

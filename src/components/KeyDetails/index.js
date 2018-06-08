@@ -15,8 +15,9 @@ const KeyDetails = ({ translationKey, locales }: Props) => (
     {locales.map(locale => (
       <TranslationValueRowContainer
         key={locale.code}
-        locale={locale}
         translationKey={translationKey}
+        locale={locale}
+        defaultLocale={locales[0]}
       />
     ))}
   </DetailsWrapper>
