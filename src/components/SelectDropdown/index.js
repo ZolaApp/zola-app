@@ -147,11 +147,7 @@ class SelectDropdown extends Component<Props, State> {
                     <Button transparent onClick={cancel}>
                       {cancelLabel}
                     </Button>
-                    <Button
-                      transparent
-                      onClick={apply}
-                      disabled={this.state.selectedOptions.length === 0}
-                    >
+                    <Button transparent onClick={apply}>
                       {applyLabel}
                     </Button>
                   </DropdownActions>
