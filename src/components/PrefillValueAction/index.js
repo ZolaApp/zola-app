@@ -1,16 +1,23 @@
 // @flow
 import React from 'react'
+import Text from '@components/Text'
 import { Button } from './styles'
 
 type Props = {
-  onClick: any
+  onClick: any,
+  isLoading: boolean
 }
 
-const PrefillValueAction = ({ onClick }: Props) => {
+const PrefillValueAction = ({ onClick, isLoading }: Props) => {
   return (
-    <Button type="button" transparent tabIndex="-1" onClick={onClick}>
-      Prefill
-    </Button>
+    <div>
+      {!isLoading && (
+        <Button type="button" transparent tabIndex="-1" onClick={onClick}>
+          Prefill
+        </Button>
+      )}
+      {isLoading && <Text color="semiGray">Fetching translation...</Text>}
+    </div>
   )
 }
 

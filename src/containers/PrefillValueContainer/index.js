@@ -44,8 +44,8 @@ const PrefillValueContainer = ({
           // $FlowFixMe
           const response = await prefillTranslationValue({ variables })
 
-          if (response.data.prefillTranslationValue.status === 'SUCCESS') {
-            toast.success('Success! Your value was pre-filled.')
+          if (response.data.prefillTranslationValue.status === 'FAILURE') {
+            toast.error(response.data.prefillTranslationValue.errors[0].message)
           }
         }}
         isLoading={loading}

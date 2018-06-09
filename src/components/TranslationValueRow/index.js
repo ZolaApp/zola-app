@@ -7,7 +7,6 @@ import Loader from '@components/Loader'
 import Textarea from '@components/Textarea'
 import PrefillValueContainer from '@containers/PrefillValueContainer'
 import {
-  Wrapper,
   ContentWrapper,
   LocaleWrapper,
   LoaderWrapper,
@@ -56,7 +55,7 @@ class TranslationValueRow extends Component<Props, State> {
       : ''
 
     return (
-      <Wrapper>
+      <div>
         <ContentWrapper isFocused={isFocused}>
           <LocaleWrapper>{locale.name}</LocaleWrapper>
           <Textarea
@@ -71,15 +70,17 @@ class TranslationValueRow extends Component<Props, State> {
               <Text color="light">Saving…</Text>
             </LoaderWrapper>
           )}
-          <PrefillButtonWrapper>
-            <PrefillValueContainer
-              localeId={locale.id}
-              translationKeyId={translationKeyId}
-              value={defaultLocaleValue}
-            />
-          </PrefillButtonWrapper>
+          {defaultLocaleValue !== value && (
+            <PrefillButtonWrapper>
+              <PrefillValueContainer
+                localeId={locale.id}
+                translationKeyId={translationKeyId}
+                value={defaultLocaleValue}
+              />
+            </PrefillButtonWrapper>
+          )}
         </ContentWrapper>
-      </Wrapper>
+      </div>
     )
   }
 }
