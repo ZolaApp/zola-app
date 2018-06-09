@@ -6,6 +6,7 @@ export default {
     accentLight: 'rgb(240, 240, 240)',
     dark: 'rgb(25, 25, 25)',
     accentDark: 'rgb(35, 35, 35)',
+    green: 'rgb(111, 213, 0)',
     rose: 'rgb(251, 67, 89)',
     orange: 'rgb(255, 161, 7)',
     brown: 'rgb(40, 40, 40)',

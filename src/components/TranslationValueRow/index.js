@@ -1,14 +1,22 @@
 // @flow
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { type Locale } from '@types/Locale'
 import { type TranslationValue } from '@types/TranslationValue'
 import Text from '@components/Text'
 import Loader from '@components/Loader'
 import Textarea from '@components/Textarea'
-import { Wrapper, ContentWrapper, LocaleWrapper, LoaderWrapper } from './styles'
+import PrefillValueContainer from '@containers/PrefillValueContainer'
+import {
+  ContentWrapper,
+  LocaleWrapper,
+  LoaderWrapper,
+  PrefillButtonWrapper
+} from './styles'
 
 type Props = {
   locale: Locale,
+  translationKeyId: string,
+  defaultTranslationKeyValue: TranslationValue | null,
   translationKeyValue: TranslationValue | null,
   onBlur: string => any,
   isLoading: boolean
@@ -34,14 +42,26 @@ class TranslationValueRow extends Component<Props, State> {
 
   render() {
     const { isFocused } = this.state
-    const { locale, translationKeyValue, isLoading } = this.props
+    const {
+      locale,
+      translationKeyValue,
+      defaultTranslationKeyValue,
+      isLoading,
+      translationKeyId
+    } = this.props
+    const value = translationKeyValue ? translationKeyValue.value : ''
+    const defaultLocaleValue = defaultTranslationKeyValue
+      ? defaultTranslationKeyValue.value
+      : ''
 
     return (
-      <Wrapper>
+      <Fragment>
         <ContentWrapper isFocused={isFocused}>
-          <LocaleWrapper>{locale.name}</LocaleWrapper>
+          <LocaleWrapper>
+            {locale.name} ({locale.code})
+          </LocaleWrapper>
           <Textarea
-            value={translationKeyValue ? translationKeyValue.value : ''}
+            value={value}
             placeholder={`Translation for ${locale.name}`}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
@@ -49,11 +69,22 @@ class TranslationValueRow extends Component<Props, State> {
           {isLoading && (
             <LoaderWrapper>
               <Loader />
-              <Text color="light">Saving...</Text>
+              <Text color="light">Saving…</Text>
             </LoaderWrapper>
           )}
+          {defaultLocaleValue &&
+            !value &&
+            defaultLocaleValue !== value && (
+              <PrefillButtonWrapper>
+                <PrefillValueContainer
+                  localeId={locale.id}
+                  translationKeyId={translationKeyId}
+                  value={defaultLocaleValue}
+                />
+              </PrefillButtonWrapper>
+            )}
         </ContentWrapper>
-      </Wrapper>
+      </Fragment>
     )
   }
 }

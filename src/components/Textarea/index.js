@@ -20,6 +20,12 @@ class Textarea extends Component<Props, State> {
     this.state = { value: props.value }
   }
 
+  componentDidUpdate = (prevProps: Props) => {
+    if (prevProps.value !== this.props.value) {
+      this.setState({ value: this.props.value })
+    }
+  }
+
   getRowsCount = (value: string) => value.split('\n').length
 
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {

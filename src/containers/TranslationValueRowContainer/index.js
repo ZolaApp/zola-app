@@ -14,8 +14,9 @@ import mutation from './mutation.graphql'
 
 type Props = {
   router: any,
+  translationKey: TranslationKey,
   locale: Locale,
-  translationKey: TranslationKey
+  defaultLocale: Locale
 }
 
 const valueFinder = (
@@ -28,8 +29,9 @@ const valueFinder = (
 
 const TranslationValueRowContainer = ({
   router,
+  translationKey,
   locale,
-  translationKey
+  defaultLocale
 }: Props) => (
   <Wrapper>
     <Mutation
@@ -54,6 +56,11 @@ const TranslationValueRowContainer = ({
         return (
           <View
             locale={locale}
+            translationKeyId={translationKey.id}
+            defaultTranslationKeyValue={valueFinder(
+              translationKey.translationValues,
+              defaultLocale.code
+            )}
             translationKeyValue={valueFinder(
               translationKey.translationValues,
               locale.code
