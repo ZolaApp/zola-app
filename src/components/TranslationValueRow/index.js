@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { type Locale } from '@types/Locale'
 import { type TranslationValue } from '@types/TranslationValue'
 import Text from '@components/Text'
@@ -55,7 +55,7 @@ class TranslationValueRow extends Component<Props, State> {
       : ''
 
     return (
-      <div>
+      <Fragment>
         <ContentWrapper isFocused={isFocused}>
           <LocaleWrapper>
             {locale.name} ({locale.code})
@@ -84,7 +84,7 @@ class TranslationValueRow extends Component<Props, State> {
               </PrefillButtonWrapper>
             )}
         </ContentWrapper>
-      </div>
+      </Fragment>
     )
   }
 }
