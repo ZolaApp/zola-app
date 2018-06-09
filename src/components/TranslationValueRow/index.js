@@ -57,7 +57,9 @@ class TranslationValueRow extends Component<Props, State> {
     return (
       <div>
         <ContentWrapper isFocused={isFocused}>
-          <LocaleWrapper>{locale.name}</LocaleWrapper>
+          <LocaleWrapper>
+            {locale.name} ({locale.code})
+          </LocaleWrapper>
           <Textarea
             value={value}
             placeholder={`Translation for ${locale.name}`}
