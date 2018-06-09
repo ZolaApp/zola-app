@@ -49,6 +49,6 @@ export const LoaderWrapper = styled.div`
 
 export const PrefillButtonWrapper = styled.div`
   position: absolute;
-  right: 8px;
-  top: 3px;
+  right: 14px;
+  top: 6px;
 `

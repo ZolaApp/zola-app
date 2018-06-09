@@ -45,7 +45,7 @@ const PrefillValueContainer = ({
           const response = await prefillTranslationValue({ variables })
 
           if (response.data.prefillTranslationValue.status === 'SUCCESS') {
-            toast.success('Success! Here is a prefilled value')
+            toast.success('Success! Your value was pre-filled.')
           }
         }}
         isLoading={loading}

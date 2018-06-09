@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import Button from '@components/Button'
+import { Button } from './styles'
 
 type Props = {
   onClick: any
@@ -8,11 +8,9 @@ type Props = {
 
 const PrefillValueAction = ({ onClick }: Props) => {
   return (
-    <div>
-      <Button type="button" light tabIndex="-1" onClick={onClick}>
-        Prefill
-      </Button>
-    </div>
+    <Button type="button" transparent tabIndex="-1" onClick={onClick}>
+      Prefill
+    </Button>
   )
 }
 
