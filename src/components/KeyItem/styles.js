@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { StyledIcon } from '@components/Icon/styles'
 import { StyledButton } from '@components/ButtonIcon/styles'
 import { StyledLabel } from '@components/LocaleLabel/styles'
 import { StyledTag } from '@components/Tag/styles'
@@ -38,7 +39,7 @@ export const KeyTagsAndActionsColumn = styled.div`
   justify-self: end;
   align-self: center;
 
-  ${StyledButton} {
+  ${StyledButton}, ${StyledIcon} {
     margin-left: ${({ theme }) => theme.sizes.regular};
   }
 `
@@ -69,6 +70,13 @@ export const KeyRow = styled.div`
         : theme.colors.light};
   user-select: none;
 
+  ${({ isOpened, theme }) =>
+    isOpened &&
+    `
+    border-top-left-radius: ${theme.globals.radius};
+    border-top-right-radius: ${theme.globals.radius};
+  `};
+
   &:hover {
     background: ${({ theme, isOpened }) =>
       isOpened ? theme.colors.dark : theme.colors.lightGray};
@@ -88,7 +96,7 @@ export const KeyRow = styled.div`
       isOpened && `background: ${theme.colors.alphaDark}`};
   }
 
-  ${StyledButton} {
+  ${StyledButton}, ${StyledIcon} {
     ${({ isOpened, theme }) => isOpened && `fill: ${theme.colors.light};`};
   }
 

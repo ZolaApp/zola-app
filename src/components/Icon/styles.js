@@ -4,6 +4,7 @@ export const StyledIcon = styled.svg`
   display: inline-block;
   vertical-align: middle;
   width: ${({ theme, width }) => width || theme.sizes.regular};
+  height: ${({ height }) => height || 'auto'};
 
   svg {
     fill: ${({ color, theme }) =>
