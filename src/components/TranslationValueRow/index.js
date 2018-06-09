@@ -71,6 +71,7 @@ class TranslationValueRow extends Component<Props, State> {
             </LoaderWrapper>
           )}
           {defaultLocaleValue &&
+            !value &&
             defaultLocaleValue !== value && (
               <PrefillButtonWrapper>
                 <PrefillValueContainer
