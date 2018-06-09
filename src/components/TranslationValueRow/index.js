@@ -70,15 +70,16 @@ class TranslationValueRow extends Component<Props, State> {
               <Text color="light">Saving…</Text>
             </LoaderWrapper>
           )}
-          {defaultLocaleValue !== value && (
-            <PrefillButtonWrapper>
-              <PrefillValueContainer
-                localeId={locale.id}
-                translationKeyId={translationKeyId}
-                value={defaultLocaleValue}
-              />
-            </PrefillButtonWrapper>
-          )}
+          {defaultLocaleValue &&
+            defaultLocaleValue !== value && (
+              <PrefillButtonWrapper>
+                <PrefillValueContainer
+                  localeId={locale.id}
+                  translationKeyId={translationKeyId}
+                  value={defaultLocaleValue}
+                />
+              </PrefillButtonWrapper>
+            )}
         </ContentWrapper>
       </div>
     )
