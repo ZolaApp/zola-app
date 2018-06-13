@@ -14,11 +14,16 @@ const withApolloClient = (App: any) => {
   class ApolloClient extends React.Component<Props> {
     static async getInitialProps(context: any = {}) {
       const { Component, router } = context
+      const apolloState = {}
+      const apollo = initApollo(context.ctx, {})
+
+      // Add apolloClient to the context so that it can be used in the pages’
+      // `getInitialProps` method.
+      context.ctx.apolloClient = apollo
+
       const appProps = App.getInitialProps
         ? await App.getInitialProps(context)
         : {}
-      const apolloState = {}
-      const apollo = initApollo(context.ctx, {})
 
       try {
         await getDataFromTree(
