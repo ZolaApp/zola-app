@@ -5,7 +5,7 @@
 # Meta
 
 * __Production:__ [https://app.zola.ink](https://app.zola.ink)
-* __Staging:__ [http://zola-app-preprod.herokuapp.com/](http://zola-app-preprod.herokuapp.com/)
+* __Staging:__ [https://zola-app-preprod.herokuapp.com/](http://zola-app-preprod.herokuapp.com/)
 * __Github:__ [https://github.com/ZolaApp/zola-app](https://github.com/ZolaApp/zola-app)
 * __Deploys:__ merged PRs to `develop` are automatically deployed to staging; merged PRs from `develop` to `master` are automatically deployed to production.
 
