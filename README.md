@@ -1,6 +1,6 @@
 # Zola App
 
-[Zola App](https://github.com/ZolaApp/zola-app) is Zola’s dashboard, [https://app.zola.ink](https://app.zola.ink).
+[Zola App](https://github.com/ZolaApp/zola-app) is the source code for Zola’s dashboard, [https://app.zola.ink](https://app.zola.ink).
 
 # Meta
 
