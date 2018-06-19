@@ -8,6 +8,10 @@ import Text from '@components/Text'
 export const KeyValue = styled.div`
   display: inline-block;
   justify-self: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
   font-family: ${({ theme }) => theme.fonts.families.sourceCode};
   font-size: ${({ theme }) => theme.fonts.sizes.default};
   padding: 0.25em;
@@ -63,7 +67,8 @@ export const TagList = styled.div`
 export const KeyRow = styled.div`
   cursor: pointer;
   display: grid;
-  grid-template-columns: 30% auto 210px;
+  grid-template-columns: 40% auto 210px;
+  grid-column-gap: 0.5em;
   padding: ${({ theme }) => theme.sizes.regular};
   background: ${({ isOpened, isEven, theme }) =>
     isOpened
