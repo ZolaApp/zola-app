@@ -19,6 +19,9 @@ export const KeyValue = styled.div`
 export const KeyTranslationColumn = styled.div`
   display: inline-block;
   align-self: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
   ${StyledLabel} {
     margin-right: ${({ theme }) => theme.sizes.tiny};
