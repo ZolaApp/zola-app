@@ -1,0 +1,7 @@
+query newProjectModal {
+  locales: getLocales {
+    id
+    name
+    code
+  }
+}

@@ -1,0 +1,17 @@
+mutation addTranslationValueToTranslationKey(
+  $value: String!
+  $translationKeyId: ID!
+  $localeId: ID!
+) {
+  addTranslationValueToTranslationKey(
+    value: $value
+    translationKeyId: $translationKeyId
+    localeId: $localeId
+  ) {
+    status
+    errors {
+      field
+      message
+    }
+  }
+}

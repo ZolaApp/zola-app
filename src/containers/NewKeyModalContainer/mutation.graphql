@@ -1,0 +1,9 @@
+mutation addTranslationKeyToProject($key: String!, $projectId: ID!) {
+  addTranslationKeyToProject(key: $key, projectId: $projectId) {
+    status
+    errors {
+      field
+      message
+    }
+  }
+}

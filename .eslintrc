@@ -11,5 +11,18 @@
     "prettier/react",
     "prettier/flowtype"
   ],
-  "plugins": ["jsx-a11y", "flowtype"]
+  "plugins": ["import", "jsx-a11y", "flowtype"],
+  "rules": {
+    "padding-line-between-statements": [
+      2,
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": ["return", "multiline-block-like"]
+      },
+      { "blankLine": "always", "prev": "multiline-block-like", "next": "*" }
+    ],
+    "import/order": [2, { "newlines-between": "never" }],
+    "jsx-a11y/anchor-is-valid": 0
+  }
 }

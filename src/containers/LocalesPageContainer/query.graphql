@@ -1,0 +1,16 @@
+query getProject($projectSlug: String!) {
+  project: getProject(projectSlug: $projectSlug) {
+    id
+    slug
+    name
+    cdnToken
+
+    locales {
+      name
+      code
+
+      completePercentage
+      missingTranslations
+    }
+  }
+}

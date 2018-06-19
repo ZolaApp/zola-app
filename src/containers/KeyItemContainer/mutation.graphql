@@ -1,0 +1,9 @@
+mutation deleteTranslationKey($translationKeyId: ID!) {
+  deleteTranslationKey(translationKeyId: $translationKeyId) {
+    status
+    errors {
+      field
+      message
+    }
+  }
+}

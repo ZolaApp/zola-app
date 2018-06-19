@@ -1,0 +1,17 @@
+mutation addLocaleToProject(
+  $localeId: ID!
+  $projectId: ID!
+  $shouldPrefillTranslations: Boolean!
+) {
+  addLocaleToProject(
+    localeId: $localeId
+    projectId: $projectId
+    shouldPrefillTranslations: $shouldPrefillTranslations
+  ) {
+    status
+    errors {
+      field
+      message
+    }
+  }
+}

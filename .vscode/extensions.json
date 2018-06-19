@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "flowtype.flow-for-vscode",
+    "dbaeumer.vscode-eslint",
+    "kumar-harsh.graphql-for-vscode",
+    "wix.vscode-import-cost",
+    "eg2.vscode-npm-script",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode"
+  ]
+}

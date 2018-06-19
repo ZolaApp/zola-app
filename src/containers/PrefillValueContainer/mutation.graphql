@@ -1,0 +1,17 @@
+mutation prefillTranslationValue(
+  $value: String!
+  $translationKeyId: ID!
+  $localeId: ID!
+) {
+  prefillTranslationValue(
+    value: $value
+    translationKeyId: $translationKeyId
+    localeId: $localeId
+  ) {
+    status
+    errors {
+      field
+      message
+    }
+  }
+}
