@@ -17,13 +17,10 @@ export const Box = styled.div`
 
 export const DoubleInputsWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
 
   > ${InputWrapper} {
-    width: 50%;
-
-    &:first-child input {
-      border-right: none;
-    }
+    width: calc(50% - 7.5px);
   }
 `
 
