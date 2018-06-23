@@ -14,6 +14,7 @@ class KeysFilters extends Component<Props> {
     const { router } = this.props
     const queryString = qs.stringify({
       page: 1,
+      search: router.query.search || '',
       filters: filters.join(',')
     })
     router.replace(`/project/${router.query.projectSlug}?${queryString}`)
