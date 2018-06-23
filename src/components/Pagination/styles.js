@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const PaginationItem = styled.div`
   display: inline-block;
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.dark : theme.colors.light};
 
   a {
     display: inline-block;
