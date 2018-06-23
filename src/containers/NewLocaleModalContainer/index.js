@@ -58,9 +58,8 @@ const NewLocaleModalContainer = ({ getDialog, project, router }: Props) => {
                     event.preventDefault()
                     const form = event.target
                     const variables = serializeForm(form, { hash: true })
-                    variables.shouldPrefillTranslations = Boolean(
-                      variables.shouldPrefillTranslations
-                    )
+                    variables.shouldPrefillTranslations =
+                      variables.shouldPrefillTranslations === 'true'
                     // $FlowFixMe
                     const response = await addLocaleToProject({ variables })
 
