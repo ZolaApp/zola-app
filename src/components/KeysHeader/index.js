@@ -36,7 +36,7 @@ class KeysHeader extends React.Component<Props, State> {
     if (keyCode === 13) {
       const queryString = qs.stringify({
         page: 1,
-        filters: router.filters ? router.filters.join(',') : [],
+        filters: router.query.filters ? router.query.filters : [],
         search: target.value
       })
       router.replace(`/project/${router.query.projectSlug}?${queryString}`)
