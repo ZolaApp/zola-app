@@ -30,6 +30,7 @@ class Pagination extends Component<Props> {
     const { router } = this.props
     const queryString = qs.stringify({
       page: page,
+      search: router.query.search ? router.query.search : '',
       filters: router.query.filters ? router.query.filters : []
     })
 
