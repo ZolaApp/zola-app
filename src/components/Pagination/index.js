@@ -43,8 +43,9 @@ class Pagination extends Component<Props> {
     const paginationItems = buildPagination(keysCount, activeIndex).filter(
       page => page <= lastPage
     )
+    const shouldRenderPagination = paginationItems.length > 0
 
-    return (
+    return shouldRenderPagination ? (
       <div>
         {!paginationItems.includes(1) && (
           <Fragment>
@@ -80,7 +81,7 @@ class Pagination extends Component<Props> {
           </Fragment>
         )}
       </div>
-    )
+    ) : null
   }
 }
 
