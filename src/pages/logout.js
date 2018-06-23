@@ -9,8 +9,8 @@ class Logout extends React.Component<Props> {
   static async getInitialProps(context: any = {}) {
     clearAccessToken(context)
 
-    // Force a reload of all the current queries now that the user is
-    // logged out.
+    // Clear the cache now that the user is logged out. This will force a
+    // refetch on all queries if another user logs back in.
     await context.apolloClient.cache.reset()
     redirectTo(context, '/login')
 

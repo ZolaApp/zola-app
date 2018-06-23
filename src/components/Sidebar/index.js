@@ -17,11 +17,10 @@ const Sidebar = ({ small }: Props) => {
           <LogoSmall />
         </a>
       </Link>
-      <Link href="/logout">
-        <a>
-          <Icon icon="logout" />
-        </a>
-      </Link>
+
+      <a href="/logout">
+        <Icon icon="logout" />
+      </a>
     </StyledSidebar>
   )
 }

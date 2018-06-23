@@ -35,7 +35,7 @@ class KeysHeader extends React.Component<Props, State> {
 
     if (keyCode === 13) {
       const queryString = qs.stringify({
-        page: router.query.page,
+        page: 1,
         filters: router.filters ? router.filters.join(',') : [],
         search: target.value
       })
