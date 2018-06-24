@@ -12,5 +12,12 @@
   "register.subtitle": "Zola is made for you!",
   "register.first-name.placeholder": "John",
   "register.last-name.placeholder": "Doe",
-  "register.job.placeholder": "Product owner"
+  "register.job.placeholder": "Product owner",
+  "login.title": "Log in to Zola",
+  "login.subtitle": "We missed you!",
+  "login.submit": "Log in",
+  "login.not-registered": "First time here?",
+  "login.sign-up": "Create an account",
+  "login.password.label": "Password",
+  "login.email.label": "Email"
 }

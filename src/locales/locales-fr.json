@@ -12,5 +12,12 @@
   "register.subtitle": "Zola est fait pour vous!",
   "register.first-name.placeholder": "Stéphane",
   "register.last-name.placeholder": "Dupont",
-  "register.job.placeholder": "Directeur général"
+  "register.job.placeholder": "Directeur général",
+  "login.title": "Se connecter",
+  "login.subtitle": "Vous nous avez manqué!",
+  "login.submit": "Se connecter",
+  "login.not-registered": "Vous n’êtes pas encore inscrit(e)?",
+  "login.sign-up": "S’inscrire",
+  "login.password.label": "Mot de passe",
+  "login.email.label": "E-mail"
 }
