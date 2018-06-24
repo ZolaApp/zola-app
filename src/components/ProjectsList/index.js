@@ -9,10 +9,12 @@ import Button from '@components/Button'
 import ProjectRow from '@components/ProjectRow'
 import ProjectsHeader from '@components/ProjectsHeader'
 import NewProjectModalContainer from '@containers/NewProjectModalContainer'
+import { injectIntl, type Intl } from 'react-intl'
 import { StyledLink, NoResultsWrapper } from './styles'
 
 type Props = {
-  projects: Array<Project>
+  projects: Array<Project>,
+  intl: Intl
 }
 
 class ProjectsList extends Component<Props> {
@@ -26,6 +28,7 @@ class ProjectsList extends Component<Props> {
 
   render() {
     const { projects } = this.props
+    const { formatMessage } = this.props.intl
     const hasProjects = projects.length > 0
 
     return (
@@ -69,7 +72,7 @@ class ProjectsList extends Component<Props> {
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
           title="Add a new project"
-          closeButtonContent="× Close"
+          closeButtonContent={formatMessage({ id: 'modal.close' })}
         >
           <NewProjectModalContainer getDialog={this.exposeDialog} />
         </Dialog>
@@ -78,4 +81,4 @@ class ProjectsList extends Component<Props> {
   }
 }
 
-export default ProjectsList
+export default injectIntl(ProjectsList)

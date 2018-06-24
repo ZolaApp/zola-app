@@ -10,6 +10,8 @@
   "stats.locales": "Locales",
   "stats.new-keys": "New keys",
   "export-bar.export": "Export all keys",
+  "modal.add-key.title": "Add a new key",
+  "modal.add-key.input.label": "Key name",
   "register.already-registered": "Already registered?",
   "register.title": "Register a new account",
   "register.confirm-password.label": "Confirm password",
@@ -31,11 +33,13 @@
   "stats.complete-percentage": "Translations complete",
   "keys-header.filters.missing-translations": "Missing translations",
   "keys-header.filters.new-keys": "New keys",
+  "modal.add-key.submit": "Add key",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
   "sidebar.project-switcher.title": "Project",
   "sidebar.locales": "Locales",
   "keys-header.search.placeholder": "Search for a key",
-  "dropdown.cancel": "Cancel"
+  "dropdown.cancel": "Cancel",
+  "modal.close": "× Close"
 }
