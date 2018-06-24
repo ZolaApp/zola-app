@@ -5,6 +5,10 @@
   "sidebar.keys": "Clés",
   "stats.new-keys": "Nouvelles clés",
   "stats.missing-translations": "Traductions manquantes",
+  "keys-header.search.placeholder": "Rechercher une clé",
+  "keys-header.filters.label": "Filtrer les clés",
+  "keys-header.filters.new-keys": "Nouvelles clés",
+  "dropdown.cancel": "Annuler",
   "register.login": "Connexion",
   "register.already-registered": "Déjà inscrit?",
   "register.submit": "S’inscrire",
@@ -23,9 +27,12 @@
   "login.title": "Se connecter",
   "sidebar.project-switcher.title": "Projet",
   "sidebar.locales": "Langues",
+  "keys-header.add": "Ajouter une clé",
+  "dropdown.apply": "Appliquer",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
   "login.sign-up": "S’inscrire",
   "stats.complete-percentage": "Traductions complètes",
-  "stats.locales": "Langues"
+  "stats.locales": "Langues",
+  "keys-header.filters.missing-translations": "Trad. manquantes"
 }

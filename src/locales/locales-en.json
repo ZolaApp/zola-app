@@ -19,13 +19,20 @@
   "login.email.label": "Email",
   "sidebar.keys": "Keys",
   "stats.missing-translations": "Missing translations",
+  "keys-header.add": "Add a new key",
+  "keys-header.filters.label": "Filter keys",
+  "dropdown.apply": "Apply",
   "register.job.label": "Job",
   "register.first-name.placeholder": "John",
   "login.sign-up": "Create an account",
   "stats.complete-percentage": "Translations complete",
+  "keys-header.filters.missing-translations": "Missing translations",
+  "keys-header.filters.new-keys": "New keys",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
   "sidebar.project-switcher.title": "Project",
-  "sidebar.locales": "Locales"
+  "sidebar.locales": "Locales",
+  "keys-header.search.placeholder": "Search for a key",
+  "dropdown.cancel": "Cancel"
 }
