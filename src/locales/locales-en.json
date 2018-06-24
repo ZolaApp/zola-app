@@ -12,6 +12,8 @@
   "export-bar.export": "Export all keys",
   "modal.add-key.title": "Add a new key",
   "modal.add-key.input.label": "Key name",
+  "tag.not-translated": "Not translated",
+  "translation-value.saving": "Saving…",
   "register.already-registered": "Already registered?",
   "register.title": "Register a new account",
   "register.confirm-password.label": "Confirm password",
@@ -27,6 +29,8 @@
   "dropdown.apply": "Apply",
   "loader": "Loading",
   "export-bar.keys-found": "{keysCount} keys found",
+  "translation-value.prefill": "Prefill",
+  "tag.missing": "Missing translation",
   "register.job.label": "Job",
   "register.first-name.placeholder": "John",
   "login.sign-up": "Create an account",
@@ -34,6 +38,7 @@
   "keys-header.filters.missing-translations": "Missing translations",
   "keys-header.filters.new-keys": "New keys",
   "modal.add-key.submit": "Add key",
+  "translation-row.placeholder": "Translation for {locale}",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
@@ -41,5 +46,7 @@
   "sidebar.locales": "Locales",
   "keys-header.search.placeholder": "Search for a key",
   "dropdown.cancel": "Cancel",
-  "modal.close": "× Close"
+  "modal.close": "× Close",
+  "translation-value.fetching": "Fetching translation...",
+  "tag.new": "New key"
 }
