@@ -22,6 +22,7 @@
   "keys-header.add": "Add a new key",
   "keys-header.filters.label": "Filter keys",
   "dropdown.apply": "Apply",
+  "loader": "Loading",
   "register.job.label": "Job",
   "register.first-name.placeholder": "John",
   "login.sign-up": "Create an account",
