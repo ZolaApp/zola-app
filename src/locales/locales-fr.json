@@ -22,6 +22,7 @@
   "login.not-registered": "Vous n’êtes pas encore inscrit(e)?",
   "login.email.label": "E-mail",
   "stats.total-keys": "Nb total de clés",
+  "export-bar.keys-found": "{keysCount} clés trouvées",
   "register.last-name.label": "Nom",
   "register.email.label": "E-mail",
   "login.title": "Se connecter",
@@ -35,5 +36,6 @@
   "login.sign-up": "S’inscrire",
   "stats.complete-percentage": "Traductions complètes",
   "stats.locales": "Langues",
-  "keys-header.filters.missing-translations": "Trad. manquantes"
+  "keys-header.filters.missing-translations": "Trad. manquantes",
+  "export-bar.export": "Export des clés"
 }

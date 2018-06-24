@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Text from '@components/Text'
 import Icon from '@components/Icon'
 import Pagination from '@components/Pagination'
+import { FormattedMessage } from 'react-intl'
 import {
   FixedBar,
   StyledBar,
@@ -26,14 +27,21 @@ const KeyListPaginationBar = ({ keysCount, cdnToken }: Props) => {
           <Link passHref href={`${process.env.CDN_URL}${cdnToken}/download`}>
             <ExportButton target="_blank">
               <Icon icon="download" />
-              <Text color="light">Export all keys</Text>
+              <Text color="light">
+                <FormattedMessage id="export-bar.export" />
+              </Text>
             </ExportButton>
           </Link>
           <PaginationWrapper>
             <Pagination keysCount={keysCount} />
           </PaginationWrapper>
           <StatWrapper>
-            <Text color="light">{keysCount} keys found</Text>
+            <Text color="light">
+              <FormattedMessage
+                id="export-bar.keys-found"
+                values={{ keysCount }}
+              />
+            </Text>
           </StatWrapper>
         </StyledBar>
       </Wrapper>
