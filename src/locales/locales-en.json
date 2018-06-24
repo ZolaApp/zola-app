@@ -1,0 +1,13 @@
+{
+  "register.submit": "Register a new account",
+  "register.already-registered": "Already registered?",
+  "register.login": "Log in",
+  "register.confirm-password.label": "Confirm password",
+  "register.password.label": "Password",
+  "register.job.label": "Job",
+  "register.email.label": "Email",
+  "register.last-name.label": "Last name",
+  "register.first-name.label": "First name",
+  "register.title": "Register a new account",
+  "register.subtitle": "Zola is made for you"
+}
