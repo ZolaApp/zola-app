@@ -9,5 +9,8 @@
   "register.last-name.label": "Last name",
   "register.first-name.label": "First name",
   "register.title": "Register a new account",
-  "register.subtitle": "Zola is made for you"
+  "register.subtitle": "Zola is made for you!",
+  "register.first-name.placeholder": "John",
+  "register.last-name.placeholder": "Doe",
+  "register.job.placeholder": "Product owner"
 }

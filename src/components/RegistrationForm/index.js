@@ -38,14 +38,23 @@ const RegistrationForm = (props: Props) => {
   const jobLabel = formatMessage({
     id: 'register.job.label'
   })
+  const jobPlaceholder = formatMessage({
+    id: 'register.job.placeholder'
+  })
   const emailLabel = formatMessage({
     id: 'register.email.label'
   })
   const lastNameLabel = formatMessage({
     id: 'register.last-name.label'
   })
+  const lastNamePlaceholder = formatMessage({
+    id: 'register.last-name.placeholder'
+  })
   const firstNameLabel = formatMessage({
     id: 'register.first-name.label'
+  })
+  const firstNamePlaceholder = formatMessage({
+    id: 'register.first-name.placeholder'
   })
 
   return (
@@ -61,7 +70,7 @@ const RegistrationForm = (props: Props) => {
                   label={firstNameLabel}
                   aria-describedby="firstName-errors"
                   isInvalid={firstNameErrors.length > 0}
-                  placeholder="John"
+                  placeholder={firstNamePlaceholder}
                   minLength={2}
                   maxLength={30}
                 />
@@ -72,7 +81,7 @@ const RegistrationForm = (props: Props) => {
                   label={lastNameLabel}
                   aria-describedby="lastName-errors"
                   isInvalid={lastNameErrors.length > 0}
-                  placeholder="Doe"
+                  placeholder={lastNamePlaceholder}
                   minLength={2}
                   maxLength={30}
                 />
@@ -90,7 +99,7 @@ const RegistrationForm = (props: Props) => {
                   label={jobLabel}
                   aria-describedby="job-errors"
                   isInvalid={jobErrors.length > 0}
-                  placeholder="Product owner"
+                  placeholder={jobPlaceholder}
                   minLength={2}
                   maxLength={50}
                 />
