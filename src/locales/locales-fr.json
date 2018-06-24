@@ -3,6 +3,8 @@
   "login.subtitle": "Vous nous avez manqué!",
   "register.confirm-password.label": "Confirmation du mot de passe",
   "sidebar.keys": "Clés",
+  "stats.new-keys": "Nouvelles clés",
+  "stats.missing-translations": "Traductions manquantes",
   "register.login": "Connexion",
   "register.already-registered": "Déjà inscrit?",
   "register.submit": "S’inscrire",
@@ -15,6 +17,7 @@
   "register.subtitle": "Zola est fait pour vous!",
   "login.not-registered": "Vous n’êtes pas encore inscrit(e)?",
   "login.email.label": "E-mail",
+  "stats.total-keys": "Nb total de clés",
   "register.last-name.label": "Nom",
   "register.email.label": "E-mail",
   "login.title": "Se connecter",
@@ -22,5 +25,7 @@
   "sidebar.locales": "Langues",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
-  "login.sign-up": "S’inscrire"
+  "login.sign-up": "S’inscrire",
+  "stats.complete-percentage": "Traductions complètes",
+  "stats.locales": "Langues"
 }
