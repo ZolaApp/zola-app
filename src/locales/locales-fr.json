@@ -32,6 +32,7 @@
   "translation-value.saving": "Sauvegarde...",
   "projects.stats.translation-complete": "Traductions complètes",
   "projects.stats.missing-translations": "Trad. manquantes",
+  "projects.header.add": "Ajouter un projet",
   "register.last-name.label": "Nom",
   "register.email.label": "E-mail",
   "login.title": "Se connecter",
@@ -44,6 +45,7 @@
   "translation-value.prefill": "Pré-remplir",
   "translation-value.fetching": "Récupération traduction...",
   "tag.missing": "Trad. manquante",
+  "projects.header.title": "Vos projets",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
   "login.sign-up": "S’inscrire",
@@ -55,5 +57,6 @@
   "translation-row.placeholder": "Entrez la traduction ({locale})",
   "projects.hello": "Bonjour {name}!",
   "projects.stats.locales": "Langues",
-  "projects.stats.new-keys": "Nouvelles clés"
+  "projects.stats.new-keys": "Nouvelles clés",
+  "projects.header.subtitle": "Projects sur lesquels vous travaillez"
 }
