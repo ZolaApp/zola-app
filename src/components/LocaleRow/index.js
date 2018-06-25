@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { type Locale } from '@types/Locale'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
+import { FormattedMessage } from 'react-intl'
 import { Row, RowWrapper, Texts } from './styles'
 
 type Props = {
@@ -29,7 +30,9 @@ const LocaleRow = ({ isDefault, isEven, locale, cdnToken }: Props) => (
 
         <Texts bordered>
           <Text size="medium">{locale.missingTranslations}</Text>
-          <Text color="semiDark">Missing translations</Text>
+          <Text color="semiDark">
+            <FormattedMessage id="projects-list.tags.missing" />
+          </Text>
         </Texts>
 
         <Texts bordered contentCentered>
