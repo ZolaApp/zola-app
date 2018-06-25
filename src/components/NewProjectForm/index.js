@@ -8,9 +8,11 @@ import InputWithLabel from '@components/InputWithLabel'
 import SelectDropdown from '@components/SelectDropdown'
 import { type ValidationError } from '@types/ValidationError'
 import { type SelectOption } from '@types/SelectOption'
+import { injectIntl, FormattedMessage, type Intl } from 'react-intl'
 import { Label } from './styles'
 
 type Props = {
+  intl: Intl,
   onSubmit: () => any,
   locales: Array<SelectOption>,
   errors: Array<ValidationError>,
@@ -33,6 +35,7 @@ class NewProjectForm extends Component<Props, State> {
   render() {
     const { defaultLocaleId } = this.state
     const { errors, locales, onSubmit, isLoading } = this.props
+    const { formatMessage } = this.props.intl
     const findErrors = errorFinder(errors)
     const nameErrors = findErrors('name')
 
@@ -40,7 +43,7 @@ class NewProjectForm extends Component<Props, State> {
       <form onSubmit={onSubmit}>
         <Wrapper>
           <InputWithLabel
-            label="Project name"
+            label={formatMessage({ id: 'modal.add-project.input.label' })}
             name="name"
             placeholder="MyAppName"
             required
@@ -48,12 +51,16 @@ class NewProjectForm extends Component<Props, State> {
           <Errors name="name" errors={nameErrors} />
         </Wrapper>
         <Wrapper mTop="regular">
-          <Label htmlFor="locale">Default locale</Label>
+          <Label htmlFor="locale">
+            <FormattedMessage id="modal.add-project.select.label" />
+          </Label>
           <SelectDropdown
             onApply={this.onSelectApply}
             isMultiple={false}
             hasValue={defaultLocaleId !== ''}
-            placeholder="Please select a locale"
+            placeholder={formatMessage({
+              id: 'modal.add-project.select.placeholder'
+            })}
             options={locales}
           />
           <input type="hidden" name="defaultLocaleId" value={defaultLocaleId} />
@@ -64,7 +71,7 @@ class NewProjectForm extends Component<Props, State> {
             disabled={defaultLocaleId === ''}
             isLoading={isLoading}
           >
-            Add project
+            <FormattedMessage id="modal.add-project.submit" />
           </Button>
         </Wrapper>
       </form>
@@ -72,4 +79,4 @@ class NewProjectForm extends Component<Props, State> {
   }
 }
 
-export default NewProjectForm
+export default injectIntl(NewProjectForm)

@@ -12,6 +12,8 @@
   "modal.add-key.title": "Ajouter une clé",
   "modal.add-key.submit": "Ajouter la clé",
   "projects.stats-intro": "Voici quelques statistiques relatives à vos projets",
+  "modal.add-project.input.label": "Nom du projet",
+  "modal.add-project.submit": "Ajouter le projet",
   "register.login": "Connexion",
   "register.already-registered": "Déjà inscrit?",
   "register.submit": "S’inscrire",
@@ -46,6 +48,8 @@
   "translation-value.fetching": "Récupération traduction...",
   "tag.missing": "Trad. manquante",
   "projects.header.title": "Vos projets",
+  "modal.add-project.select.label": "Langue par défaut",
+  "modal.add-project.select.placeholder": "Sélectionnez une langue par défaut",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
   "login.sign-up": "S’inscrire",
@@ -58,5 +62,6 @@
   "projects.hello": "Bonjour {name}!",
   "projects.stats.locales": "Langues",
   "projects.stats.new-keys": "Nouvelles clés",
-  "projects.header.subtitle": "Projects sur lesquels vous travaillez"
+  "projects.header.subtitle": "Projects sur lesquels vous travaillez",
+  "modal.add-project.title": "Ajouter un nouveau projet"
 }

@@ -18,6 +18,8 @@
   "projects.stats.translation-complete": "Translations complete",
   "projects.stats.missing-translations": "Missing translations",
   "projects.header.add": "Add new project",
+  "modal.add-project.input.label": "Project name",
+  "modal.add-project.select.label": "Default locale",
   "register.already-registered": "Already registered?",
   "register.title": "Register a new account",
   "register.confirm-password.label": "Confirm password",
@@ -35,6 +37,7 @@
   "export-bar.keys-found": "{keysCount} keys found",
   "translation-value.prefill": "Prefill",
   "tag.missing": "Missing translation",
+  "modal.add-project.select.placeholder": "Please select a default locale",
   "register.job.label": "Job",
   "register.first-name.placeholder": "John",
   "login.sign-up": "Create an account",
@@ -47,6 +50,7 @@
   "projects.stats.projects": "Projects",
   "projects.stats.locales": "Locales",
   "projects.header.title": "Your projects",
+  "modal.add-project.title": "Add a new project",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
@@ -58,5 +62,6 @@
   "translation-value.fetching": "Fetching translation...",
   "tag.new": "New key",
   "projects.stats.new-keys": "New keys",
-  "projects.header.subtitle": "Projects you collaborate on"
+  "projects.header.subtitle": "Projects you collaborate on",
+  "modal.add-project.submit": "Add project"
 }

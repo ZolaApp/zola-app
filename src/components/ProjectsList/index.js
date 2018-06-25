@@ -71,7 +71,7 @@ class ProjectsList extends Component<Props> {
           appRoot="#__next"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
-          title="Add a new project"
+          title={formatMessage({ id: 'modal.add-project.title' })}
           closeButtonContent={formatMessage({ id: 'modal.close' })}
         >
           <NewProjectModalContainer getDialog={this.exposeDialog} />
