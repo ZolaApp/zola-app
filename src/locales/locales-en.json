@@ -27,6 +27,7 @@
   "messages.success.create-key": "Success! The key has been created.",
   "messages.success.create-account":
     "Success! You can now log in to your account.",
+  "keys.empty-search": "No keys were found.",
   "register.already-registered": "Already registered?",
   "register.title": "Register a new account",
   "register.confirm-password.label": "Confirm password",
@@ -65,6 +66,7 @@
   "modal.add-locale.label.locale": "Locale",
   "messages.success.delete-key": "Success! The key has been deleted.",
   "messages.success.create-project": "Success! The project has been created.",
+  "keys.empty-message": "Oh no! There aren’t any keys in this project.",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
@@ -83,5 +85,6 @@
   "locales.add": "Add new locale",
   "modal.add-locale.submit": "Add locale",
   "modal.add-locale.placeholder.locale": "Choose a locale",
-  "messages.success.create-locale": "Success! The locale has been added."
+  "messages.success.create-locale": "Success! The locale has been added.",
+  "keys.empty-create-button": "Add a key"
 }

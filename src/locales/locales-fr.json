@@ -22,6 +22,7 @@
   "messages.success.create-locale": "La langue a été ajoutée avec succès!",
   "messages.success.create-account":
     "Votre compte a été créé, vous pouvez maintenant vous connecter.",
+  "keys.empty-create-button": "Ajouter une clé",
   "register.login": "Connexion",
   "register.already-registered": "Déjà inscrit?",
   "register.submit": "S’inscrire",
@@ -65,6 +66,7 @@
   "modal.add-locale.label.prefill": "Utiliser le pré-remplissage automatique",
   "modal.add-locale.submit": "Ajouter la langue",
   "messages.success.create-key": "La clé a été créée avec succès!",
+  "keys.empty-search": "Aucune clé trouvée",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
   "login.sign-up": "S’inscrire",
@@ -83,5 +85,6 @@
   "locales.label.missing": "Trad. manquantes",
   "modal.add-locale.label.locale": "Langue",
   "messages.success.delete-key": "La clé a été supprimée avec succès!",
-  "messages.success.create-project": "Le projet a été ajouté avec succès!"
+  "messages.success.create-project": "Le projet a été ajouté avec succès!",
+  "keys.empty-message": "Oops! Aucune clé n’a été créée pour le moment."
 }

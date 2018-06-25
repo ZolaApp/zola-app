@@ -8,9 +8,11 @@ import Button from '@components/Button'
 import KeyListPaginationBar from '@components/KeyListPaginationBar'
 import type { TranslationKey } from '@types/TranslationKey'
 import type { Locale } from '@types/Locale'
+import { injectIntl, FormattedMessage, type Intl } from 'react-intl'
 import { ListWrapper, NoResultsWrapper } from './styles'
 
 type Props = {
+  intl: Intl,
   keys: Array<TranslationKey>,
   onAddKeyClick: () => any,
   locales: Array<Locale>,
@@ -27,7 +29,8 @@ const KeyList = ({
   keysCount,
   projectSlug,
   cdnToken,
-  router
+  router,
+  intl
 }: Props) => {
   const hasKeys = keys.length > 0
   const shouldRenderEmptyState = !router.query.search && !router.query.filters
@@ -52,12 +55,14 @@ const KeyList = ({
           <NoResultsWrapper>
             <Text size="medium">
               {shouldRenderEmptyState
-                ? 'Oh no! There aren’t any keys in this project.'
-                : 'No keys were found.'}
+                ? intl.formatMessage({ id: 'keys.empty-message' })
+                : intl.formatMessage({ id: 'keys.empty-search' })}
             </Text>
 
             {shouldRenderEmptyState && (
-              <Button onClick={onAddKeyClick}>Create your first key</Button>
+              <Button onClick={onAddKeyClick}>
+                <FormattedMessage id="keys.empty-create-button" />
+              </Button>
             )}
           </NoResultsWrapper>
         </Wrapper>
@@ -66,4 +71,4 @@ const KeyList = ({
   )
 }
 
-export default withRouter(KeyList)
+export default injectIntl(withRouter(KeyList))
