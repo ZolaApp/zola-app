@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { StyledButton } from '@components/Button/styles'
 
 export const Wrapper = styled.div`
-  margin-top: ${({ theme }) => theme.sizes.regular};
+  margin-bottom: ${({ theme }) => theme.sizes.large};
   display: flex;
   flex-direction: column;
 `
