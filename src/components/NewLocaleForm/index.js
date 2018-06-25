@@ -7,9 +7,11 @@ import Button from '@components/Button'
 import Checkbox from '@components/Checkbox'
 import { StyledLabel } from '@components/InputWithLabel/styles'
 import SelectDropdown from '@components/SelectDropdown'
+import { injectIntl, FormattedMessage, type Intl } from 'react-intl'
 import { CheckboxWrapper } from './styles'
 
 type Props = {
+  intl: Intl,
   onSubmit: () => any,
   isLoading: boolean,
   projectId: string,
@@ -34,16 +36,21 @@ class NewLocaleForm extends React.Component<Props, State> {
 
   render() {
     const { onSubmit, isLoading, projectId, locales } = this.props
+    const { formatMessage } = this.props.intl
     const { localeId, prefill } = this.state
 
     return (
       <form onSubmit={onSubmit}>
         <Wrapper>
-          <StyledLabel htmlFor="locale">Locale</StyledLabel>
+          <StyledLabel htmlFor="locale">
+            <FormattedMessage id="modal.add-locale.label.locale" />
+          </StyledLabel>
           <SelectDropdown
             onApply={this.onSelectApply}
             isMultiple={false}
-            placeholder="Locales"
+            placeholder={formatMessage({
+              id: 'modal.add-locale.placeholder.locale'
+            })}
             options={locales.map(locale => ({
               text: locale.name,
               value: locale.id
@@ -52,7 +59,9 @@ class NewLocaleForm extends React.Component<Props, State> {
 
           <CheckboxWrapper>
             <Checkbox onCheckToggled={this.onPrefillCheckToggled} />
-            <Text>Use auto-prefill translation feature</Text>
+            <Text>
+              <FormattedMessage id="modal.add-locale.label.prefill" />
+            </Text>
           </CheckboxWrapper>
 
           <input type="hidden" name="localeId" value={localeId} />
@@ -70,7 +79,7 @@ class NewLocaleForm extends React.Component<Props, State> {
             isLoading={isLoading}
             disabled={localeId === ''}
           >
-            Add locale
+            <FormattedMessage id="modal.add-locale.submit" />
           </Button>
         </Wrapper>
       </form>
@@ -78,4 +87,4 @@ class NewLocaleForm extends React.Component<Props, State> {
   }
 }
 
-export default NewLocaleForm
+export default injectIntl(NewLocaleForm)

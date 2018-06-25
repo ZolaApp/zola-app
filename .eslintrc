@@ -11,6 +11,9 @@
     "prettier/react",
     "prettier/flowtype"
   ],
+  "env": {
+    "browser": true
+  },
   "plugins": ["import", "jsx-a11y", "flowtype"],
   "rules": {
     "padding-line-between-statements": [

@@ -7,9 +7,11 @@ import KeysHeader from '@components/KeysHeader'
 import SingleProjectStats from '@components/SingleProjectStats'
 import type { Project } from '@types/Project'
 import NewKeyModalContainer from '@containers/NewKeyModalContainer'
+import { injectIntl, type Intl } from 'react-intl'
 
 type Props = {
-  project: Project
+  project: Project,
+  intl: Intl
 }
 
 class SingleProjectPage extends Component<Props> {
@@ -26,6 +28,7 @@ class SingleProjectPage extends Component<Props> {
   render() {
     const { project } = this.props
     const { locales } = project
+    const { formatMessage } = this.props.intl
     const keys = project.translationKeyPage.translationKeys
 
     return (
@@ -51,8 +54,8 @@ class SingleProjectPage extends Component<Props> {
           appRoot="#__next"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
-          title="Add a new key"
-          closeButtonContent="× Close"
+          title={formatMessage({ id: 'modal.add-key.title' })}
+          closeButtonContent={formatMessage({ id: 'modal.close' })}
         >
           <NewKeyModalContainer
             getDialog={this.exposeDialog}
@@ -64,4 +67,4 @@ class SingleProjectPage extends Component<Props> {
   }
 }
 
-export default SingleProjectPage
+export default injectIntl(SingleProjectPage)

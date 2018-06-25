@@ -5,11 +5,13 @@ import { withRouter } from 'next/router'
 import KeysFilters from '@components/KeysFilters'
 import Button from '@components/Button'
 import Input from '@components/Input'
+import { injectIntl, FormattedMessage, type Intl } from 'react-intl'
 import { Wrapper } from './styles'
 
 type Props = {
   router: any,
-  onAddKeyClick: () => any
+  onAddKeyClick: () => any,
+  intl: Intl
 }
 
 type State = {
@@ -44,24 +46,27 @@ class KeysHeader extends React.Component<Props, State> {
   }
 
   render() {
-    const { onAddKeyClick } = this.props
+    const { onAddKeyClick, intl } = this.props
+    const searchPlaceholder = intl.formatMessage({
+      id: 'keys-header.search.placeholder'
+    })
 
     return (
       <Wrapper>
         <KeysFilters />
         <Input
-          placeholder="Search for a key"
+          placeholder={searchPlaceholder}
           name="search"
           onKeyUp={this.onKeyUp}
           onChange={this.onChange}
           value={this.state.search}
         />
         <Button bordered onClick={onAddKeyClick}>
-          Add a new key
+          <FormattedMessage id="keys-header.add" />
         </Button>
       </Wrapper>
     )
   }
 }
 
-export default withRouter(KeysHeader)
+export default injectIntl(withRouter(KeysHeader))

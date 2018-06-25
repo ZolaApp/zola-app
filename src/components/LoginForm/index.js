@@ -8,67 +8,81 @@ import InputWithLabel from '@components/InputWithLabel'
 import Box from '@components/Box'
 import Errors from '@components/Errors'
 import { type ValidationError } from '@types/ValidationError'
+import { FormattedMessage, injectIntl, type Intl } from 'react-intl'
 import { InlineWrapper, ActionsWrapper } from './styles'
 
 type Props = {
   onSubmit: Event => any,
   isLoading: boolean,
-  errors: Array<ValidationError>
+  errors: Array<ValidationError>,
+  intl: Intl
 }
 
-const LoginForm = (props: Props) => (
-  <Wrapper mTop="regular">
-    <Box>
-      <form onSubmit={props.onSubmit}>
-        <fieldset disabled={props.isLoading}>
-          <Wrapper mTop="regular">
-            <InputWithLabel
-              required
-              name="email"
-              label="Email"
-              aria-describedby="login-errors"
-              isInvalid={props.errors.length > 0}
-              type="email"
-              placeholder="example@domain.com"
-            />
-          </Wrapper>
+class LoginForm extends React.Component<Props> {
+  render() {
+    const { onSubmit, isLoading, errors, intl } = this.props
+    const passwordLabel = intl.formatMessage({ id: 'login.password.label' })
+    const emailLabel = intl.formatMessage({ id: 'login.email.label' })
 
-          <Wrapper mTop="regular">
-            <InputWithLabel
-              required
-              name="password"
-              label="Password"
-              aria-describedby="login-errors"
-              isInvalid={props.errors.length > 0}
-              type="password"
-              placeholder="**********"
-            />
-          </Wrapper>
+    return (
+      <Wrapper mTop="regular">
+        <Box>
+          <form onSubmit={onSubmit}>
+            <fieldset disabled={isLoading}>
+              <Wrapper mTop="regular">
+                <InputWithLabel
+                  required
+                  name="email"
+                  label={emailLabel}
+                  aria-describedby="login-errors"
+                  isInvalid={errors.length > 0}
+                  type="email"
+                  placeholder="example@domain.com"
+                />
+              </Wrapper>
 
-          <Wrapper mTop="large" mBottom="regular">
-            <Errors name="login" errors={props.errors} />
+              <Wrapper mTop="regular">
+                <InputWithLabel
+                  required
+                  name="password"
+                  label={passwordLabel}
+                  aria-describedby="login-errors"
+                  isInvalid={errors.length > 0}
+                  type="password"
+                  placeholder="**********"
+                />
+              </Wrapper>
 
-            <ActionsWrapper>
-              <Button isLoading={props.isLoading} type="submit">
-                Log in
-              </Button>
-            </ActionsWrapper>
-          </Wrapper>
-        </fieldset>
-      </form>
-    </Box>
+              <Wrapper mTop="large" mBottom="regular">
+                <Errors name="login" errors={errors} />
 
-    <Wrapper mTop="regular">
-      <Box center>
-        <InlineWrapper>
-          <Text>First time here?</Text>
-          <Link href="/register">
-            <a>Create an account</a>
-          </Link>
-        </InlineWrapper>
-      </Box>
-    </Wrapper>
-  </Wrapper>
-)
+                <ActionsWrapper>
+                  <Button isLoading={isLoading} type="submit">
+                    <FormattedMessage id="login.submit" />
+                  </Button>
+                </ActionsWrapper>
+              </Wrapper>
+            </fieldset>
+          </form>
+        </Box>
 
-export default LoginForm
+        <Wrapper mTop="regular">
+          <Box center>
+            <InlineWrapper>
+              <Text>
+                <FormattedMessage id="login.not-registered" />
+              </Text>
+              <Link href="/register">
+                <a>
+                  <FormattedMessage id="login.sign-up" />
+                </a>
+              </Link>
+            </InlineWrapper>
+          </Box>
+        </Wrapper>
+      </Wrapper>
+    )
+  }
+}
+
+export default injectIntl(LoginForm)

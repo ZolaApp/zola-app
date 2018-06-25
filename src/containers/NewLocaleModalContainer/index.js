@@ -10,16 +10,23 @@ import projectQuery from '@containers/LocalesPageContainer/query.graphql'
 import Loader from '@components/Loader'
 import Wrapper from '@components/Wrapper'
 import View from '@components/NewLocaleModal'
+import { injectIntl, type Intl } from 'react-intl'
 import mutation from './mutation.graphql'
 import query from './query.graphql'
 
 type Props = {
+  intl: Intl,
   getDialog: any,
   project: Project,
   router: any
 }
 
-const NewLocaleModalContainer = ({ getDialog, project, router }: Props) => {
+const NewLocaleModalContainer = ({
+  getDialog,
+  project,
+  router,
+  intl
+}: Props) => {
   const page = Number(router.query.page) - 1 || 0
   const filters = router.query.filters ? router.query.filters.split(',') : []
   const search = router.query.search || null
@@ -67,7 +74,11 @@ const NewLocaleModalContainer = ({ getDialog, project, router }: Props) => {
                       const dialog = getDialog()
                       dialog.hide()
                       form.reset()
-                      toast.success('Success! The locale has been added.')
+                      toast.success(
+                        intl.formatMessage({
+                          id: 'messages.success.create-locale'
+                        })
+                      )
                     } else {
                       toast.error(
                         response.data.addLocaleToProject.errors[0].message
@@ -91,4 +102,4 @@ const NewLocaleModalContainer = ({ getDialog, project, router }: Props) => {
   )
 }
 
-export default withRouter(NewLocaleModalContainer)
+export default injectIntl(withRouter(NewLocaleModalContainer))

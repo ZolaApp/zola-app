@@ -5,9 +5,14 @@ import { toast } from 'react-toastify'
 import { Mutation } from 'react-apollo'
 import serializeForm from 'form-serialize'
 import View from '@components/RegistrationForm'
+import { injectIntl, type Intl } from 'react-intl'
 import mutation from './mutation.graphql'
 
-const RegistrationFormContainer = () => (
+type Props = {
+  intl: Intl
+}
+
+const RegistrationFormContainer = ({ intl }: Props) => (
   <Mutation mutation={mutation}>
     {(createUser, { loading, error, data }) => (
       <View
@@ -20,7 +25,11 @@ const RegistrationFormContainer = () => (
 
           if (response.data.createUser.status === 'SUCCESS') {
             Router.push('/login')
-            toast.success('Success! You can now log in to your account.')
+            toast.success(
+              intl.formatMessage({
+                id: 'messages.success.create-account'
+              })
+            )
           }
         }}
         isLoading={loading}
@@ -30,4 +39,4 @@ const RegistrationFormContainer = () => (
   </Mutation>
 )
 
-export default RegistrationFormContainer
+export default injectIntl(RegistrationFormContainer)

@@ -3,7 +3,8 @@ import React from 'react'
 import Link from 'next/link'
 import LogoSmall from '@components/LogoSmall'
 import Icon from '@components/Icon'
-import { StyledSidebar } from './styles'
+import LanguageSwitcher from '@components/LanguageSwitcher'
+import { StyledSidebar, BottomWrapper } from './styles'
 
 type Props = {
   small: boolean
@@ -18,9 +19,12 @@ const Sidebar = ({ small }: Props) => {
         </a>
       </Link>
 
-      <a href="/logout">
-        <Icon icon="logout" />
-      </a>
+      <BottomWrapper>
+        <a href="/logout">
+          <Icon icon="logout" />
+        </a>
+        <LanguageSwitcher />
+      </BottomWrapper>
     </StyledSidebar>
   )
 }

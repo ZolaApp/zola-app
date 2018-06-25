@@ -5,6 +5,7 @@ import DropdownTrigger from '@components/DropdownTrigger'
 import Icon from '@components/Icon'
 import Text from '@components/Text'
 import Button from '@components/Button'
+import { FormattedMessage } from 'react-intl'
 import { type SelectOption } from '@types/SelectOption'
 import {
   Wrapper,
@@ -21,9 +22,7 @@ type Props = {
   selectedOptions: string[],
   isMultiple: boolean,
   hasValue: boolean,
-  placeholder: string,
-  applyLabel: string,
-  cancelLabel: string
+  placeholder: string
 }
 
 type State = {
@@ -36,9 +35,7 @@ class SelectDropdown extends Component<Props, State> {
     selectedOptions: [],
     isMultiple: true,
     hasValue: false,
-    placeholder: 'Please select an option',
-    applyLabel: 'Apply',
-    cancelLabel: 'Clear'
+    placeholder: 'Please select an option'
   }
 
   constructor(props: Props) {
@@ -109,13 +106,7 @@ class SelectDropdown extends Component<Props, State> {
   }
 
   render() {
-    const {
-      options,
-      isMultiple,
-      hasValue,
-      applyLabel,
-      cancelLabel
-    } = this.props
+    const { options, isMultiple, hasValue } = this.props
 
     return (
       <Dropdown onCancel={this.onCancel} onApply={this.onApply}>
@@ -145,10 +136,10 @@ class SelectDropdown extends Component<Props, State> {
                 {isMultiple && (
                   <DropdownActions>
                     <Button transparent onClick={cancel}>
-                      {cancelLabel}
+                      <FormattedMessage id="dropdown.cancel" />
                     </Button>
                     <Button transparent onClick={apply}>
-                      {applyLabel}
+                      <FormattedMessage id="dropdown.apply" />
                     </Button>
                   </DropdownActions>
                 )}
