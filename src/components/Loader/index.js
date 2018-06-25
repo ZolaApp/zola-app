@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import Text from '@components/Text'
+import { FormattedMessage } from 'react-intl'
 import { StyledLoaderWrapper, StyledLoader } from './styles'
 
 type Props = {
@@ -17,7 +18,7 @@ const Loader = (props: Props) => {
       <StyledLoader {...props} />
       {withText && (
         <Text size="regular" color={isDark ? 'dark' : 'light'}>
-          Loading
+          <FormattedMessage id="loader" />
         </Text>
       )}
     </StyledLoaderWrapper>

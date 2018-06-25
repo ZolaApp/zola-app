@@ -2,6 +2,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import Router from 'next/router'
+import { injectIntl, type Intl } from 'react-intl'
 import { toast } from 'react-toastify'
 import serializeForm from 'form-serialize'
 import View from '@components/NewProjectModal'
@@ -12,10 +13,11 @@ import query from './query.graphql'
 import mutation from './mutation.graphql'
 
 type Props = {
+  intl: Intl,
   getDialog: any
 }
 
-const NewProjectModalContainer = ({ getDialog }: Props) => (
+const NewProjectModalContainer = ({ getDialog, intl }: Props) => (
   <Wrapper>
     <Mutation
       mutation={mutation}
@@ -51,7 +53,11 @@ const NewProjectModalContainer = ({ getDialog }: Props) => (
                       dialog.hide()
                       formNode.reset()
                       Router.push('/')
-                      toast.success('Success! The project has been created.')
+                      toast.success(
+                        intl.formatMessage({
+                          id: 'messages.success.create-project'
+                        })
+                      )
                     }
                   }}
                 />
@@ -64,4 +70,4 @@ const NewProjectModalContainer = ({ getDialog }: Props) => (
   </Wrapper>
 )
 
-export default NewProjectModalContainer
+export default injectIntl(NewProjectModalContainer)

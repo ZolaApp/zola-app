@@ -3,10 +3,12 @@ import React, { Component } from 'react'
 import SelectDropdown from '@components/SelectDropdown'
 import { withRouter } from 'next/router'
 import qs from 'qs'
+import { injectIntl, type Intl } from 'react-intl'
 import { Wrapper } from './styles'
 
 type Props = {
-  router: any
+  router: any,
+  intl: Intl
 }
 
 class KeysFilters extends Component<Props> {
@@ -35,20 +37,31 @@ class KeysFilters extends Component<Props> {
   }
 
   render() {
+    const { formatMessage } = this.props.intl
     const selectedOptions = this.getSelectedOptions()
     const hasValue = selectedOptions.length > 0
 
     return (
       <Wrapper>
         <SelectDropdown
-          placeholder="Filter keys"
+          placeholder={formatMessage({ id: 'keys-header.filters.label' })}
           onApply={options => this.onFilter(options)}
           onCancel={this.onCancel}
           selectedOptions={selectedOptions}
           hasValue={hasValue}
           options={[
-            { text: 'Missing translations', value: 'hasMissingTranslations' },
-            { text: 'New key', value: 'isNew' }
+            {
+              text: formatMessage({
+                id: 'keys-header.filters.missing-translations'
+              }),
+              value: 'hasMissingTranslations'
+            },
+            {
+              text: formatMessage({
+                id: 'keys-header.filters.new-keys'
+              }),
+              value: 'isNew'
+            }
           ]}
         />
       </Wrapper>
@@ -56,4 +69,4 @@ class KeysFilters extends Component<Props> {
   }
 }
 
-export default withRouter(KeysFilters)
+export default injectIntl(withRouter(KeysFilters))

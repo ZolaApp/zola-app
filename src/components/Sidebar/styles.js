@@ -16,3 +16,9 @@ export const StyledSidebar = styled.div`
     margin-bottom: 6px;
   }
 `
+
+export const BottomWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`

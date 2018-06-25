@@ -5,24 +5,34 @@ import isYesterday from 'date-fns/is_yesterday'
 import isSameWeek from 'date-fns/is_same_week'
 import isSameYear from 'date-fns/is_same_year'
 
-const formatDateRelative = (date: Date) => {
+const formatDateRelative = (date: Date, locale: string = 'en') => {
   if (isToday(date)) {
-    return `today at ${format(date, 'HH:mm')}`
+    const prefix = locale === 'en' ? 'today at' : 'aujourd’hui à'
+
+    return `${prefix} ${format(date, 'HH:mm')}`
   }
 
   if (isYesterday) {
-    return `yesterday at ${format(date, 'HH:mm')}`
+    const prefix = locale === 'en' ? 'yesterday at' : 'hier à'
+
+    return `${prefix} ${format(date, 'HH:mm')}`
   }
 
   if (isSameWeek) {
-    return `on ${format(date, 'DDDD')}`
+    const prefix = locale === 'en' ? 'on' : 'le'
+
+    return `${prefix} ${format(date, 'DDDD')}`
   }
 
   if (!isSameYear) {
-    return `on ${format(date, 'MMMM Do, YYYY')}`
+    const prefix = locale === 'en' ? 'on' : 'le'
+
+    return `${prefix} ${format(date, 'MMMM Do, YYYY')}`
   }
 
-  return `on ${format(date, 'MMMM Do')}`
+  const prefix = locale === 'en' ? 'on' : 'le'
+
+  return `${prefix} ${format(date, 'MMMM Do')}`
 }
 
 export default formatDateRelative

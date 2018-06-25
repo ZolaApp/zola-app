@@ -5,6 +5,7 @@ import { type TranslationValue } from '@types/TranslationValue'
 import Text from '@components/Text'
 import Loader from '@components/Loader'
 import Textarea from '@components/Textarea'
+import { injectIntl, type Intl, FormattedMessage } from 'react-intl'
 import PrefillValueContainer from '@containers/PrefillValueContainer'
 import {
   ContentWrapper,
@@ -14,6 +15,7 @@ import {
 } from './styles'
 
 type Props = {
+  intl: Intl,
   locale: Locale,
   translationKeyId: string,
   defaultTranslationKeyValue: TranslationValue | null,
@@ -49,6 +51,7 @@ class TranslationValueRow extends Component<Props, State> {
       isLoading,
       translationKeyId
     } = this.props
+    const { formatMessage } = this.props.intl
     const value = translationKeyValue ? translationKeyValue.value : ''
     const defaultLocaleValue = defaultTranslationKeyValue
       ? defaultTranslationKeyValue.value
@@ -62,14 +65,21 @@ class TranslationValueRow extends Component<Props, State> {
           </LocaleWrapper>
           <Textarea
             value={value}
-            placeholder={`Translation for ${locale.name}`}
+            placeholder={formatMessage(
+              {
+                id: 'translation-row.placeholder'
+              },
+              { locale: locale.name }
+            )}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
           />
           {isLoading && (
             <LoaderWrapper>
               <Loader />
-              <Text color="light">Saving…</Text>
+              <Text color="light">
+                <FormattedMessage id="translation-value.saving" />
+              </Text>
             </LoaderWrapper>
           )}
           {defaultLocaleValue &&
@@ -89,4 +99,4 @@ class TranslationValueRow extends Component<Props, State> {
   }
 }
 
-export default TranslationValueRow
+export default injectIntl(TranslationValueRow)

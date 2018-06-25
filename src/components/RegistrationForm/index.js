@@ -8,12 +8,14 @@ import InputWithLabel from '@components/InputWithLabel'
 import Errors from '@components/Errors'
 import errorFinder from '@helpers/errorFinder'
 import { type ValidationError } from '@types/ValidationError'
+import { injectIntl, FormattedMessage, type Intl } from 'react-intl'
 import { Box, DoubleInputsWrapper, InlineWrapper } from './styles'
 
 type Props = {
   onSubmit: Event => any,
   isLoading: boolean,
-  errors: Array<ValidationError>
+  errors: Array<ValidationError>,
+  intl: Intl
 }
 
 const RegistrationForm = (props: Props) => {
@@ -26,6 +28,35 @@ const RegistrationForm = (props: Props) => {
   const passwordConfirmationErrors = findErrors('passwordConfirmation')
   const genericErrors = findErrors('generic')
 
+  const { formatMessage } = props.intl
+  const confirmPassLabel = formatMessage({
+    id: 'register.confirm-password.label'
+  })
+  const passwordLabel = formatMessage({
+    id: 'register.password.label'
+  })
+  const jobLabel = formatMessage({
+    id: 'register.job.label'
+  })
+  const jobPlaceholder = formatMessage({
+    id: 'register.job.placeholder'
+  })
+  const emailLabel = formatMessage({
+    id: 'register.email.label'
+  })
+  const lastNameLabel = formatMessage({
+    id: 'register.last-name.label'
+  })
+  const lastNamePlaceholder = formatMessage({
+    id: 'register.last-name.placeholder'
+  })
+  const firstNameLabel = formatMessage({
+    id: 'register.first-name.label'
+  })
+  const firstNamePlaceholder = formatMessage({
+    id: 'register.first-name.placeholder'
+  })
+
   return (
     <Wrapper mTop="regular">
       <Box>
@@ -36,10 +67,10 @@ const RegistrationForm = (props: Props) => {
                 <InputWithLabel
                   required
                   name="firstName"
-                  label="First Name"
+                  label={firstNameLabel}
                   aria-describedby="firstName-errors"
                   isInvalid={firstNameErrors.length > 0}
-                  placeholder="John"
+                  placeholder={firstNamePlaceholder}
                   minLength={2}
                   maxLength={30}
                 />
@@ -47,10 +78,10 @@ const RegistrationForm = (props: Props) => {
                 <InputWithLabel
                   required
                   name="lastName"
-                  label="Last Name"
+                  label={lastNameLabel}
                   aria-describedby="lastName-errors"
                   isInvalid={lastNameErrors.length > 0}
-                  placeholder="Doe"
+                  placeholder={lastNamePlaceholder}
                   minLength={2}
                   maxLength={30}
                 />
@@ -65,10 +96,10 @@ const RegistrationForm = (props: Props) => {
                 <InputWithLabel
                   required
                   name="job"
-                  label="Job"
+                  label={jobLabel}
                   aria-describedby="job-errors"
                   isInvalid={jobErrors.length > 0}
-                  placeholder="Product owner"
+                  placeholder={jobPlaceholder}
                   minLength={2}
                   maxLength={50}
                 />
@@ -76,7 +107,7 @@ const RegistrationForm = (props: Props) => {
                 <InputWithLabel
                   required
                   name="email"
-                  label="Email"
+                  label={emailLabel}
                   aria-describedby="email-errors"
                   isInvalid={emailErrors.length > 0}
                   type="email"
@@ -92,7 +123,7 @@ const RegistrationForm = (props: Props) => {
               <InputWithLabel
                 required
                 name="passwordPlain"
-                label="Password"
+                label={passwordLabel}
                 aria-describedby="passwordPlain-errors"
                 isInvalid={passwordPlainErrors.length > 0}
                 type="password"
@@ -105,7 +136,7 @@ const RegistrationForm = (props: Props) => {
               <InputWithLabel
                 required
                 name="passwordConfirmation"
-                label="Confirm password"
+                label={confirmPassLabel}
                 aria-describedby="passwordConfirmation-errors"
                 isInvalid={passwordConfirmationErrors.length > 0}
                 type="password"
@@ -119,7 +150,7 @@ const RegistrationForm = (props: Props) => {
 
             <Wrapper mTop="large" mBottom="regular">
               <Button isLoading={props.isLoading} type="submit">
-                Register a new account
+                <FormattedMessage id="register.submit" />
               </Button>
 
               <Errors name="generic" errors={genericErrors} />
@@ -131,9 +162,13 @@ const RegistrationForm = (props: Props) => {
       <Wrapper mTop="regular">
         <Box center>
           <InlineWrapper>
-            <Text>Already registered?</Text>
+            <Text>
+              <FormattedMessage id="register.already-registered" />
+            </Text>
             <Link href="/login">
-              <a>Log in</a>
+              <a>
+                <FormattedMessage id="register.login" />
+              </a>
             </Link>
           </InlineWrapper>
         </Box>
@@ -142,4 +177,4 @@ const RegistrationForm = (props: Props) => {
   )
 }
 
-export default RegistrationForm
+export default injectIntl(RegistrationForm)

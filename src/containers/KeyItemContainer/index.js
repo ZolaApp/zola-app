@@ -7,18 +7,20 @@ import serializeForm from 'form-serialize'
 import { type Locale } from '@types/Locale'
 import { type TranslationKey } from '@types/TranslationKey'
 import { KEYS_PER_PAGE } from '@constants/pagination'
+import { injectIntl, type Intl } from 'react-intl'
 import projectQuery from '@containers/SingleProjectPageContainer/query.graphql'
 import View from '@components/KeyItem'
 import mutation from './mutation.graphql'
 
 type Props = {
+  intl: Intl,
   projectSlug: string,
   value: TranslationKey,
   locales: Array<Locale>,
   router: any
 }
 
-const KeyItemContainer = ({ projectSlug, router, ...props }: Props) => {
+const KeyItemContainer = ({ projectSlug, router, intl, ...props }: Props) => {
   const page = Number(router.query.page) - 1 || 0
   const filters = router.query.filters ? router.query.filters.split(',') : []
   const search = router.query.search || null
@@ -50,7 +52,9 @@ const KeyItemContainer = ({ projectSlug, router, ...props }: Props) => {
             const response = await deleteTranslationKey({ variables })
 
             if (response.data.deleteTranslationKey.status === 'SUCCESS') {
-              toast.success('Success! The key has been deleted.')
+              toast.success(
+                intl.formatMessage({ id: 'messages.success.delete-key' })
+              )
             } else {
               response.data.deleteTranslationKey.errors.forEach(error => {
                 toast.error(error.message)
@@ -63,4 +67,4 @@ const KeyItemContainer = ({ projectSlug, router, ...props }: Props) => {
   )
 }
 
-export default withRouter(KeyItemContainer)
+export default injectIntl(withRouter(KeyItemContainer))

@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import { withRouter } from 'next/router'
 import serializeForm from 'form-serialize'
 import { KEYS_PER_PAGE } from '@constants/pagination'
+import { injectIntl, type Intl } from 'react-intl'
 import View from '@components/NewKeyModal'
 import Wrapper from '@components/Wrapper'
 import projectQuery from '@containers/SingleProjectPageContainer/query.graphql'
@@ -12,12 +13,13 @@ import { type Project } from '@types/Project'
 import mutation from './mutation.graphql'
 
 type Props = {
+  intl: Intl,
   getDialog: any,
   project: Project,
   router: any
 }
 
-const NewKeyModalContainer = ({ getDialog, project, router }: Props) => {
+const NewKeyModalContainer = ({ getDialog, project, router, intl }: Props) => {
   const page = Number(router.query.page) - 1 || 0
   const filters = router.query.filters ? router.query.filters.split(',') : []
   const search = router.query.search || null
@@ -63,7 +65,9 @@ const NewKeyModalContainer = ({ getDialog, project, router }: Props) => {
                   const dialog = getDialog()
                   dialog.hide()
                   formNode.reset()
-                  toast.success('Success! The key has been created.')
+                  toast.success(
+                    intl.formatMessage({ id: 'messages.success.create-key' })
+                  )
                 } else {
                   response.data.addTranslationKeyToProject.errors.forEach(
                     error => {
@@ -80,4 +84,4 @@ const NewKeyModalContainer = ({ getDialog, project, router }: Props) => {
   )
 }
 
-export default withRouter(NewKeyModalContainer)
+export default injectIntl(withRouter(NewKeyModalContainer))

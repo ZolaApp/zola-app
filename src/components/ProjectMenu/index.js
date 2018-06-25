@@ -5,6 +5,7 @@ import { withRouter } from 'next/router'
 import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
 import Icon from '@components/Icon'
+import { FormattedMessage } from 'react-intl'
 import { MenuItem } from './styles'
 
 type Props = { router: any, href: string }
@@ -15,7 +16,7 @@ const ProjectMenu = ({ router, href }: Props) => (
       <MenuItem selected={router.pathname === '/project'}>
         <Icon icon="key" />
         <Text size="default" color="light">
-          Keys
+          <FormattedMessage id="sidebar.keys" />
         </Text>
       </MenuItem>
     </Link>
@@ -24,7 +25,7 @@ const ProjectMenu = ({ router, href }: Props) => (
       <MenuItem selected={router.pathname === '/locales'}>
         <Icon icon="planet" />
         <Text size="default" color="light">
-          Locales
+          <FormattedMessage id="sidebar.locales" />
         </Text>
       </MenuItem>
     </Link>

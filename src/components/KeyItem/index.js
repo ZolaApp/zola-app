@@ -9,6 +9,7 @@ import KeyDetails from '@components/KeyDetails'
 import type { TranslationKey } from '@types/TranslationKey'
 import type { TranslationValue } from '@types/TranslationValue'
 import type { Locale } from '@types/Locale'
+import { injectIntl, FormattedMessage, type Intl } from 'react-intl'
 import {
   KeyRow,
   KeyValue,
@@ -18,6 +19,7 @@ import {
 } from './styles'
 
 type Props = {
+  intl: Intl,
   value: TranslationKey,
   isEven: boolean,
   locales: Array<Locale>,
@@ -56,6 +58,7 @@ class KeyItem extends Component<Props, State> {
 
   render() {
     const { isEven, value, locales, onDeleteSubmit } = this.props
+    const { formatMessage } = this.props.intl
     const { detailsOpened } = this.state
     const { id: keyId, key } = value
     const defaultLocale = locales[0]
@@ -64,6 +67,9 @@ class KeyItem extends Component<Props, State> {
       defaultLocale.code
     )
     const hasValueForDefaultLocale = Boolean(defaultLocaleTranslationValue)
+    const formattedDefaultValue = hasValueForDefaultLocale
+      ? defaultLocaleTranslationValue
+      : formatMessage({ id: 'tag.not-translated' })
 
     return (
       <div>
@@ -77,16 +83,20 @@ class KeyItem extends Component<Props, State> {
             hasValueForDefaultLocale={hasValueForDefaultLocale}
           >
             <LocaleLabel>{defaultLocale.code}</LocaleLabel>
-            <Text>
-              {hasValueForDefaultLocale
-                ? defaultLocaleTranslationValue
-                : 'Not translated'}
-            </Text>
+            <Text>{formattedDefaultValue}</Text>
           </KeyTranslationColumn>
           <KeyTagsAndActionsColumn>
             <TagList>
-              {value.hasMissingTranslations && <Tag>Missing translation</Tag>}
-              {value.isNew && <Tag color="orange">New key</Tag>}
+              {value.hasMissingTranslations && (
+                <Tag>
+                  <FormattedMessage id="tag.missing" />
+                </Tag>
+              )}
+              {value.isNew && (
+                <Tag color="orange">
+                  <FormattedMessage id="tag.new" />
+                </Tag>
+              )}
             </TagList>
 
             <Icon icon="edit" width="16px" height="1em" />
@@ -105,4 +115,4 @@ class KeyItem extends Component<Props, State> {
   }
 }
 
-export default KeyItem
+export default injectIntl(KeyItem)
