@@ -53,6 +53,9 @@
   "projects.header.title": "Your projects",
   "modal.add-project.title": "Add a new project",
   "projects-list.tags.new": "New keys",
+  "locales.label.default": "Default locale",
+  "locales.label.missing": "Missing translations",
+  "locales.cdn-link": "CDN link",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
@@ -66,5 +69,6 @@
   "projects.stats.new-keys": "New keys",
   "projects.header.subtitle": "Projects you collaborate on",
   "modal.add-project.submit": "Add project",
-  "projects-list.tags.missing": "Missing translations"
+  "projects-list.tags.missing": "Missing translations",
+  "locales.label.translated": "Translated"
 }

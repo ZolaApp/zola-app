@@ -20,18 +20,24 @@ const LocaleRow = ({ isDefault, isEven, locale, cdnToken }: Props) => (
       <RowWrapper>
         <Texts>
           <Text size="medium">{locale.name}</Text>
-          {isDefault && <Text color="semiDark">Default locale</Text>}
+          {isDefault && (
+            <Text color="semiDark">
+              <FormattedMessage id="locales.label.default" />
+            </Text>
+          )}
         </Texts>
 
         <Texts>
           <Text size="medium">{locale.completePercentage}%</Text>
-          <Text color="semiDark">Translated</Text>
+          <Text color="semiDark">
+            <FormattedMessage id="locales.label.translated" />
+          </Text>
         </Texts>
 
         <Texts bordered>
           <Text size="medium">{locale.missingTranslations}</Text>
           <Text color="semiDark">
-            <FormattedMessage id="projects-list.tags.missing" />
+            <FormattedMessage id="locales.label.missing" />
           </Text>
         </Texts>
 
@@ -40,7 +46,9 @@ const LocaleRow = ({ isDefault, isEven, locale, cdnToken }: Props) => (
             passHref
             href={`${process.env.CDN_URL}${cdnToken}/${locale.code}`}
           >
-            <a target="_blank">CDN URL</a>
+            <a target="_blank">
+              <FormattedMessage id="locales.cdn-link" />
+            </a>
           </Link>
         </Texts>
       </RowWrapper>
