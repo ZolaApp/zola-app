@@ -14,6 +14,9 @@
   "modal.add-key.input.label": "Key name",
   "tag.not-translated": "Not translated",
   "translation-value.saving": "Saving…",
+  "projects.stats-intro": "Here are some statistics about your projects",
+  "projects.stats.translation-complete": "Translations complete",
+  "projects.stats.missing-translations": "Missing translations",
   "register.already-registered": "Already registered?",
   "register.title": "Register a new account",
   "register.confirm-password.label": "Confirm password",
@@ -39,6 +42,9 @@
   "keys-header.filters.new-keys": "New keys",
   "modal.add-key.submit": "Add key",
   "translation-row.placeholder": "Translation for {locale}",
+  "projects.hello": "Hello {name}!",
+  "projects.stats.projects": "Projects",
+  "projects.stats.locales": "Locales",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
@@ -48,5 +54,6 @@
   "dropdown.cancel": "Cancel",
   "modal.close": "× Close",
   "translation-value.fetching": "Fetching translation...",
-  "tag.new": "New key"
+  "tag.new": "New key",
+  "projects.stats.new-keys": "New keys"
 }

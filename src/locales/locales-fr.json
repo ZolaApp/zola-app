@@ -11,6 +11,7 @@
   "dropdown.cancel": "Annuler",
   "modal.add-key.title": "Ajouter une clé",
   "modal.add-key.submit": "Ajouter la clé",
+  "projects.stats-intro": "Voici quelques statistiques relatives à vos projets",
   "register.login": "Connexion",
   "register.already-registered": "Déjà inscrit?",
   "register.submit": "S’inscrire",
@@ -27,7 +28,10 @@
   "export-bar.keys-found": "{keysCount} clés trouvées",
   "modal.add-key.input.label": "Nom de la clé",
   "tag.not-translated": "Non traduit",
+  "projects.stats.projects": "Projets",
   "translation-value.saving": "Sauvegarde...",
+  "projects.stats.translation-complete": "Traductions complètes",
+  "projects.stats.missing-translations": "Trad. manquantes",
   "register.last-name.label": "Nom",
   "register.email.label": "E-mail",
   "login.title": "Se connecter",
@@ -48,5 +52,8 @@
   "keys-header.filters.missing-translations": "Trad. manquantes",
   "export-bar.export": "Export des clés",
   "tag.new": "Nouvelle clé",
-  "translation-row.placeholder": "Entrez la traduction ({locale})"
+  "translation-row.placeholder": "Entrez la traduction ({locale})",
+  "projects.hello": "Bonjour {name}!",
+  "projects.stats.locales": "Langues",
+  "projects.stats.new-keys": "Nouvelles clés"
 }
