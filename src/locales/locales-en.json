@@ -24,6 +24,9 @@
   "locales.title": "Locales",
   "modal.add-locale.title": "Add a new locale",
   "modal.add-locale.label.prefill": "Use auto-prefill translation feature",
+  "messages.success.create-key": "Success! The key has been created.",
+  "messages.success.create-account":
+    "Success! You can now log in to your account.",
   "register.already-registered": "Already registered?",
   "register.title": "Register a new account",
   "register.confirm-password.label": "Confirm password",
@@ -60,6 +63,8 @@
   "locales.label.missing": "Missing translations",
   "locales.cdn-link": "CDN link",
   "modal.add-locale.label.locale": "Locale",
+  "messages.success.delete-key": "Success! The key has been deleted.",
+  "messages.success.create-project": "Success! The project has been created.",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
@@ -77,5 +82,6 @@
   "locales.label.translated": "Translated",
   "locales.add": "Add new locale",
   "modal.add-locale.submit": "Add locale",
-  "modal.add-locale.placeholder.locale": "Choose a locale"
+  "modal.add-locale.placeholder.locale": "Choose a locale",
+  "messages.success.create-locale": "Success! The locale has been added."
 }

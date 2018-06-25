@@ -19,6 +19,9 @@
   "locales.cdn-link": "Lien CDN",
   "locales.add": "Ajouter une langue",
   "modal.add-locale.placeholder.locale": "Choisissez une langue",
+  "messages.success.create-locale": "La langue a été ajoutée avec succès!",
+  "messages.success.create-account":
+    "Votre compte a été créé, vous pouvez maintenant vous connecter.",
   "register.login": "Connexion",
   "register.already-registered": "Déjà inscrit?",
   "register.submit": "S’inscrire",
@@ -61,6 +64,7 @@
   "modal.add-locale.title": "Ajouter une langue",
   "modal.add-locale.label.prefill": "Utiliser le pré-remplissage automatique",
   "modal.add-locale.submit": "Ajouter la langue",
+  "messages.success.create-key": "La clé a été créée avec succès!",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
   "login.sign-up": "S’inscrire",
@@ -77,5 +81,7 @@
   "modal.add-project.title": "Ajouter un nouveau projet",
   "projects-list.tags.new": "Nouvelles clés",
   "locales.label.missing": "Trad. manquantes",
-  "modal.add-locale.label.locale": "Langue"
+  "modal.add-locale.label.locale": "Langue",
+  "messages.success.delete-key": "La clé a été supprimée avec succès!",
+  "messages.success.create-project": "Le projet a été ajouté avec succès!"
 }
