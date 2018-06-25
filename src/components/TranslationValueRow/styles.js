@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { StyledButton } from '@components/AddTranslationButton/styles'
 import { StyledLoader } from '@components/Loader/styles'
 
 export const LocaleWrapper = styled.div`
@@ -43,11 +42,6 @@ export const ContentWrapper = styled.div`
   padding: ${({ theme }) => theme.sizes.tiny};
   margin-bottom: ${({ theme }) => theme.sizes.tiny};
   border-radius: ${({ theme }) => theme.globals.radius};
-
-  ${StyledButton} {
-    justify-self: start;
-    margin-left: ${({ theme }) => theme.sizes.tiny};
-  }
 
   ${LocaleWrapper} {
     color: ${({ isFocused, theme }) =>
