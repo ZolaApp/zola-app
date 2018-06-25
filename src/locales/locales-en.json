@@ -75,7 +75,6 @@
   "keys-header.search.placeholder": "Search for a key",
   "dropdown.cancel": "Cancel",
   "modal.close": "× Close",
-  "translation-value.fetching": "Fetching translation...",
   "tag.new": "New key",
   "projects.stats.new-keys": "New keys",
   "projects.header.subtitle": "Projects you collaborate on",
@@ -86,5 +85,6 @@
   "modal.add-locale.submit": "Add locale",
   "modal.add-locale.placeholder.locale": "Choose a locale",
   "messages.success.create-locale": "Success! The locale has been added.",
-  "keys.empty-create-button": "Add a key"
+  "keys.empty-create-button": "Add a key",
+  "translation-value.fetching": "Fetching translation…"
 }
