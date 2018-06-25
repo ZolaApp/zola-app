@@ -21,6 +21,9 @@
   "modal.add-project.input.label": "Project name",
   "modal.add-project.select.label": "Default locale",
   "projects-list.updated-date": "Last updated {datetime}",
+  "locales.title": "Locales",
+  "modal.add-locale.title": "Add a new locale",
+  "modal.add-locale.label.prefill": "Use auto-prefill translation feature",
   "register.already-registered": "Already registered?",
   "register.title": "Register a new account",
   "register.confirm-password.label": "Confirm password",
@@ -56,6 +59,7 @@
   "locales.label.default": "Default locale",
   "locales.label.missing": "Missing translations",
   "locales.cdn-link": "CDN link",
+  "modal.add-locale.label.locale": "Locale",
   "register.email.label": "Email",
   "register.last-name.placeholder": "Doe",
   "login.subtitle": "We missed you!",
@@ -70,5 +74,8 @@
   "projects.header.subtitle": "Projects you collaborate on",
   "modal.add-project.submit": "Add project",
   "projects-list.tags.missing": "Missing translations",
-  "locales.label.translated": "Translated"
+  "locales.label.translated": "Translated",
+  "locales.add": "Add new locale",
+  "modal.add-locale.submit": "Add locale",
+  "modal.add-locale.placeholder.locale": "Choose a locale"
 }

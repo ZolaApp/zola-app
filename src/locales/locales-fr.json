@@ -17,6 +17,8 @@
   "projects-list.tags.missing": "Trad. manquantes",
   "locales.label.translated": "Clés traduites",
   "locales.cdn-link": "Lien CDN",
+  "locales.add": "Ajouter une langue",
+  "modal.add-locale.placeholder.locale": "Choisissez une langue",
   "register.login": "Connexion",
   "register.already-registered": "Déjà inscrit?",
   "register.submit": "S’inscrire",
@@ -55,6 +57,10 @@
   "modal.add-project.select.placeholder": "Sélectionnez une langue par défaut",
   "projects-list.updated-date": "Modifié {datetime}",
   "locales.label.default": "Langue par défaut",
+  "locales.title": "Langues",
+  "modal.add-locale.title": "Ajouter une langue",
+  "modal.add-locale.label.prefill": "Utiliser le pré-remplissage automatique",
+  "modal.add-locale.submit": "Ajouter la langue",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
   "login.sign-up": "S’inscrire",
@@ -70,5 +76,6 @@
   "projects.header.subtitle": "Projects sur lesquels vous travaillez",
   "modal.add-project.title": "Ajouter un nouveau projet",
   "projects-list.tags.new": "Nouvelles clés",
-  "locales.label.missing": "Trad. manquantes"
+  "locales.label.missing": "Trad. manquantes",
+  "modal.add-locale.label.locale": "Langue"
 }

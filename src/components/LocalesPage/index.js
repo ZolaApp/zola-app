@@ -8,7 +8,7 @@ import Wrapper from '@components/Wrapper'
 import Text from '@components/Text'
 import LocaleRow from '@components/LocaleRow'
 import Button from '@components/Button'
-import { injectIntl, type Intl } from 'react-intl'
+import { injectIntl, FormattedMessage, type Intl } from 'react-intl'
 import { Texts, HeaderWrapper } from './styles'
 
 type Props = {
@@ -35,12 +35,14 @@ class LocalesPage extends React.Component<Props> {
           <Wrapper pBottom="large">
             <HeaderWrapper>
               <Texts>
-                <Text size="large">Locales</Text>
+                <Text size="large">
+                  <FormattedMessage id="locales.title" />
+                </Text>
                 <Text color="semiDark">{project.name}</Text>
               </Texts>
 
               <Button bordered onClick={this.onNewLocaleClick}>
-                Add new locale
+                <FormattedMessage id="locales.add" />
               </Button>
             </HeaderWrapper>
           </Wrapper>
@@ -66,7 +68,7 @@ class LocalesPage extends React.Component<Props> {
           appRoot="#__next"
           dialogRoot="#dialog-root"
           dialogRef={dialog => (this.dialog = dialog)}
-          title="Add a new locale"
+          title={formatMessage({ id: 'modal.add-locale.title' })}
           closeButtonContent={formatMessage({ id: 'modal.close' })}
         >
           <NewLocaleModalContainer
