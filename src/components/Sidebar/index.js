@@ -20,10 +20,10 @@ const Sidebar = ({ small }: Props) => {
       </Link>
 
       <BottomWrapper>
+        <LanguageSwitcher />
         <a href="/logout">
           <Icon icon="logout" />
         </a>
-        <LanguageSwitcher />
       </BottomWrapper>
     </StyledSidebar>
   )
