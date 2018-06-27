@@ -9,7 +9,7 @@ import Button from '@components/Button'
 import ProjectRow from '@components/ProjectRow'
 import ProjectsHeader from '@components/ProjectsHeader'
 import NewProjectModalContainer from '@containers/NewProjectModalContainer'
-import { injectIntl, type Intl } from 'react-intl'
+import { injectIntl, FormattedMessage, type Intl } from 'react-intl'
 import { StyledLink, NoResultsWrapper } from './styles'
 
 type Props = {
@@ -51,10 +51,10 @@ class ProjectsList extends Component<Props> {
             <Wrapper mTop="regular" contentCentered>
               <NoResultsWrapper>
                 <Text monospaced>
-                  Oh no, you haven’t created a project at the moment :(
+                  <FormattedMessage id="projects.missing" />
                 </Text>
                 <Button onClick={this.openNewProjectDialog}>
-                  Create your first project
+                  <FormattedMessage id="projects.create-button" />
                 </Button>
               </NoResultsWrapper>
             </Wrapper>

@@ -28,6 +28,7 @@
   "messages.success.create-account":
     "Success! You can now log in to your account.",
   "keys.empty-search": "No keys were found.",
+  "projects.missing": "Oh no, you haven’t created a project at the moment :(",
   "register.already-registered": "Already registered?",
   "register.title": "Register a new account",
   "register.confirm-password.label": "Confirm password",
@@ -86,5 +87,6 @@
   "modal.add-locale.placeholder.locale": "Choose a locale",
   "messages.success.create-locale": "Success! The locale has been added.",
   "keys.empty-create-button": "Add a key",
-  "translation-value.fetching": "Fetching translation…"
+  "translation-value.fetching": "Fetching translation…",
+  "projects.create-button": "Create your first project"
 }
