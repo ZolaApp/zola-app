@@ -66,6 +66,7 @@
   "modal.add-locale.submit": "Ajouter une langue",
   "tag.missing": "Trad. manquante",
   "translation-value.fetching": "Récupération traduction…",
+  "projects.missing": "Oops, il y a aucun projet pour le moment :(",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
   "login.sign-up": "S’inscrire",
@@ -86,5 +87,6 @@
   "projects.header.subtitle": "Les projets sur lesquels vous travaillez",
   "projects.stats.translation-complete": "Traductions complétées",
   "projects.hello": "Bonjour {name} !",
-  "locales.label.missing": "Trad. manquantes"
+  "locales.label.missing": "Trad. manquantes",
+  "projects.create-button": "Créer un projet"
 }
