@@ -66,7 +66,7 @@
   "modal.add-locale.submit": "Ajouter une langue",
   "tag.missing": "Trad. manquante",
   "translation-value.fetching": "Récupération traduction…",
-  "projects.missing": "Oops, il y a aucun projet pour le moment :(",
+  "projects.missing": "Oops, il n'y a aucun projet pour le moment :(",
   "register.job.label": "Poste",
   "register.last-name.placeholder": "Dupont",
   "login.sign-up": "S’inscrire",
